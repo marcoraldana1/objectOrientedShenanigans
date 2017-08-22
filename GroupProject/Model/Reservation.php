@@ -12,5 +12,27 @@
  * @author mm147988
  */
 class Reservation {
-    //put your code here
+    public $reservationId;
+    public $customer;
+    
+    //constructor
+    public function __construct($reservationId, $customer) {
+        $this->setReservationId($reservationId);
+        $this->setCustomer($customer);
+    }
+    
+    //getters and setters
+    public function setReservationId($reservationId) {
+        $this->reservationId = $reservationId;
+    }
+    public function getReservationId() {
+        return $this->reservationId;
+    }
+    
+    public function setCustomer($customer) {
+        $this->customer = $customer;
+    }
+    public function getCustomer() {
+        return $this->customer;
+    }
 }

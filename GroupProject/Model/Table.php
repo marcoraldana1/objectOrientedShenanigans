@@ -12,5 +12,26 @@
  * @author mm147988
  */
 class Table {
-    //put your code here
+    public $tableId;
+    public $seatingCapacity;
+    
+    public function __construct($tableId, $seatingCapacity) {
+        $this->setTableId($tableId);
+        $this->setSeatingCapacity($seatingCapacity);
+    }
+    
+    //getters and setters
+    public function setTableId($tableId) {
+        $this->tableId = $tableId;
+    }
+    public function getTableId() {
+        return $this->tableId;
+    }
+    
+    public function setSeatingCapacity($seatingCapacity) {
+        $this->seatingCapacity = $seatingCapacity;
+    }
+    public function getSeatingCapacity() {
+        return $this->seatingCapacity;
+    }
 }
