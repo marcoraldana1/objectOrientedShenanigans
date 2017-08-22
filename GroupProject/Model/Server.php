@@ -43,7 +43,7 @@ class Server {
     public function addAssignment($table) {
         //only add the table if it isn't already assigned to this server
         //note that this doesn't check if it is already assigned to another server
-        if (array_search($table->getTableId, $this->tableAssignments)) {
+        if (array_search($table->getTableId, $this->tableAssignments) != false) {
             arary.push($this->tableAssignments, $table->getTableId);
         }
     }
