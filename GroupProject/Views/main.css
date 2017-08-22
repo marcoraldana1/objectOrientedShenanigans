@@ -1,0 +1,19 @@
+header {
+    margin: 0 auto;
+    height: 7em;
+    text-align: center;
+    padding-top: 1em;
+    border: solid black;
+}
+
+#login {
+    padding-top: 3em;
+    width: 1000px;
+    margin: 0 auto;
+    height: 40em;
+}
+
+footer {
+    text-align: center;
+    margin: 0 auto;
+}

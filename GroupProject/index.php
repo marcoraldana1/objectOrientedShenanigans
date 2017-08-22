@@ -13,4 +13,12 @@ if($action === NULL) {
 }
 
 
+
+switch ($action){
+    case 'initial_login':
+        include('Views/login.php');
+        break;
+}
+
+
 ?>
