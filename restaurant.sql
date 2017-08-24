@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2017 at 02:57 AM
+-- Generation Time: Aug 24, 2017 at 03:51 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,12 +33,22 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   `resID` int(11) NOT NULL AUTO_INCREMENT,
   `custName` varchar(50) NOT NULL,
   `custPhone` varchar(10) DEFAULT NULL,
+  `partySize` int(11) NOT NULL,
   `resDate` varchar(10) NOT NULL,
   `resTime` varchar(10) NOT NULL,
   `storeNum` varchar(25) NOT NULL,
   PRIMARY KEY (`resID`),
   KEY `restostoreFK` (`storeNum`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`resID`, `custName`, `custPhone`, `partySize`, `resDate`, `resTime`, `storeNum`) VALUES
+(1, 'Bob the Builder', '555Build', 8, '8/30/2017', '6:00 PM', '101'),
+(2, 'Pinky Pie Pony', '555Pink', 4, '8/25/17', '5:00 PM', '100'),
+(3, 'Hello Kitty', '555Hello', 2, '9/05/17', '12:30 PM', '100');
 
 -- --------------------------------------------------------
 
@@ -56,6 +66,16 @@ CREATE TABLE IF NOT EXISTS `store` (
   PRIMARY KEY (`storeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`storeID`, `num2pTables`, `num4pTables`, `num6pTables`, `num8pTables`) VALUES
+('100', 4, 4, 2, 1),
+('101', 6, 4, 2, 0),
+('102', 4, 6, 4, 2),
+('103', 6, 4, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -72,7 +92,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `storeNum` varchar(25) NOT NULL,
   PRIMARY KEY (`userID`),
   KEY `usertostoreFK` (`storeNum`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userID`, `userRole`, `userName`, `userLogin`, `userPassword`, `storeNum`) VALUES
+(1, 'Host', 'Sara', 'Sara123', 'imawesome', '100'),
+(2, 'Manager', 'Mr. Big', 'BigBusiness', 'BigMoney', '100'),
+(3, 'Server', 'Server Station 1', 'serverstation1', 'letmein', '100');
 
 --
 -- Constraints for dumped tables

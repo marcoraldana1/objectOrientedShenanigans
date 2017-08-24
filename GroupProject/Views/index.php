@@ -1,3 +1,4 @@
+<?php include('Views/header.php')?>
 <?php
 
 ?>
@@ -211,5 +212,5 @@ and open the template in the editor.
             </article>
         </main>
     </body>
-</html>
+<?php include('Views/footer.php');?>
 
