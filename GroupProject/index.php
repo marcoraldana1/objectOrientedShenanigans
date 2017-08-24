@@ -20,7 +20,7 @@ switch ($action){
         break;        
     case 'Login':
         $store_number = filter_input(INPUT_POST, 'store_number');
-        include('Views/main_layout.php');
+        include('Views/index.php');
         break;
         
 }

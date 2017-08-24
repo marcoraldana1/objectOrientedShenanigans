@@ -1,34 +1,4 @@
-<?php
-
-?>
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>O'Shea Shenanagins Pub & Grill</title>
-        <link rel="stylesheet" href="style/main.css">
-    </head>
-    <body>
-        <header>
-            <nav id="home_nav">
-
-                <ul>
-
-                </ul>
-            </nav>
-            <h1>O'Shea Shenanagins Pub & Grill</h1>
-        </header>
+<?php include('Views/header.php')?>
         <main>
             <aside class="right">
                 <form action="index.php"  method="post">
@@ -215,5 +185,5 @@ and open the template in the editor.
             </article>
         </main>
     </body>
-</html>
+<?php include('Views/footer.php');?>
 
