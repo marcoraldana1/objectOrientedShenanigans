@@ -12,15 +12,15 @@
  * @author mm147988
  */
 class Customer {
-    public $customerId;
     public $customerName;
     public $partySize;
+    public $customerPhone;
     
     //contstructor
-    public function __construct($customerId, $customerName, $partySize) {
-        $this->setCustomerId($customerId);
+    public function __construct($customerName, $partySize, $customerPhone) {
         $this->setCustomerName($customerName);
         $this->setPartySize($partySize);
+        $this->setCustomerPhone($customerPhone);
     }
     
     //getters and setters
@@ -36,6 +36,13 @@ class Customer {
     }
     public function getCustomerName() {
         return $this->customerName;
+    }
+    
+    public function setCustomerPhone($customerPhone = null) {
+        $this->customerPhone = $customerPhone;
+    }
+    public function getCustomerPhone() {
+        return $this->customerPhone;
     }
 
     public function setPartySize($partySize) {
