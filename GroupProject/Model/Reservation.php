@@ -12,27 +12,66 @@
  * @author mm147988
  */
 class Reservation {
-    public $reservationId;
-    public $customer;
+    private $resID;
+    private $customer;
+    private $resDate;
+    private $resTime;
+    private $storeNum;
     
     //constructor
-    public function __construct($reservationId, $customer) {
-        $this->setReservationId($reservationId);
-        $this->setCustomer($customer);
+    public function __construct($resID, $custName, $partySize, $resDate, $resTime, $storeNum, $custPhone = null) {
+        $this->setResID($resID);
+        $this->customer = new Customer($custName, $partySize, $custPhone);
+        $this->setResDate($resDate);
+        $this->setResTime($resTime);
+        $this->setStoreNum($storeNum);
     }
     
     //getters and setters
-    public function setReservationId($reservationId) {
-        $this->reservationId = $reservationId;
+    public function setResID($resID) {
+        $this->resID = $resID;
     }
     public function getReservationId() {
-        return $this->reservationId;
+        return $this->resID;
     }
     
-    public function setCustomer($customer) {
-        $this->customer = $customer;
+    public function setCustName($custName) {
+        $this->custName = $custName;
     }
-    public function getCustomer() {
-        return $this->customer;
+    public function getCustName() {
+        return $this->custName;
+    }
+    
+    public function setCustPhone($custPhone) {
+        $this->custPhone = $custPhone;
+    }
+    public function getCustPhone() {
+        return $this->custPhone;
+    }
+    
+    public function setResDate($resDate) {
+        $this->resDate = $resDate;
+    }
+    public function getResDate() {
+        return $this->resDate;
+    }
+    
+    public function setResTime($resTime) {
+        $this->resTime = $resTime;
+    }
+    public function getResTime() {
+        return $this->resTime;
+    }
+    public function setStoreNum($storeNum) {
+        $this->storeNum = $storeNum;
+    }
+    public function getStoreNum() {
+        return $this->storeNum;
+    }
+    public function setPartySize($partySize) {
+        $this->partySize = $partySize;
+    }
+    public function getPartySize() {
+        return $this->partySize;
     }
 }
