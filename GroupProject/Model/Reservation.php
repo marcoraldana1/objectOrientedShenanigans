@@ -19,9 +19,9 @@ class Reservation {
     private $storeNum;
     
     //constructor
-    public function __construct($resID, $custName, $partySize, $resDate, $resTime, $storeNum, $custPhone = null) {
+    public function __construct($resID, $resDate, $resTime, $storeNum, $customer) {
         $this->setResID($resID);
-        $this->customer = new Customer($custName, $partySize, $custPhone);
+        $this->setCustomer($customer);
         $this->setResDate($resDate);
         $this->setResTime($resTime);
         $this->setStoreNum($storeNum);
@@ -31,22 +31,15 @@ class Reservation {
     public function setResID($resID) {
         $this->resID = $resID;
     }
-    public function getReservationId() {
+    public function getResId() {
         return $this->resID;
     }
     
-    public function setCustName($custName) {
-        $this->custName = $custName;
+    public function setCustomer($customer) {
+        $this->customer = $customer;
     }
-    public function getCustName() {
-        return $this->custName;
-    }
-    
-    public function setCustPhone($custPhone) {
-        $this->custPhone = $custPhone;
-    }
-    public function getCustPhone() {
-        return $this->custPhone;
+    public function getCustomer() {
+        return $this->customer;
     }
     
     public function setResDate($resDate) {
@@ -67,11 +60,5 @@ class Reservation {
     }
     public function getStoreNum() {
         return $this->storeNum;
-    }
-    public function setPartySize($partySize) {
-        $this->partySize = $partySize;
-    }
-    public function getPartySize() {
-        return $this->partySize;
     }
 }
