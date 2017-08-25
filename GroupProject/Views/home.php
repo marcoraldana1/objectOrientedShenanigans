@@ -32,151 +32,145 @@
 
                     <h2>Store # <?php echo htmlspecialchars($store_number); ?></h2>
            
-                    <section>
+                    <section class="home">
                         
                         
                       <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table22">
+                            <input type="hidden" name="action" value="2 seat">
 
-                            <input type="button" class="table2a" value="2 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table23">
-
-                            <input type="button" class="table2b" value="2 seat"> 
+                            <input type="button" class="table2a" value="#1--2 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table24">
+                            <input type="hidden" name="action" value="2 seat">
 
-                            <input type="button" class="table2c" value="2 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table25">
-
-                            <input type="button" class="table2d" value="2 seat"> 
+                            <input type="button" class="table2b" value="#2--2 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table21">
+                            <input type="hidden" name="action" value="2 seat">
 
-                            <input type="button" class="table2e" value="2 seat"> 
+                            <input type="button" class="table2c" value="#3--2 seat"> 
 
                         </form>
-                        <img class="upperbar" src="images/upperbartop.png" alt="" width="63px" height="40px">
-                       <img class="lowerbar" src="images/lowerbartop_1.png" alt="" width="40px" height="325px">
+                        <form action="index.php"  method="post">
+                            <input type="hidden" name="action" value="2 seat">
+
+                            <input type="button" class="table2d" value="#4--2 seat"> 
+
+                        </form>
+                
+              
                             
                      
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table2">
+                            <input type="hidden" name="action" value="8 seat">
 
-                            <input type="button" class="table8b" value="8 seat"> 
+                            <input type="button" class="table8a" value="#19--8 seat"> 
 
                         </form>  <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table3">
+                            <input type="hidden" name="action" value="8 seat">
 
-                            <input type="button" class="table8c" value="8 seat"> 
+                            <input type="button" class="table8b" value="#23--8 seat"> 
 
                         </form>
 
+            <form action="index.php"  method="post">
+                            <input type="hidden" name="action" value="table7">
 
+                            <input type="button" class="table6a" value="#15---6 seat"> 
+
+                        </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table4">
+                            <input type="hidden" name="action" value="6 seat">
 
-                            <input type="button" class="table6a" value="6 seat"> 
+                            <input type="button" class="table6b" value="#16--6 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
                             <input type="hidden" name="action" value="table5">
 
-                            <input type="button" class="table6b" value="6 seat"> 
+                            <input type="button" class="table6c" value="#17--6 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
                             <input type="hidden" name="action" value="table6">
 
-                            <input type="button" class="table6c" value="6 seat"> 
+                            <input type="button" class="table6d" value="#18--6 seat"> 
 
                         </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table7">
-
-                            <input type="button" class="table6d" value="6 seat"> 
-
-                        </form>
+            
                         <form action="index.php"  method="post">
                             <input type="hidden" name="action" value="table8">
 
-                            <input type="button" class="table6e" value="6 seat"> 
+                            <input type="button" class="table6e" value="#19--6 seat"> 
 
                         </form>
                              <form action="index.php"  method="post">
                             <input type="hidden" name="action" value="table8">
 
-                            <input type="button" class="table6f" value="6 seat"> 
+                            <input type="button" class="table6f" value="#21--6 seat"> 
 
                         </form>
                        
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table13">
+                            <input type="hidden" name="action" value="4 seat">
 
-                            <input type="button" class="table4e" value="4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table14">
-
-                            <input type="button" class="table4f" value="4 seat"> 
+                            <input type="button" class="table4a" value="#6--4 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table15">
+                            <input type="hidden" name="action" value="4 seat">
 
-                            <input type="button" class="table4g" value="4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table16">
-
-                            <input type="button" class="table4h" value="4 seat"> 
+                            <input type="button" class="table4b" value="#7--4 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table17">
+                            <input type="hidden" name="action" value="4 seat">
 
-                            <input type="button" class="table4i" value="4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table18">
-
-                            <input type="button" class="table4j" value="4 seat"> 
+                            <input type="button" class="table4c" value="#8--4 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table19">
-
-                            <input type="button" class="table4k" value="4 seat"> 
+                            <input type="hidden" name="action" value="4 seat">
+                            
+                            <input type="button" class="table4d" value="#9--4 seat"> 
 
                         </form>
                         <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table20">
+                            <input type="hidden" name="action" value="4 seat">
 
-                            <input type="button" class="table4l" value="4 seat"> 
+                            <input type="button" class="table4e" value="#10--4 seat"> 
+
+                        </form>
+                        <form action="index.php"  method="post">
+                            <input type="hidden" name="action" value="4 seat">
+                            
+                            <input type="button" class="table4f" value="#11--4 seat"> 
+
+                        </form>
+                        <form action="index.php"  method="post">
+                            <input type="hidden" name="action" value="4 seat">
+
+                            <input type="button" class="table4g" value="#12--4 seat"> 
+
+                        </form>
+                        <form action="index.php"  method="post">
+                            <input type="hidden" name="action" value="4 seat">
+
+                            <input type="button" class="table4h" value="#13--4 seat"> 
 
                         </form>
                           <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="table21">
+                            <input type="hidden" name="action" value="4 seat">
 
-                            <input type="button" class="table4m" value="4 seat"> 
+                            <input type="button" class="table4i" value="#14--4 seat"> 
 
                         </form>
                            <form action="index.php"  method="post">
                             <input type="hidden" name="action" value="table21">
 
-                            <input type="button" class="table4n" value="4 seat"> 
+                            <input type="button" class="table4j" value="#20--4 seat"> 
 
                         </form>
               

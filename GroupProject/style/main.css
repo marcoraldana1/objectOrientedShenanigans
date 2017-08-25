@@ -47,16 +47,18 @@ main {
    
 }
 
-section {
+.home{
    
-    background-color: lightgray;
+  
     height: 500px;
     position: relative;
-    margin-top: 40px;
+    margin-top: 37px;
     margin-left: 0px;
     padding-left: 0px;
     border-bottom: 4px solid black;
     border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
     
 }
 article {
@@ -64,15 +66,15 @@ article {
     padding: 0em;
     float: right;
     width: 654px;
-    height: auto;
-    background-color: #1C913F;
+    height: 100%;
+   background-color: #1C913F;
     
 
 }
 
 article h2 {
     text-align: center;
-    font-size: 180%;
+    font-size: 195%;
 }
 
 fieldset {
@@ -111,81 +113,93 @@ aside input[type='submit'] {
     margin-left: 100px;
 }
 
+
 .table8a  {
-    padding: 25px 30px 25px 30px;
-    border-radius: 35px;
+    padding: 15px;
+    border-radius: 30px;
     position: absolute;
-    left: 510px;
-    top: 0px;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
 }
 
 .table8b  {
-    padding: 25px 30px 25px 30px;
-    border-radius: 35px;
+    padding: 15px;
+    border-radius: 30px;
     position: absolute;
-    left: 510px;
-    top: 380px;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
 }
 
-.table8c  {
-    padding: 25px 30px 25px 30px;
-    border-radius: 35px;
-    position: absolute;
-    left: 0px;
-    top: 380px;
-}
+
 
 .table6a {
-    padding: 17px 25px 17px 25px;
+    padding: 10px;
     border-radius: 10px;
     position: absolute;
-    left: 110px;
-    top: 175px;
-}
-
-.table6b {
-    padding: 17px 25px 17px 25px;
-    border-radius: 10px;
-    position: absolute;
-    left: 250px;
-    top: 175px;
-}
-
-.table6c {
-    padding: 17px 25px 17px 25px;
-    border-radius: 10px;
-    position: absolute;
-    left: 395px;
-    top: 175px;
-}
-
-.table6d {
-    padding: 17px 25px 17px 25px;
-    border-radius: 10px;
-    position: absolute;
+        width:100px;
+    height: 60px;
     left: -18px;
     top: 265px;
   -webkit-transform:rotate(270deg);
     
 }
-
-.table6e {
-    padding: 17px 25px 17px 25px;
+.table6b {
+    padding: 10px;
     border-radius: 10px;
     position: absolute;
-    left: 140px;
-    top: 395px;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
 }
 
 .table6f {
-    padding: 17px 25px 17px 25px;
+padding: 10px;
     border-radius: 10px;
     position: absolute;
-    left: 380px;
-    top: 395px;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
 }
 .table4a {
-    padding: 15px 15px 15px 15px;
+    padding: 10px 10px 10px 10px;
     border-radius: 10px;
     position: absolute;
     left: 540px;
@@ -193,140 +207,154 @@ aside input[type='submit'] {
 }
 
 .table4b {
-    padding: 15px 15px 15px 15px;
+  padding: 10px 10px 10px 10px;
     border-radius: 10px;
     position: absolute;
     left: 540px;
-    top: 165px;
+    top: 125px;
 }
 
 .table4c {
-    padding: 15px 15px 15px 15px;
+   padding: 10px 10px 10px 10px;
     border-radius: 10px;
     position: absolute;
     left: 540px;
     top: 235px;
 }
 .table4d {
-    padding: 15px 15px 15px 15px;
+    padding: 10px 10px 10px 10px;
     border-radius: 10px;
     position: absolute;
     left: 540px;
     top: 305px;
 }
 
-.table4e {
-    padding: 15px 15px 15px 15px;
+.table4a {
+    padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
+    width: 75px;
+    height: 50px;
     left: 110px;
     top: 80px;
+}
+
+.table4b {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 115px;
+    -webkit-transform:rotate(270deg);
 }
 
 .table4f {
-    padding: 15px 15px 15px 15px;
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
-    left: 215px;
-    top: 80px;
-}
-
-.table4g {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
-    left: 315px;
-    top: 80px;
-}
-.table4h {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
-    left: 415px;
-    top: 80px;
-}
-
-
-.table4i {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
-    left: 272px;
-    top: 399px;
-}
-.table4j {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
+    width: 80px;
+    height: 50px;
     left: 110px;
-    top: 285px;
+    top: 180px;
 }
-.table4k {
-    padding: 15px 15px 15px 15px;
+.table4g {
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
+    width: 80px;
+    height: 50px;
     left: 215px;
-    top: 285px;
+    top: 180px;
 }
-.table4l {
-    padding: 15px 15px 15px 15px;
+.table4h{
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
+    width: 80px;
+    height: 50px;
     left: 315px;
-    top: 285px;
+    top: 180px;
 }
-.table4m {
-    padding: 15px 15px 15px 15px;
+.table4i {
+   padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
+    width: 80px;
+    height: 50px;
     left: 415px;
-    top: 285px;
+    top: 180px;
 }
 
-.table4n {
-    padding: 15px 15px 15px 15px;
+
+
+.table4j {
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
-    left: -10px;
-    top: 135px;
-    -webkit-transform:rotate(270deg);
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
 }
 .table2a {
-    padding: 5px 10px 5px 10px;
+    padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left: 100px;
+    left: 110px;
     top: 0px;
+    
 }
 
 .table2b {
-    padding: 5px 10px 5px 10px;
+   padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left: 180px;
+    left: 215px;
     top: 0px;
 
 }
 
 .table2c {
-    padding: 5px 10px 5px 10px;
+   padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left: 260px;
+    left: 315px;
     top: 0px;
 }
 
 .table2d {
-    padding: 5px 10px 5px 10px;
-    border-radius: 5px;
-    position: absolute;
-    left: 340px;
-    top: 0px;
-
-}
-
-.table2e {
-    padding: 5px 10px 5px 10px;
+    padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
     left: 420px;
@@ -334,17 +362,9 @@ aside input[type='submit'] {
 
 }
 
-.lowerbar {
-    position: absolute;
-    left: 570px;
-    top: 0px;
-}
 
-.upperbar {
-    position: absolute;
-    left: 510px;
-    top: 0px;
-}
+
+
 
 .login {
     width: 996px;
