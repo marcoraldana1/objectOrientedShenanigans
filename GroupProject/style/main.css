@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 
 body {
+   font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
     position: relative;
 }
 
@@ -18,8 +19,15 @@ header {
     margin: 0 auto;
     background-image: url("images/title3.png");
     
+    
 }
 
+footer {
+        width: 1000px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+}
 main {
     width: 1000px;
     margin: 0 auto;
@@ -302,4 +310,63 @@ aside input[type='submit'] {
     position: absolute;
     left: 510px;
     top: 0px;
+}
+
+.login {
+    width: 996px;
+    margin: 0 auto;
+    margin-top: -20px;
+    
+}
+
+.login form {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.login input[type='text'] {
+    font-size: 1.3em;
+    width: 100px;
+}
+
+.login input[type='submit']{
+    padding:  4px 20px 4px 20px;
+    font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+    background-color: #1C913F;
+    font-weight: 800;
+}
+
+.login h5 {
+    text-align: center;
+    color: gray;
+    
+}
+
+.admin_log {
+    font-size: .70em;
+       width: 300px;
+       margin: 0 auto;
+       line-height: 35px;
+       
+}
+
+.admin_log input[type='text']
+{
+    font-size: .9em;
+    width: 130px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+
+.admin_log label {
+    float: left;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.admin_log form {
+    padding-top: 0px;
 }

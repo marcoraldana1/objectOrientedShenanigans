@@ -1,29 +1,38 @@
 <?php
+
 session_start();
 
 //gets initial page action to direct to main login
+if (!isset($store_number)) {
+    $store_number = '';
+}
+
+if (!isset($user)) {
+    $user = '';
+}
+if (!isset($password)) {
+    $password = '';
+}
+
 $action = filter_input(INPUT_POST, 'action');
 
 //logic to navigate to initial login
-if($action === NULL) {
+if ($action === NULL) {
     $action = filter_input(INPUT_GET, 'action');
-    if($action === NULL)  {
+    if ($action === NULL) {
         $action = 'initial_login';
     }
 }
 
 
 
-switch ($action){
+switch ($action) {
     case 'initial_login':
         include('Views/login.php');
-        break;        
+        break;
     case 'Login':
         $store_number = filter_input(INPUT_POST, 'store_number');
         include('Views/home.php');
         break;
-        
 }
-
-
 ?>
