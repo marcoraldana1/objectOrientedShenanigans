@@ -12,5 +12,25 @@
  * @author mm147988
  */
 class Waitlist {
-    //put your code here
+    private $reservedWaits;
+    private $unreservedWaits;
+    
+    public function __construct() {
+        $this->reservedWaits = array();
+        $this->unreservedWaits = array();
+    }
+    
+    public function addReservation($customer) {
+        $this->reservedWaits.push($customer);
+    }
+    
+    public function add($customer) {
+        $this->unreservedWaits.push($customer);
+    }
+    
+    public function getWaitlist() {
+        $waitlist = $this->reservedWaits;
+        //append unreservedwaits
+             
+    }
 }
