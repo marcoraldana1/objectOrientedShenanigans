@@ -11,7 +11,7 @@
                 <br>
 
                 <h2>Waitlist</h2>
-                <hr>
+                
 
 
             </aside>
@@ -21,8 +21,8 @@
                 <br>
                 <br>
 
-                <h2>Current Servers</h2>
-                <hr>
+                <h2>Active Servers</h2>
+          
                 <form action="index.php"  method="post">
                     <input type="submit" class="serverList" value="Server List"> 
                 </form>
@@ -30,9 +30,8 @@
             </aside>
             <article>
 
-                <fieldset>
-                    <legend>Store#100</legend>
-                    <hr>
+                    <h2>Store # <?php echo htmlspecialchars($store_number); ?></h2>
+           
                     <section>
                         
                         
@@ -184,9 +183,10 @@
 
 
                     </section>
-                </fieldset>
+             
             </article>
         </main>
     </body>
+    
 <?php include('Views/footer.php');?>
 

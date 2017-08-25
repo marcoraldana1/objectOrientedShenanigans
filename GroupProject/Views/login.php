@@ -3,10 +3,11 @@
 
 <section class='login'>
     <form action="index.php" method="post">
+        <input type="hidden" name="action" value="login">
         <label>Store Number: </label>
-        <input type="text" name="store_number" required>
+        <input type="text" name="store_number" value="<?php echo htmlspecialchars($store_number); ?>" autofocus  required>
         
-        <input type="hidden" name="action" value="<?php echo htmlspecialchars($store_number); ?>" autofocus >
+        
         <br>
         
         <input type="submit" value="LOGIN">

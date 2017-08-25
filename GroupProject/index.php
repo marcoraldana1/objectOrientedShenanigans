@@ -30,7 +30,7 @@ switch ($action) {
     case 'initial_login':
         include('Views/login.php');
         break;
-    case 'Login':
+    case 'login':
         $store_number = filter_input(INPUT_POST, 'store_number');
         include('Views/home.php');
         break;
