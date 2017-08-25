@@ -4,28 +4,30 @@
 
         <main>
             <aside class="right">
+                <br>
                 <form action="index.php"  method="post">
-                    <input type="submit" class="reserve" value="Reservations"> 
+                    <input type="submit" class="reserve" value="RESERVATIONS"> 
                 </form>
-                <br>
-                <br>
+          
+           
 
                 <h2>Waitlist</h2>
-                
+                <hr>
 
 
             </aside>
 
             <aside class="left">
-
-                <br>
-                <br>
+                  <br>
+  <form action="index.php"  method="post">
+                    <input type="submit" class="serverList" value="SERVER LIST"> 
+                </form>
+               
+              
 
                 <h2>Active Servers</h2>
-          
-                <form action="index.php"  method="post">
-                    <input type="submit" class="serverList" value="Server List"> 
-                </form>
+                <hr>
+              
 
             </aside>
             <article>

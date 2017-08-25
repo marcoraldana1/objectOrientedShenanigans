@@ -32,7 +32,16 @@ switch ($action) {
         break;
     case 'login':
         $store_number = filter_input(INPUT_POST, 'store_number');
+        $_SESSION['store_number']= $store_number;
         include('Views/home.php');
+        break;
+    case 'update':
+         $store_number = $_SESSION['store_number'];
+        
+        include ('Views/login.php');
+        break;
+    case 'admin_attempt':
+        
         break;
 }
 ?>

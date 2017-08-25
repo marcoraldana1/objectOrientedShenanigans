@@ -29,7 +29,7 @@ footer {
     margin: 0 auto;
     text-align: center;
     clear: both;
-    
+    margin-top: -30px;
 }
 
 footer h3 {
@@ -40,9 +40,9 @@ footer h3 {
 }
 main {
     width: 1000px;
-    height: 585px;
+    height: 580px;
     margin: 0 auto;
-    margin-top: -20px;
+    
     border-collapse: collapse;
    
 }
@@ -50,9 +50,9 @@ main {
 .home{
    
   
-    height: 500px;
+    height: 502px;
     position: relative;
-    margin-top: 37px;
+    margin-top: 27px;
     margin-left: 0px;
     padding-left: 0px;
     border-bottom: 4px solid black;
@@ -72,9 +72,13 @@ article {
 
 }
 
+
+
 article h2 {
     text-align: center;
-    font-size: 195%;
+    font-size: 210%;
+    padding: 25px 0px 0px 0px;
+    margin: 0px;
 }
 
 fieldset {
@@ -82,7 +86,7 @@ fieldset {
     margin: 0px;
 }
 .right{
-    height: 600px;
+    height: 595px;
     float: right;
     width: 17%;
     border-bottom: 4px solid black;
@@ -92,13 +96,33 @@ fieldset {
 }
 
 .left{
-    height: 600px;
+    height: 595px;
     float: left;
     width: 17%;
     border-bottom: 4px solid black;
     border-right: 3px solid black;
      background-color: #1C913F;
 
+}
+
+.left h2 {
+    padding-top: 50PX;
+   
+    
+}
+
+.right h2 {
+    padding-top:50PX;
+}
+
+.left hr {
+    width: 135px;
+   
+}
+
+.right hr {
+    width: 135px;
+   
 }
 
 .left input[type='submit']{
@@ -109,13 +133,10 @@ aside h2 {
 
 }
 
-aside input[type='submit'] {
-    margin-left: 100px;
-}
 
 
 .table8a  {
-    padding: 15px;
+    padding: 25px;
     border-radius: 30px;
     position: absolute;
         width:120px;
@@ -143,7 +164,7 @@ aside input[type='submit'] {
         width:100px;
     height: 60px;
     left: -18px;
-    top: 265px;
+    top: 300px;
   -webkit-transform:rotate(270deg);
     
 }
@@ -275,7 +296,7 @@ padding: 10px;
     width: 80px;
     height: 50px;
     left: -13px;
-    top: 115px;
+    top: 165px;
     -webkit-transform:rotate(270deg);
 }
 
@@ -370,7 +391,10 @@ padding: 10px;
     width: 996px;
     margin: 0 auto;
     margin-top: -20px;
-    
+  
+     background-color: #BEBEBE;
+     padding-bottom: 40px;
+
 }
 
 .login form {
@@ -381,7 +405,7 @@ padding: 10px;
 }
 
 .login input[type='text'] {
-    font-size: 1.3em;
+    font-size: 1.1em;
     width: 100px;
 }
 
@@ -423,4 +447,50 @@ padding: 10px;
 
 .admin_log form {
     padding-top: 0px;
+}
+
+.reserve {
+ margin-left: 23px;
+    padding: 7px;
+    border: 4px groove #BEBEBE;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.serverList {
+   margin-left: 20px;
+    padding: 7px;
+    border: 4px groove #BEBEBE;
+    border-radius: 20px;
+    font-weight: 700;
+}
+    
+nav ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+.home_controls input[type='text']{
+       width: 100px;
+       
+}
+
+.home_controls {
+    float: right;
+    
+}
+
+nav {
+    background-color: #BEBEBE;
+    height: 25px;
+}
+
+header p {
+    padding-top: 0px;
+    margin: 0px;
 }
