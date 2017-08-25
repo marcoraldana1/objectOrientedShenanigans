@@ -39,7 +39,7 @@ article {
     margin: 0;
     padding: 0;
     float: right;
-    width: 646px;
+    width: 640px;
     height: 600px;
     background-color: green;
 
@@ -48,7 +48,7 @@ article {
 .right{
     height: 600px;
     float: right;
-    width: 175px;
+    width: 20%;
     border: 1px solid black;
     margin-right: 0;
 }
