@@ -9,279 +9,406 @@ and open the template in the editor.
 */
 
 body {
+   font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
     position: relative;
+    font-size: medium;
 }
 
 header {
     width: 1000px;
-    height: 35px;
+    height: 120px;
     margin: 0 auto;
+    background-image: url("images/title3.png");
+    
+    
+}
+
+footer {
+        width: 1000px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    clear: both;
+    margin-top: -30px;
+}
+
+footer h3 {
+    padding-top: 15px;
+     background-color: #1C913F;
+     border-top: 1px solid black;
+     height: 40px;
 }
 main {
     width: 1000px;
+    height: 580px;
     margin: 0 auto;
-
+    
+    border-collapse: collapse;
+   
 }
 
-section {
-    border: 2px solid black;
-    background-color: lightgray;
-    height: 450px;
+.home{
+   
+  
+    height: 502px;
     position: relative;
-    margin-top: 40px;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+.home100{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+
+.home101{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+
+.home102{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+.home103{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+article {
+    margin: 0em;
+    padding: 0em;
+    float: right;
+    width: 654px;
+    height: 100%;
+   background-color: #1C913F;
     
 
 }
-article {
-    margin: 0;
-    padding: 0;
-    float: right;
-    width: 646px;
-    height: 600px;
-    background-color: green;
 
 
+
+article h2 {
+    text-align: center;
+    font-size: 210%;
+    padding: 25px 0px 0px 0px;
+    margin: 0px;
+}
+
+fieldset {
+    padding: 0px;
+    margin: 0px;
 }
 .right{
-    height: 600px;
+    height: 595px;
     float: right;
-    width: 175px;
-    border: 1px solid black;
+    width: 17%;
+    border-bottom: 4px solid black;
+    border-left: 3px solid black;
     margin-right: 0;
+     background-color: #1C913F;
 }
 
 .left{
-    height: 600px;
+    height: 595px;
     float: left;
-    width: 175px;
-    border: 1px solid black;
+    width: 17%;
+    border-bottom: 4px solid black;
+    border-right: 3px solid black;
+     background-color: #1C913F;
 
+}
+
+.left h2 {
+    padding-top: 50PX;
+   
+    
+}
+
+.right h2 {
+    padding-top:50PX;
+}
+
+.left hr {
+    width: 135px;
+   
+}
+
+.right hr {
+    width: 135px;
+   
+}
+
+.left input[type='submit']{
+    margin: 0px 0px 0px 30px;
 }
 aside h2 {
     text-align: center;
 
 }
 
-aside input[type='submit'] {
-    margin-left: 100px;
-}
+
 
 .table8a  {
-    padding: 25px 30px 25px 30px;
-    border-radius: 35px;
+    padding: 25px;
+    border-radius: 30px;
     position: absolute;
-    left: 510px;
-    top: 0px;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
 }
 
 .table8b  {
-    padding: 25px 30px 25px 30px;
-    border-radius: 35px;
+    padding: 15px;
+    border-radius: 30px;
     position: absolute;
-    left: 510px;
-    top: 380px;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
 }
 
-.table8c  {
-    padding: 25px 30px 25px 30px;
-    border-radius: 35px;
-    position: absolute;
-    left: 0px;
-    top: 380px;
-}
+
 
 .table6a {
-    padding: 17px 25px 17px 25px;
+    padding: 10px;
     border-radius: 10px;
     position: absolute;
-    left: 110px;
-    top: 175px;
-}
-
-.table6b {
-    padding: 17px 25px 17px 25px;
-    border-radius: 10px;
-    position: absolute;
-    left: 250px;
-    top: 175px;
-}
-
-.table6c {
-    padding: 17px 25px 17px 25px;
-    border-radius: 10px;
-    position: absolute;
-    left: 395px;
-    top: 175px;
-}
-
-.table6d {
-    padding: 17px 25px 17px 25px;
-    border-radius: 10px;
-    position: absolute;
+        width:100px;
+    height: 60px;
     left: -18px;
-    top: 265px;
+    top: 300px;
   -webkit-transform:rotate(270deg);
     
 }
-
-.table6e {
-    padding: 17px 25px 17px 25px;
+.table6b {
+    padding: 10px;
     border-radius: 10px;
     position: absolute;
-    left: 140px;
-    top: 395px;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
 }
 
 .table6f {
-    padding: 17px 25px 17px 25px;
+padding: 10px;
     border-radius: 10px;
     position: absolute;
-    left: 380px;
-    top: 395px;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
 }
+
+
 .table4a {
-    padding: 15px 15px 15px 15px;
+    padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
-    left: 540px;
-    top: 95px;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
 }
 
 .table4b {
-    padding: 15px 15px 15px 15px;
+     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
-    left: 540px;
-    top: 165px;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
 }
 
 .table4c {
-    padding: 15px 15px 15px 15px;
+    padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
-    left: 540px;
-    top: 235px;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
 }
 .table4d {
-    padding: 15px 15px 15px 15px;
+    padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
-    left: 540px;
-    top: 305px;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
 }
 
 .table4e {
-    padding: 15px 15px 15px 15px;
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
-    left: 110px;
-    top: 80px;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
 }
 
 .table4f {
-    padding: 15px 15px 15px 15px;
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
-    left: 215px;
-    top: 80px;
-}
-
-.table4g {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
-    left: 315px;
-    top: 80px;
-}
-.table4h {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
-    left: 415px;
-    top: 80px;
-}
-
-
-.table4i {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
-    left: 272px;
-    top: 399px;
-}
-.table4j {
-    padding: 15px 15px 15px 15px;
-    border-radius: 10px;
-    position: absolute;
+    width: 80px;
+    height: 50px;
     left: 110px;
-    top: 285px;
+    top: 180px;
 }
-.table4k {
-    padding: 15px 15px 15px 15px;
+.table4g {
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
+    width: 80px;
+    height: 50px;
     left: 215px;
-    top: 285px;
+    top: 180px;
 }
-.table4l {
-    padding: 15px 15px 15px 15px;
+.table4h{
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
+    width: 80px;
+    height: 50px;
     left: 315px;
-    top: 285px;
+    top: 180px;
 }
-.table4m {
-    padding: 15px 15px 15px 15px;
+.table4i {
+   padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
+    width: 80px;
+    height: 50px;
     left: 415px;
-    top: 285px;
+    top: 180px;
 }
 
-.table4n {
-    padding: 15px 15px 15px 15px;
+
+
+.table4j {
+  padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
-    left: -10px;
-    top: 135px;
-    -webkit-transform:rotate(270deg);
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
 }
 .table2a {
-    padding: 5px 10px 5px 10px;
+    padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left: 100px;
+    left: 110px;
     top: 0px;
+    
 }
 
 .table2b {
-    padding: 5px 10px 5px 10px;
+   padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left: 180px;
+    left: 215px;
     top: 0px;
 
 }
 
 .table2c {
-    padding: 5px 10px 5px 10px;
+   padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left: 260px;
+    left: 315px;
     top: 0px;
 }
 
 .table2d {
-    padding: 5px 10px 5px 10px;
-    border-radius: 5px;
-    position: absolute;
-    left: 340px;
-    top: 0px;
-
-}
-
-.table2e {
-    padding: 5px 10px 5px 10px;
+    padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
     left: 420px;
@@ -289,14 +416,985 @@ aside input[type='submit'] {
 
 }
 
-.lowerbar {
+.table8a100  {
+    padding: 25px;
+    border-radius: 30px;
     position: absolute;
-    left: 570px;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b100  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a100 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b100 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c100 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d100 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e100 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f100 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+
+.table4a100 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b100 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c100 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d100 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i100 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+
+
+.table4j100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a100 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b100 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c100 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
     top: 0px;
 }
 
-.upperbar {
+.table2d100 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
     position: absolute;
-    left: 510px;
+    left: 420px;
     top: 0px;
+
+}
+
+.table8a101  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b101  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a101 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b101 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c101 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d101 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e101 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f101 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+
+.table4a101 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b101 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c101 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d101 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i101 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+.table4j101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a101 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b101 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c101 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d101 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
+
+.table8a102  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b102  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a102 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b102 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c102 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d102 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e102 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f102 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+.table4a102 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b102 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c102 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d102 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i102 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+.table4j102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a102 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b102 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c102 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d102 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
+
+.table8a103  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b103  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a103 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b103 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c103 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d103 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e103 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f103 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+.table4a103 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b103 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c103 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d103 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i103 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+.table4j103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a103 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b103 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c103 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d103 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
+.login {
+    width: 996px;
+    margin: 0 auto;
+    margin-top: -20px;
+  
+     background-color: #BEBEBE;
+     padding-bottom: 40px;
+
+}
+
+.login form {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.login input[type='text'] {
+    font-size: 1.1em;
+    width: 100px;
+}
+
+.login input[type='submit']{
+    padding:  4px 20px 4px 20px;
+    font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+    background-color: #1C913F;
+    font-weight: 800;
+}
+
+.login h5 {
+    text-align: center;
+    color: gray;
+    
+}
+
+.admin_log {
+    font-size: .70em;
+       width: 300px;
+       margin: 0 auto;
+       line-height: 35px;
+       
+}
+
+.admin_log input[type='text']
+{
+    font-size: .9em;
+    width: 130px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+
+.admin_log label {
+    float: left;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+
+.admin_log form {
+    padding-top: 0px;
+}
+
+.reserve {
+ margin-left: 23px;
+    padding: 7px;
+    border: 4px groove #BEBEBE;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.serverList {
+   margin-left: 20px;
+    padding: 7px;
+    border: 4px groove #BEBEBE;
+    border-radius: 20px;
+    font-weight: 700;
+}
+    
+nav ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+nav li {
+    display: inline-block;
+}
+
+.home_controls input[type='text']{
+       width: 100px;
+       
+}
+
+.home_controls {
+    float: right;
+    
+}
+
+nav {
+    background-color: #BEBEBE;
+    height: 25px;
+}
+
+header p {
+    padding-top: 0px;
+    margin: 0px;
+}
+
+.servers {
+    text-align: center;
+}
+
+.wait {
+    text-align: center;
 }
