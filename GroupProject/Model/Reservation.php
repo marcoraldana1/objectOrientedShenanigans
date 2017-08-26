@@ -11,17 +11,21 @@
  *
  * @author mm147988
  */
+
+//added in Differentiation of First and Last Name
 class Reservation {
     private $resID;
-    private $customer;
+    private $customerFName;
+    private $customerLName;
     private $resDate;
     private $resTime;
     private $storeNum;
     
     //constructor
-    public function __construct($resID, $resDate, $resTime, $storeNum, $customer) {
+    public function __construct($resID, $resDate, $resTime, $storeNum, $customerFName, $customerLName) {
         $this->setResID($resID);
-        $this->setCustomer($customer);
+        $this->setCustomerFName($customerFName);
+        $this->setCustomerLName($customerLName);
         $this->setResDate($resDate);
         $this->setResTime($resTime);
         $this->setStoreNum($storeNum);
@@ -35,11 +39,19 @@ class Reservation {
         return $this->resID;
     }
     
-    public function setCustomer($customer) {
-        $this->customer = $customer;
+    public function setCustomerFName($customerFName) {
+        $this->customerFName = $customerFName;
     }
-    public function getCustomer() {
-        return $this->customer;
+    public function getCustomerFName() {
+        return $this->customerFName;
+    }
+    
+    public function setCustomerLName($customerLName) {
+        $this->customerLName = $customerLName;
+    }
+    
+    public function getCustomerLName(){
+        return $this->customerLName;
     }
     
     public function setResDate($resDate) {
