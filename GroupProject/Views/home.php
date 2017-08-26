@@ -7,6 +7,7 @@
         <br>
         <form action="index.php"  method="post">
             <input type="submit" class="reserve" value="RESERVATIONS"> 
+            <input type='hidden' name='action' value='reservation'>
         </form>
 
 
