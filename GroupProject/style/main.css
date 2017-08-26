@@ -61,6 +61,68 @@ main {
     background-repeat: no-repeat;
     
 }
+
+.home100{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+
+.home101{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+
+.home102{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
+
+.home103{
+   
+  
+    height: 502px;
+    position: relative;
+    margin-top: 27px;
+    margin-left: 0px;
+    padding-left: 0px;
+    border-bottom: 4px solid black;
+    border-top: 3px solid black;
+    background-image: url("../images/background1.png");
+    background-repeat: no-repeat;
+    
+}
 article {
     margin: 0em;
     padding: 0em;
@@ -219,36 +281,7 @@ padding: 10px;
     left: 400px;
     top: 440px;
 }
-.table4a {
-    padding: 10px 10px 10px 10px;
-    border-radius: 10px;
-    position: absolute;
-    left: 540px;
-    top: 95px;
-}
 
-.table4b {
-  padding: 10px 10px 10px 10px;
-    border-radius: 10px;
-    position: absolute;
-    left: 540px;
-    top: 125px;
-}
-
-.table4c {
-   padding: 10px 10px 10px 10px;
-    border-radius: 10px;
-    position: absolute;
-    left: 540px;
-    top: 235px;
-}
-.table4d {
-    padding: 10px 10px 10px 10px;
-    border-radius: 10px;
-    position: absolute;
-    left: 540px;
-    top: 305px;
-}
 
 .table4a {
     padding: 10px 5px 10px 5px;
@@ -383,10 +416,873 @@ padding: 10px;
 
 }
 
+.table8a100  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b100  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
 
 
 
+.table6a100 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b100 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
 
+.table6c100 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d100 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e100 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f100 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+
+.table4a100 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b100 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c100 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d100 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i100 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+
+
+.table4j100 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a100 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b100 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c100 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d100 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
+
+.table8a101  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b101  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a101 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b101 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c101 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d101 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e101 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f101 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+
+.table4a101 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b101 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c101 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d101 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i101 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+.table4j101 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a101 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b101 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c101 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d101 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
+
+.table8a102  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b102  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a102 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b102 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c102 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d102 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e102 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f102 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+.table4a102 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b102 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c102 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d102 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i102 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+.table4j102 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a102 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b102 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c102 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d102 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
+
+.table8a103  {
+    padding: 25px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 0px;
+    top: 430px;
+}
+
+.table8b103  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+        width:120px;
+    height: 70px;
+    left: 533px;
+    top: 430px;
+}
+
+
+
+.table6a103 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: -18px;
+    top: 300px;
+  -webkit-transform:rotate(270deg);
+    
+}
+.table6b103 {
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 110px;
+    top: 282px;
+}
+
+.table6c103 {
+ padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 250px;
+    top: 282px;
+}
+
+.table6d103 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 395px;
+    top: 282px;
+}
+
+
+
+.table6e103 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 150px;
+    top: 440px;
+}
+
+.table6f103 {
+padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+        width:100px;
+    height: 60px;
+    left: 400px;
+    top: 440px;
+}
+
+.table4a103 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 110px;
+    top: 80px;
+}
+
+.table4b103 {
+     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 215px;
+    top: 80px;
+}
+
+.table4c103 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;;
+    left: 315px;
+    top: 80px;
+}
+.table4d103 {
+    padding: 10px 5px 10px 5px;
+    border-radius: 10px;
+    position: absolute;
+    width: 75px;
+    height: 50px;
+    left: 415px;
+    top: 80px;
+}
+
+.table4e103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: -13px;
+    top: 165px;
+    -webkit-transform:rotate(270deg);
+}
+
+.table4f103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 110px;
+    top: 180px;
+}
+.table4g103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 215px;
+    top: 180px;
+}
+.table4h103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 315px;
+    top: 180px;
+}
+.table4i103 {
+   padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 415px;
+    top: 180px;
+}
+
+.table4j103 {
+  padding: 10px 0px 10px 0px;
+    border-radius: 10px;
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    left: 285px;
+    top: 449px;
+}
+.table2a103 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 110px;
+    top: 0px;
+    
+}
+
+.table2b103 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 215px;
+    top: 0px;
+
+}
+
+.table2c103 {
+   padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 315px;
+    top: 0px;
+}
+
+.table2d103 {
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    left: 420px;
+    top: 0px;
+
+}
 .login {
     width: 996px;
     margin: 0 auto;
@@ -493,4 +1389,12 @@ nav {
 header p {
     padding-top: 0px;
     margin: 0px;
+}
+
+.servers {
+    text-align: center;
+}
+
+.wait {
+    text-align: center;
 }
