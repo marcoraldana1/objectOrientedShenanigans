@@ -4,6 +4,17 @@ session_start();
 require('Model/Reservation.php');
 
 //gets initial page action to direct to main login
+if (!isset($store_number)) {
+    $store_number = '';
+}
+
+if (!isset($user)) {
+    $user = '';
+}
+if (!isset($password)) {
+    $password = '';
+}
+
 $action = filter_input(INPUT_POST, 'action');
 
 //logic to navigate to initial login
@@ -42,5 +53,17 @@ switch ($action) {
         include('Views/res_confirmation.php');
         break;
         
+        $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
+         $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
+        include('Views/home.php');
+        break;
+    case 'update':
+         $store_number = $_SESSION['store_number'];
+        
+        include ('Views/login.php');
+        break;
+    case 'admin_attempt':
+        
+        break;
 }
 ?>
