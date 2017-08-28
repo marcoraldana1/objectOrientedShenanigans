@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2017 at 06:14 PM
+-- Generation Time: Aug 28, 2017 at 06:46 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -33,6 +33,22 @@ CREATE TABLE `customers` (
   `address` varchar(50) NOT NULL,
   `phone` char(10) NOT NULL,
   `email` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lineitem`
+--
+
+CREATE TABLE `lineitem` (
+  `invoiceID` int(11) NOT NULL,
+  `orderID` int(11) NOT NULL,
+  `productID` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `customerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -74,6 +90,13 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`customerid`);
 
 --
+-- Indexes for table `lineitem`
+--
+ALTER TABLE `lineitem`
+  ADD PRIMARY KEY (`invoiceID`),
+  ADD KEY `fk_orders` (`orderID`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -97,6 +120,11 @@ ALTER TABLE `products`
 ALTER TABLE `customers`
   MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `lineitem`
+--
+ALTER TABLE `lineitem`
+  MODIFY `invoiceID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
@@ -109,6 +137,12 @@ ALTER TABLE `products`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `lineitem`
+--
+ALTER TABLE `lineitem`
+  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderid`);
 
 --
 -- Constraints for table `orders`
