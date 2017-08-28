@@ -1,7 +1,16 @@
 <?php
 
 session_start();
+
+require('Model/database.php');
+require('Model/db.php');
+require('Model/Customer.php');
 require('Model/Reservation.php');
+require('Model/Store.php');
+require('Model/Table.php');
+require('Model/User.php');
+require('Model/Waitlist.php');
+
 
 //gets initial page action to direct to main login
 if (!isset($store_number)) {
@@ -33,6 +42,11 @@ switch ($action) {
         break;
     case 'login':
         $store_number = filter_input(INPUT_POST, 'store_number');
+        
+            $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
+       
+        $currentWaitlist =  getAllReservations();
+            //$currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
         include('Views/home.php');
         break;
     case 'reservation':
@@ -53,10 +67,7 @@ switch ($action) {
         include('Views/res_confirmation.php');
         break;
         
-        $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
-         $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
-        include('Views/home.php');
-        break;
+   
     case 'update':
          $store_number = $_SESSION['store_number'];
         
