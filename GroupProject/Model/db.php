@@ -107,7 +107,7 @@ function getUserByUserLogin($userLogin) {
     $statement->bindValue(':userLogin', $userLogin);
     $statement->execute();
     $result = $statement->fetch();
-    $reservation = parseUserArray($result);
-    return $reservation;
+    $user = parseUserArray($result);
+    return $user;
 }
 

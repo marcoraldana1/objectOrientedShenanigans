@@ -63,7 +63,21 @@ switch ($action) {
         include ('Views/login.php');
         break;
     case 'admin_attempt':
+        //mostly working now, having issues with the DB not being able to prepare, will bring up at class.
+        $user = filter_input(INPUT_POST, 'user');
+        $password = filter_input(INPUT_POST, 'password');
         
+        include('model/db.php');
+        $manager = getUserByUserLogin($user);
+        $_SESSION['LOGGED_IN']=$manager;
+        if($manager->getUserPassword() != $password){
+            $message = 'BAD LOGIN TRY AGAIN';
+            include('Views/login.php');
+            break;
+        }
+        $_SESSION['store_number']=$manager->getStoreNum();
+        $store_number = $_SESSION['store_number'];
+        include ('Views/home.php');
         break;
 }
 ?>

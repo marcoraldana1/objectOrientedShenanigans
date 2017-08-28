@@ -14,7 +14,7 @@
                 <div class="home_controls">
                 
                     <form action="index.php" method="post">
-                        <li><input type="hidden" name="action" value="admin"></li>
+                        <li><input type="hidden" name="action" value="admin_attempt"></li>
                         <li>FOR ADMIN USE ONLY!</li>
                         <li><label for="user">User Name:</label></li>
                         <li><input type="text" name="user" value="<?php echo htmlspecialchars($user); ?>" ></li>
