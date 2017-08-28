@@ -19,19 +19,8 @@ import java.util.ArrayList;
  * @author fssco
  */
 public class CommerceDA {
-    // initial records added to db
-    public static void initializeDB() {
-//        ArrayList<Product> all = new ArrayList<Product>();
-//        all.add(new Product("Aaron", "A", "Aaronson", "65",
-//                           LocalDate.of(1980, Month.JANUARY, 1), LocalDate.of(2013, Month.JANUARY, 2)));
-//        
-
-//        for (Product emp : all) {
-//            addEmployee(emp);
-//        }
-    }
-    
-//    // returns list of all products from db
+   
+//    
 //    public static ArrayList<Product> getAllProducts() {
 //        ArrayList<Product> all = new ArrayList<Product>();
 //        
@@ -237,5 +226,41 @@ public class CommerceDA {
 //            DBUtil.closePreparedStatement(ps);
 //            pool.freeConnection(connection);
 //        }
+//    }
+//    
+//    public static ArrayList<Orders> getAllOrders(Order order){
+//        
+//        ArrayList<Orders> all = new ArrayList<Orders>();
+//        
+//        ConnectionPool pool = ConnectionPool.getInstance();
+//        Connection connection = pool.getConnection();
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
+//
+//        String query = "SELECT * FROM Orders";
+//        try {
+//            ps = connection.prepareStatement(query);            
+//            rs = ps.executeQuery();
+//            Orders order = null;
+//            while (rs.next()) {
+//                order = new Order();
+//                order.setOrderID(rs.getInt("orderid"));
+//                order.setProductID(rs.getInt("productid"));
+//                order.setPrice(rs.getDecimal("price"));
+//                order.setName("" + rs.getString("name"));
+//                order.setDescription(rs.getString("description"));
+//                order.setImagePath(rs.getString("imagepath");
+//                all.add(order);                
+//            }
+//            return all;
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//            return null;
+//        } finally {
+//            DBUtil.closeResultSet(rs);
+//            DBUtil.closePreparedStatement(ps);
+//            pool.freeConnection(connection);
+//        }
+//    }
 //    }
 }
