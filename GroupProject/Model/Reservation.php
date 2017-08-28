@@ -15,20 +15,24 @@
 //added in Differentiation of First and Last Name
 class Reservation {
     private $resID;
-    private $customerFName;
-    private $customerLName;
+    private $customerName;
     private $resDate;
     private $resTime;
     private $storeNum;
+    private $partySize;
+    private $customerPhone;
     
     //constructor
-    public function __construct($resID, $resDate, $resTime, $storeNum, $customerFName, $customerLName) {
+    public function __construct($resID, $resDate, $resTime, $storeNum,
+            $customerName, $partySize, $customerPhone) {
         $this->setResID($resID);
-        $this->setCustomerFName($customerFName);
-        $this->setCustomerLName($customerLName);
+        $this->setCustomerName($customerName);
         $this->setResDate($resDate);
         $this->setResTime($resTime);
         $this->setStoreNum($storeNum);
+        $this->setPartySize($partySize);
+        $this->setCustomerPhone($CustomerPhone);
+        
     }
     
     //getters and setters
@@ -38,20 +42,13 @@ class Reservation {
     public function getResId() {
         return $this->resID;
     }
-    
-    public function setCustomerFName($customerFName) {
-        $this->customerFName = $customerFName;
-    }
-    public function getCustomerFName() {
-        return $this->customerFName;
+        
+    public function setCustomerName($customerName) {
+        $this->customerName = $customerName;
     }
     
-    public function setCustomerLName($customerLName) {
-        $this->customerLName = $customerLName;
-    }
-    
-    public function getCustomerLName(){
-        return $this->customerLName;
+    public function getCustomerName(){
+        return $this->customerName;
     }
     
     public function setResDate($resDate) {
@@ -67,10 +64,26 @@ class Reservation {
     public function getResTime() {
         return $this->resTime;
     }
+    
     public function setStoreNum($storeNum) {
         $this->storeNum = $storeNum;
     }
     public function getStoreNum() {
         return $this->storeNum;
     }
+    
+    public function setPartySize($partySize) {
+        $this->partySize = $partySize;
+    }
+    public function getPartySize() {
+        return $this->partySize;
+    }
+    
+    public function setCustomerPhone($customerPhone) {
+        $this->customerPhone = $customerPhone;
+    }
+    public function getCustomerPhone() {
+        return $this->customerPhone;
+    }
+    
 }

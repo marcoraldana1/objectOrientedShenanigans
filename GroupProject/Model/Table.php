@@ -36,10 +36,12 @@ class Table {
     public function getSeatingCapacity() {
         return $this->seatingCapacity;
     }
-    public function assignServer($serverID) {
+    
+    public function getServerID() {
+        return $this->serverID;
+    }
+    public function setServerID($serverID = null) {
         $this->serverID = $serverID;
     }
-    public function unassignServer() {
-        $this->serverID = null;
-    }
+    
 }

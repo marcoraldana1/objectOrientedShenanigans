@@ -20,17 +20,48 @@ class Waitlist {
         $this->unreservedWaits = array();
     }
     
-    public function addReservation($customer) {
-        $this->reservedWaits.push($customer);
+
+    
+    //add customer, $withReservation should be true if they have a reservation
+    public function add($customer, $withReservation = null) {
+        if ($withreservation == true) {
+            $this->reservedWaits.push($customer);
+        }
+        else {
+            $this->unreservedWaits.push($customer);
+        }
     }
     
-    public function add($customer) {
-        $this->unreservedWaits.push($customer);
+    //get the whole waitlist array, or a specific index
+    public function getWaitlist($index = null) {
+        //full wait list starts with those with reservations, and then those without
+        $waitlist = array_merge($this->reservedWaits, $this->unreservedWaits);
+        
+        //if there is no index specified, return the whole waitlist
+        if ($index == null) {
+            return $waitlist;
+        }
+        //otherwise, return just the Nth customer in the waitlist
+        else {
+            return $waitlist[$index];
+        }
     }
     
-    public function getWaitlist() {
-        $waitlist = $this->reservedWaits;
-        //append unreservedwaits
-             
+    //remove a customer from the waitlist and return true, return false if failed
+    public function removeFromWaitlist($customer) {
+        //if they have a reservation, and are in the wait list
+        if ($index = array_search($customer, $this->reservedWaits) !== false) {
+            //remove them
+            unset($this->reservedWaits[$index]);
+            //and return 1
+            return true;
+        }
+        //no reservation, but in the waitlist
+        elseif ($index = array_search($customer, $this->unreservedWaits) !== false) {
+            unset($this->unreservedWaits[$index]);
+            return true;
+        }
+        //not in the waitlist
+        else return false;
     }
 }

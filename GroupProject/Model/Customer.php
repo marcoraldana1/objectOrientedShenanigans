@@ -16,6 +16,9 @@ class Customer {
     public $partySize;
     public $customerPhone;
     
+    //is there any logic needed here?  this is just to hold the customer info
+    //to be used by Reservation.php, Waitlist.php, and probably the controller
+    
     //contstructor
     public function __construct($customerName, $partySize, $customerPhone) {
         $this->setCustomerName($customerName);
@@ -51,4 +54,6 @@ class Customer {
     public function getPartySize() {
         return $this->partySize;
     }
+    
+    
 }
