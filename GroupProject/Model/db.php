@@ -30,6 +30,18 @@ function getAllReservations() {
     }
     return $reservations;
 }
+function getReservationByStoreNum($storeNum) {
+    //get reservation by resID
+    global $db;
+    $query = 'SELECT * FROM reservations '
+            . 'WHERE storeNum = :storeNum';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':storeNum', $storeNum);
+    $statement->execute();
+    $result = $statement->fetch();
+    $reservation = parseReservationArray($result);
+    return $reservation;
+}
 function getReservationByResID($resID) {
     //get reservation by resID
     global $db;
@@ -87,6 +99,17 @@ function getAllUsers() {
     }
     return $users;    
 }
+function getUserByStore($storeNum){
+    global $db;
+    $query = 'SELECT * FROM users '
+            . 'WHERE storeNum = :storeNum';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':storeNum', $storeNum);
+    $statement->execute();
+    $result = $statement->fetch();
+    $users = parseUserArray($result);
+    return $users;
+}
 function getUserByUserID($userID) {
     global $db;
     $query = 'SELECT * FROM users '
@@ -95,8 +118,8 @@ function getUserByUserID($userID) {
     $statement->bindValue(':userID', $userID);
     $statement->execute();
     $result = $statement->fetch();
-    $reservation = parseUserArray($result);
-    return $reservation;
+    $user = parseUserArray($result);
+    return $user;
 }
 function getUserByUserLogin($userLogin) {
     //should userLogin be the primary key and ditch userID?
@@ -110,4 +133,25 @@ function getUserByUserLogin($userLogin) {
     $user = parseUserArray($result);
     return $user;
 }
-
+function getServersByStore($storeNum){
+    global $db;
+    $query = 'SELECT * FROM servers '
+            . 'WHERE storeNum = :storeNum';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':storeNum', $storeNum);
+    $statement->execute();
+    $result = $statement->fetch();
+    $servers = parseUserArray($result);
+    return $servers;
+}
+function getServerByServerID($serverID) {
+    global $db;
+    $query = 'SELECT * FROM users '
+            . 'WHERE serverID = :serverID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':serverID', $serverID);
+    $statement->execute();
+    $result = $statement->fetch();
+    $servers = parseUserArray($result);
+    return $servers;
+}
