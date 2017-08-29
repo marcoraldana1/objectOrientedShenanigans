@@ -77,7 +77,6 @@ switch ($action) {
         $user = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
         
-        include('model/db.php');
         $manager = getUserByUserLogin($user);
         $_SESSION['LOGGED_IN']=$manager;
         if($manager->getUserPassword() != $password){
