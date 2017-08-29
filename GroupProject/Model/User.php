@@ -70,4 +70,6 @@ class User {
     public function getStoreNum() {
         return $this->storeNum;
     }
+    
+    
 }
