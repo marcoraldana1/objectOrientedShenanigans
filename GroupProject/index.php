@@ -34,13 +34,12 @@ if ($action === NULL) {
     }
 }
 
-
-
 switch ($action) {
     case 'initial_login':
         include('Views/login.php');
         break;
     case 'login':
+        //this information needs to be pulled from the database. We probably need a validation model
         $store_number = filter_input(INPUT_POST, 'store_number');
         
             $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));

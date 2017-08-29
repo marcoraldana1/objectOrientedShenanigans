@@ -13,27 +13,44 @@
  */
 class Server {
     public $serverId;
-    public $serverName;
+    public $storeNum;
+    public $serverFName;
+    public $serverLName;
     
     //constructor
     public function __construct($serverId, $serverName) {
         $this->setServerId($serverId);
-        $this->setServerName($serverName);
+        $this->setsStoreNum($storeNum);
+        $this->setServerName($serverFName);
+        $this->setServerName($serverLName);
     }
     
     //getters and setters
     public function setServerId($serverId) {
         $this->serverId = $serverId;
-    }
+    } 
     public function getServerId() {
         return $this->serverId;
     }
     
-    public function setServerName($serverName) {
-        $this->serverName = $serverName;
+    public function setStoreNum($storeNum) {
+        $this->storeNum = $storeNum;
     }
-    public function getServername() {
-        return $this->serverName;
+    public function getStoreNum() {
+        return $this->storeNum;
     }
     
+    public function setServerFName($serverFName) {
+        $this->serverFName = $serverFName;
+    }
+    public function getServerFName() {
+        return $this->serverFName;
+    }
+        
+    public function setServerLName($serverLName) {
+        $this->serverLName = $serverLName;
+    }
+    public function getServerLName() {
+        return $this->serverLName;
+    }
 }
