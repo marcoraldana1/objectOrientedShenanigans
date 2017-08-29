@@ -19,7 +19,7 @@ function parseReservationArray($reservationArray) {
 }
 function getAllReservations() {
     //get an array of all reservations
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM reservations';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -32,7 +32,7 @@ function getAllReservations() {
 }
 function getReservationByStoreNum($storeNum) {
     //get reservation by resID
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM reservations '
             . 'WHERE storeNum = :storeNum';
     $statement = $db->prepare($query);
@@ -44,7 +44,7 @@ function getReservationByStoreNum($storeNum) {
 }
 function getReservationByResID($resID) {
     //get reservation by resID
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM reservations '
             . 'WHERE resID = :resID';
     $statement = $db->prepare($query);
@@ -56,7 +56,7 @@ function getReservationByResID($resID) {
 }
 function getReservationByPhoneNumber($custPhone) {
     //by phone number.. we may ditch this one or the next..
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM reservations '
             . 'WHERE custPhone = :custPhone';
     $statement = $db->prepare($query);
@@ -68,7 +68,7 @@ function getReservationByPhoneNumber($custPhone) {
 }
 function getReservationByName($custName) {
     //by name
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM reservations '
             . 'WHERE custName = :custName';
     $statement = $db->prepare($query);
@@ -88,7 +88,7 @@ function parseUserArray($userArray) {
     return $user;
 }
 function getAllUsers() {
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM users';
     $statement = $db->prepare($query);
     $statement->execute();
@@ -100,7 +100,7 @@ function getAllUsers() {
     return $users;    
 }
 function getUserByStore($storeNum){
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM users '
             . 'WHERE storeNum = :storeNum';
     $statement = $db->prepare($query);
@@ -111,7 +111,7 @@ function getUserByStore($storeNum){
     return $users;
 }
 function getUserByUserID($userID) {
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM users '
             . 'WHERE userID = :userID';
     $statement = $db->prepare($query);
@@ -123,7 +123,7 @@ function getUserByUserID($userID) {
 }
 function getUserByUserLogin($userLogin) {
     //should userLogin be the primary key and ditch userID?
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM users '
             . 'WHERE userLogin = :userLogin';
     $statement = $db->prepare($query);
@@ -134,7 +134,7 @@ function getUserByUserLogin($userLogin) {
     return $user;
 }
 function getServersByStore($storeNum){
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM servers '
             . 'WHERE storeNum = :storeNum';
     $statement = $db->prepare($query);
@@ -145,7 +145,7 @@ function getServersByStore($storeNum){
     return $servers;
 }
 function getServerByServerID($serverID) {
-    global $db;
+    $db = Database::DBConnect();
     $query = 'SELECT * FROM users '
             . 'WHERE serverID = :serverID';
     $statement = $db->prepare($query);
