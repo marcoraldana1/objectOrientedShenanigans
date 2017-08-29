@@ -42,10 +42,11 @@ switch ($action) {
         //this information needs to be pulled from the database. We probably need a validation model
         $store_number = filter_input(INPUT_POST, 'store_number');
         
-            $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
+        
+           // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
+       $allActiveServers = getServersByStore($store_number);
        
-       $currentWaitlist = getAllReservations();
-           // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
+           $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
         include('Views/home.php');
         break;
     case 'reservation':
@@ -74,11 +75,15 @@ switch ($action) {
         break;
     case 'admin_attempt':
         //mostly working now, having issues with the DB not being able to prepare.
+ 
+       
         $user = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
         
         $manager = getUserByUserLogin($user);
         $_SESSION['LOGGED_IN']=$manager;
+        
+        $allActiveServers = getServersByStore($store_number);
         if($manager->getUserPassword() != $password){
             $message = 'BAD LOGIN TRY AGAIN';
             include('Views/login.php');
@@ -86,6 +91,8 @@ switch ($action) {
         }
         $_SESSION['store_number']=$manager->getStoreNum();
         $store_number = $_SESSION['store_number'];
+        
+         $allActiveServers = getServersByStore($store_number);
         include ('Views/home.php');
         break;
 }
