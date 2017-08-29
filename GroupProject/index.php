@@ -74,7 +74,7 @@ switch ($action) {
         include ('Views/login.php');
         break;
     case 'admin_attempt':
-        //mostly working now, having issues with the DB not being able to prepare, will bring up at class.
+        //mostly working now, having issues with the DB not being able to prepare.
         $user = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
         
