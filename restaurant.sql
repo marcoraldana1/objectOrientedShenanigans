@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2017 at 03:51 AM
+-- Generation Time: Aug 29, 2017 at 02:12 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -28,7 +28,6 @@ USE `restaurant`;
 -- Table structure for table `reservations`
 --
 
-DROP TABLE IF EXISTS `reservations`;
 CREATE TABLE IF NOT EXISTS `reservations` (
   `resID` int(11) NOT NULL AUTO_INCREMENT,
   `custName` varchar(50) NOT NULL,
@@ -53,10 +52,34 @@ INSERT INTO `reservations` (`resID`, `custName`, `custPhone`, `partySize`, `resD
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `servers`
+--
+
+CREATE TABLE IF NOT EXISTS `servers` (
+  `serverID` varchar(15) NOT NULL,
+  `storeNum` varchar(25) NOT NULL,
+  `serverFName` varchar(50) NOT NULL,
+  `serverLName` varchar(50) NOT NULL,
+  PRIMARY KEY (`serverID`),
+  KEY `servertostoreFK` (`storeNum`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `servers`
+--
+
+INSERT INTO `servers` (`serverID`, `storeNum`, `serverFName`, `serverLName`) VALUES
+('5284', '100', 'Molly', 'McGreggor'),
+('7361', '100', 'Kieran', 'O\'Connel'),
+('8349', '100', 'Braiden', 'O\'Conner'),
+('9358', '100', 'Caitlyn', 'McBeth');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `store`
 --
 
-DROP TABLE IF EXISTS `store`;
 CREATE TABLE IF NOT EXISTS `store` (
   `storeID` varchar(25) NOT NULL,
   `num2pTables` int(11) DEFAULT NULL,
@@ -82,7 +105,6 @@ INSERT INTO `store` (`storeID`, `num2pTables`, `num4pTables`, `num6pTables`, `nu
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `userID` int(11) NOT NULL AUTO_INCREMENT,
   `userRole` varchar(50) NOT NULL,
@@ -112,6 +134,12 @@ INSERT INTO `users` (`userID`, `userRole`, `userName`, `userLogin`, `userPasswor
 --
 ALTER TABLE `reservations`
   ADD CONSTRAINT `restostoreFK` FOREIGN KEY (`storeNum`) REFERENCES `store` (`storeID`);
+
+--
+-- Constraints for table `servers`
+--
+ALTER TABLE `servers`
+  ADD CONSTRAINT `servertostoreFK` FOREIGN KEY (`storeNum`) REFERENCES `store` (`storeID`);
 
 --
 -- Constraints for table `users`
