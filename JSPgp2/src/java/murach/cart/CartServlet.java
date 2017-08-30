@@ -3,7 +3,9 @@ package murach.cart;
 import business.Cart;
 import business.LineItem;
 import business.Product;
+import data.CommerceDA;
 import java.io.*;
+import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -23,13 +25,16 @@ public class CartServlet extends HttpServlet {
         // get current action
         String action = request.getParameter("action");
         if (action == null) {
-            action = "cart";  // default action
+            action = "shop";  // default action
         }
 
         // perform action and set URL to appropriate page
         String url = "/index.jsp";
         if (action.equals("shop")) {
             url = "/index.jsp";    // the "index" page
+            ArrayList<Product> product = new ArrayList<Product>();
+            
+            product = CommerceDA.getAllProducts();
         } 
         else if (action.equals("cart")) {
             String productCode = request.getParameter("productID");
@@ -57,7 +62,7 @@ public class CartServlet extends HttpServlet {
             Product product = ProductIO.getProduct(productCode, path);
 
             LineItem lineItem = new LineItem();
-           lineItem.setProduct(product);
+            lineItem.setProduct(product);
             lineItem.setQuantity(quantity);
             if (quantity > 0) {
                 cart.addItem(lineItem);
@@ -74,5 +79,11 @@ public class CartServlet extends HttpServlet {
 
         sc.getRequestDispatcher(url)
                 .forward(request, response);
+    }
+     @Override
+    protected void doGet(HttpServletRequest request,
+            HttpServletResponse response)
+            throws ServletException, IOException{
+        doPost(request,response);
     }
 }
