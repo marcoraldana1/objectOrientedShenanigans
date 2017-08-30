@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author jl64990
  */
-public class Customers implements Serializable{
+public class Customer implements Serializable{
     
     private int customerID;
     private String firstName;
@@ -20,7 +20,7 @@ public class Customers implements Serializable{
     private String phone;
     private String email;
 
-    public Customers() {}
+    public Customer() {}
     
     public int getCustomerID() {
         return customerID;
