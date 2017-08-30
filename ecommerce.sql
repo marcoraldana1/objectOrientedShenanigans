@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2017 at 06:46 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.4
+-- Generation Time: Aug 30, 2017 at 08:00 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -94,7 +94,8 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `lineitem`
   ADD PRIMARY KEY (`invoiceID`),
-  ADD KEY `fk_orders` (`orderID`);
+  ADD KEY `fk_orders` (`orderID`),
+  ADD KEY `fk_customers` (`customerID`);
 
 --
 -- Indexes for table `orders`
@@ -142,14 +143,14 @@ ALTER TABLE `products`
 -- Constraints for table `lineitem`
 --
 ALTER TABLE `lineitem`
+  ADD CONSTRAINT `fk_customers` FOREIGN KEY (`customerID`) REFERENCES `customers` (`customerid`),
   ADD CONSTRAINT `fk_orders` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderid`);
 
 --
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `fkOrders` FOREIGN KEY (`productid`) REFERENCES `products` (`productid`),
-  ADD CONSTRAINT `fkOrdersCust` FOREIGN KEY (`customerid`) REFERENCES `customers` (`customerid`);
+  ADD CONSTRAINT `fk_products` FOREIGN KEY (`productid`) REFERENCES `products` (`productid`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
