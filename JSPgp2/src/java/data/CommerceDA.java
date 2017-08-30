@@ -353,8 +353,6 @@ public class CommerceDA {
         String query = "SELECT * "
                 + "FROM orders o INNER JOIN lineitem l "
                 + "on o.invoiceid = l.invoiceid "
-                + "INNER JOIN customers c "
-                + "on l.customerid = c.customerid "
                 + "WHERE o.orderid = ?";
         try {
             ps = connection.prepareStatement(query);            
