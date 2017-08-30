@@ -100,7 +100,7 @@ public class Product {
     /**
      * @param image the image to set
      */
-    public void setimagePath(String imagePath) {
+    public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
     }
    

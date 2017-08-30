@@ -4,127 +4,21 @@
  * and open the template in the editor.
  */
 package data;
-
-
+import business.LineItem;
+import business.Cart;
+import business.Customer;
+import business.Product;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
  *
  * @author fssco
  */
-public class CommerceDA {
-   
-//    
-//    public static ArrayList<Product> getAllProducts() {
-//        ArrayList<Product> all = new ArrayList<Product>();
-//        
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//
-//        String query = "SELECT * FROM products";
-//        try {
-//            ps = connection.prepareStatement(query);            
-//            rs = ps.executeQuery();
-//            Product product = null;
-//            while (rs.next()) {
-//                product = new Product();
-//                product.setCategory(rs.getString("category"));
-//                product.setProductID(rs.getInt("productid"));
-//                product.setPrice(rs.getDecimal("price"));
-//                product.setName("" + rs.getString("name"));
-//                product.setDescription(rs.getString("description"));
-//                product.setImagePath(rs.getString("imagepath");
-//                all.add(product);                
-//            }
-//            return all;
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return null;
-//        } finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
-//    
-//    // adds a product object to the db
-//    public static int addProduct(Product prod) {
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//
-//        String query = "insert into products " +
-//                       "(category, price, name, description, imagepath) " +
-//                       "values (?, ?, ?, ?, ?)";
-//        
-//        try {
-//            ps = connection.prepareStatement(query);
-//            ps.setString(1, prod.getCategory());
-//            ps.setDecimal(2, prod.getPrice());
-//            ps.setString(3, prod.getName());
-//            ps.setString(4, prod.getDescription());
-//            ps.setString(5, prod.getImagePath());
-//            
-//            return ps.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return 0;
-//        } catch (NumberFormatException e) {
-//            System.out.println(e);
-//            return 0;
-//        } 
-//        finally {
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
-//    
-//    // adds product objects from list to db
-
- 
-//    public static ArrayList<Orders> getAllOrders(Order order){
-//        
-//        ArrayList<Orders> all = new ArrayList<Orders>();
-//        
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//
-//        String query = "SELECT * FROM Orders";
-//        try {
-//            ps = connection.prepareStatement(query);            
-//            rs = ps.executeQuery();
-//            Orders order = null;
-//            while (rs.next()) {
-//                order = new Order();
-//                order.setOrderID(rs.getInt("orderid"));
-//                order.setProductID(rs.getInt("productid"));
-//                order.setPrice(rs.getDecimal("price"));
-//                order.setName("" + rs.getString("name"));
-//                order.setDescription(rs.getString("description"));
-//                order.setImagePath(rs.getString("imagepath");
-//                all.add(order);                
-//            }
-//            return all;
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return null;
-//        } finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
-//    }
+public class CommerceDA {  
     // initial records added to db
     public static void initializeDB() {
 //        ArrayList<Product> all = new ArrayList<Product>();
@@ -136,7 +30,9 @@ public class CommerceDA {
 //            addEmployee(emp);
 //        }
     }
-    /*
+    
+    // products table 
+    
     // returns list of all products from db
     public static ArrayList<Product> getAllProducts() {
         ArrayList<Product> all = new ArrayList<Product>();
@@ -185,7 +81,7 @@ public class CommerceDA {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, prod.getCategory());
-            ps.setDecimal(2, prod.getPrice());
+            ps.setDouble(2, prod.getPrice());
             ps.setString(3, prod.getName());
             ps.setString(4, prod.getDescription());
             ps.setString(5, prod.getImagePath());
@@ -224,7 +120,7 @@ public class CommerceDA {
                 + "WHERE productid = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, prod.getProductID());
+            ps.setInt(1, prod.getProductID());
 
             return ps.executeUpdate();
         } catch (SQLException e) {
@@ -252,12 +148,12 @@ public class CommerceDA {
             Product p = null;
             if (rs.next()) {
                 p = new Product();
-                product.setCategory(rs.getString("category"));
-                product.setProductID(rs.getInt("productid"));
-                product.setPrice(rs.getDouble("price"));
-                product.setName("" + rs.getString("name"));
-                product.setDescription(rs.getString("description"));
-                product.setImagePath(rs.getString("imagepath"));
+                p.setCategory(rs.getString("category"));
+                p.setProductID(rs.getInt("productid"));
+                p.setPrice(rs.getDouble("price"));
+                p.setName("" + rs.getString("name"));
+                p.setDescription(rs.getString("description"));
+                p.setImagePath(rs.getString("imagepath"));
             }
             return p;
         } catch (SQLException e) {
@@ -286,7 +182,7 @@ public class CommerceDA {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, prod.getCategory());
-            ps.setDecimal(2, prod.getPrice());
+            ps.setDouble(2, prod.getPrice());
             ps.setString(3, prod.getName());
             ps.setString(4, prod.getDescription());
             ps.setString(5, prod.getImagePath());
@@ -302,5 +198,184 @@ public class CommerceDA {
         }
     }
     
-    */
+    
+    // customers table
+    
+    // returns list of all customers
+    public static ArrayList<Customer> getAllCustomers()
+    {
+        ArrayList<Customer> all = new ArrayList<Customer>();
+        
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT * FROM customers";
+        try {
+            ps = connection.prepareStatement(query);            
+            rs = ps.executeQuery();
+            Customer customer = null;
+            while (rs.next()) {
+                customer = new Customer();                
+                customer.setCustomerID(rs.getInt("customerid"));
+                customer.setFirstName(rs.getString("firstname"));
+                customer.setLastName(rs.getString("lastname"));
+                customer.setAddress("" + rs.getString("address"));
+                customer.setPhone(rs.getString("phone"));
+                customer.setEmail(rs.getString("email"));
+                all.add(customer);                
+            }
+            return all;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    // return customer by id
+    public static Customer getCustomer(int customerid)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT * FROM customers "
+                + "WHERE customerid = ?";
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, customerid);
+            rs = ps.executeQuery();
+            Customer customer = null;
+            if (rs.next()) {
+                customer = new Customer();                
+                customer.setCustomerID(rs.getInt("customerid"));
+                customer.setFirstName(rs.getString("firstname"));
+                customer.setLastName(rs.getString("lastname"));
+                customer.setAddress("" + rs.getString("address"));
+                customer.setPhone(rs.getString("phone"));
+                customer.setEmail(rs.getString("email"));
+            }
+            return customer;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    // add customer
+    public static int addCustomer(Customer customer)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+
+        String query = "insert into customers " +
+                       "(customerid, firstname, lastname, address, phone, email) " +
+                       "values (?, ?, ?, ?, ?, ?)";
+        
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, customer.getCustomerID());
+            ps.setString(2, customer.getFirstName());
+            ps.setString(3, customer.getLastName());
+            ps.setString(4, customer.getAddress());
+            ps.setString(5, customer.getPhone());
+            ps.setString(6, customer.getEmail());
+            
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+            return 0;
+        } 
+        finally {
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    // update customer
+    public static int updateCustomer(Customer customer)
+    {
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "UPDATE customers " +                 
+                "SET firstname = ?, " + 
+                "lastname = ?, " +
+                "address = ? " +   
+                "email = ? " +
+                "WHERE customerid = ?";
+        try {
+            ps = connection.prepareStatement(query);            
+            ps.setString(1, customer.getFirstName());
+            ps.setString(2, customer.getLastName());
+            ps.setString(3, customer.getAddress());
+            ps.setString(4, customer.getPhone());
+            ps.setString(5, customer.getEmail());
+            ps.setInt(6, customer.getCustomerID());
+            return ps.executeUpdate();                        
+        } catch (SQLException e) {
+            System.out.println(e);
+            return 0;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
+    
+    
+    // orders/lineitems tables
+    
+    // build cart for orderID
+//    public static Cart getCart(int orderID)
+//    {
+//        ArrayList<LineItem> all = new ArrayList<LineItem>();
+//        Cart cart = new Cart();
+//        
+//        ConnectionPool pool = ConnectionPool.getInstance();
+//        Connection connection = pool.getConnection();
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
+//
+//        String query = "SELECT * FROM orders o INNER JOIN lineitem l on o.orderid = l.orderid";
+//        try {
+//            ps = connection.prepareStatement(query);            
+//            rs = ps.executeQuery();
+//            Product product = null;
+//            while (rs.next()) {
+//                product = new Product();                
+//                product.setCategory(rs.getString("category"));
+//                product.setProductID(rs.getInt("productid"));
+//                product.setPrice(rs.getDouble("price"));
+//                product.setName("" + rs.getString("name"));
+//                product.setDescription(rs.getString("description"));
+//                product.setImagePath(rs.getString("imagepath"));
+//                all.add(product);                
+//            }
+//            return all;
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//            return null;
+//        } finally {
+//            DBUtil.closeResultSet(rs);
+//            DBUtil.closePreparedStatement(ps);
+//            pool.freeConnection(connection);
+//        }
+//    }
 }
