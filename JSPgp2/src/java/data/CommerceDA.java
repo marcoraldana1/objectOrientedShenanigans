@@ -343,39 +343,41 @@ public class CommerceDA {
     // orders/lineitems tables
     
     // build cart for orderID
-//    public static Cart getCart(int orderID)
-//    {
-//        ArrayList<LineItem> all = new ArrayList<LineItem>();
-//        Cart cart = new Cart();
-//        
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//
-//        String query = "SELECT * FROM orders o INNER JOIN lineitem l on o.orderid = l.orderid";
-//        try {
-//            ps = connection.prepareStatement(query);            
-//            rs = ps.executeQuery();
-//            Product product = null;
-//            while (rs.next()) {
-//                product = new Product();                
-//                product.setCategory(rs.getString("category"));
-//                product.setProductID(rs.getInt("productid"));
-//                product.setPrice(rs.getDouble("price"));
-//                product.setName("" + rs.getString("name"));
-//                product.setDescription(rs.getString("description"));
-//                product.setImagePath(rs.getString("imagepath"));
-//                all.add(product);                
-//            }
-//            return all;
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return null;
-//        } finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
+    public static Cart getCart(int orderID)
+    {
+        ArrayList<LineItem> all = new ArrayList<LineItem>();
+        Cart cart = new Cart();
+        
+        ConnectionPool pool = ConnectionPool.getInstance();
+        Connection connection = pool.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String query = "SELECT * "
+                + "FROM orders o INNER JOIN lineitem l "
+                + "on o.orderid = l.orderid "
+                + "INNER JOIN customers c "
+                + "on l.customerid = c.customerid "
+                + "WHERE o.orderid = ?";
+        try {
+            ps = connection.prepareStatement(query);            
+            rs = ps.executeQuery();
+            Product product = null;
+            LineItem lineItem = null;
+            while (rs.next()) {
+                product = new Product();   
+                lineItem = new LineItem();
+                
+                
+            }
+            return cart;
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        } finally {
+            DBUtil.closeResultSet(rs);
+            DBUtil.closePreparedStatement(ps);
+            pool.freeConnection(connection);
+        }
+    }
 }

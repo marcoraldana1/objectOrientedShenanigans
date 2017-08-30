@@ -32,7 +32,7 @@ public class CartServlet extends HttpServlet {
             url = "/index.jsp";    // the "index" page
         } 
         else if (action.equals("cart")) {
-            String productCode = request.getParameter("productCode");
+            String productCode = request.getParameter("productID");
             String quantityString = request.getParameter("quantity");
 
             HttpSession session = request.getSession();
