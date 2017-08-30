@@ -344,10 +344,7 @@ public class CommerceDA {
     
     // build cart for orderID
     public static Cart getCart(int orderID)
-    {
-        ArrayList<LineItem> all = new ArrayList<LineItem>();
-        Cart cart = new Cart();
-        
+    {        
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -355,20 +352,33 @@ public class CommerceDA {
 
         String query = "SELECT * "
                 + "FROM orders o INNER JOIN lineitem l "
-                + "on o.orderid = l.orderid "
-                + "INNER JOIN customers c "
-                + "on l.customerid = c.customerid "
+                + "on o.invoiceid = l.invoiceid "
                 + "WHERE o.orderid = ?";
         try {
             ps = connection.prepareStatement(query);            
+            ps.setInt(1, orderID);
             rs = ps.executeQuery();
+            
             Product product = null;
             LineItem lineItem = null;
+            Cart cart = null;
+            
             while (rs.next()) {
                 product = new Product();   
                 lineItem = new LineItem();
+                cart = new Cart();
                 
+                product.setProductID(rs.getInt("productid"));
+                product.setCategory(rs.getString("category"));
+                product.setPrice(rs.getDouble("price"));
+                product.setName(rs.getString("name"));
+                product.setDescription(rs.getString("description"));
+                product.setImagePath(rs.getString("imagepath"));
                 
+                lineItem.setProduct(product);
+                lineItem.setQuantity(rs.getInt("qty"));
+                
+                cart.addItem(lineItem);
             }
             return cart;
         } catch (SQLException e) {
