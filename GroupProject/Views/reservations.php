@@ -4,25 +4,28 @@
 <section id='reservation'>
 <form action='index.php' method='POST'>
 
-    <label>First Name: </label>
-    <input type='text' name='first_name'>
+    <label>Customer Name: </label>
+    <input type='text' name='cust_name'>
     <br>
 
-    <label>Last Name: </label>
-    <input type='text' name='last_name'>
+    <label>Phone Number: </label>
+    <input type='text' name='phone_number'>
     <br>
     
-    <label>Store Number: </label>
-    <input type='text' name='store_number' value='<?php if (isset($store_number)) {echo(htmlspecialchars($store_number));} ?>'>
+    <label>Party Size: </label>
+    <input type='text' name='party_size'>
     <br>
     
-    <label>Date:<label>
+    <label>Date: <label>
     <input type='date' name='res_date'>
     <br>
     
-    <label>Time of Reservation</label>
+    <label>Time of Reservation: </label>
     <input type='time' name='res_time'>
-    <br><br>
+    <br>
+    
+    <label>Store Number: </label>
+    <input type='text' name='store_number'><br>
     
     <input type='hidden' name='action' value='res_confirmation'>
     <input type='submit' value='Set Reservation'>

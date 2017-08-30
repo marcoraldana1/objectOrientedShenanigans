@@ -31,7 +31,7 @@ class Reservation {
         $this->setResTime($resTime);
         $this->setStoreNum($storeNum);
         $this->setPartySize($partySize);
-        $this->setCustomerPhone($CustomerPhone);
+        $this->setCustomerPhone($customerPhone);
         
     }
     

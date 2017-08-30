@@ -43,25 +43,28 @@ switch ($action) {
         $store_number = filter_input(INPUT_POST, 'store_number');
         
             $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
-       
-        //$currentWaitlist =  getAllReservations();
-            $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
+       $currentWaitlist = array();
+        $currentWaitlist =  getAllReservations();
+        //    $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
         include('Views/home.php');
         break;
     case 'reservation':
         include('Views/reservations.php');
         break;
     case 'res_confirmation':
-        $resID = 1; //this should be auto incrementing. For another time though
-        $first_name = filter_input(INPUT_POST,'first_name');
-        $last_name = filter_input (INPUT_POST, 'last_name');
+        //$resID = 1; //this should be auto incrementing. For another time though
+        $cust_name = filter_input(INPUT_POST,'cust_name');
+        $phone = filter_input (INPUT_POST, 'phone_number');
+        $partySize = filter_input(INPUT_POST, 'party_size');
         $res_store_number = filter_input(INPUT_POST, 'store_number');
         $date = filter_input(INPUT_POST, 'res_date');
         $time = filter_input(INPUT_POST, 'res_time');
         
         //gets all information from user and creates object
         //needs validation
-        $newRes = new Reservation($resID, $date, $time, $res_store_number, $first_name, $last_name);
+        //$newRes = new Reservation($resID, $date, $time, $res_store_number, $cust_name, $partySize, $phone);
+        setReservation($cust_name, $phone, $partySize, $date, $time, $res_store_number);
+        
              
         include('Views/res_confirmation.php');
         break;

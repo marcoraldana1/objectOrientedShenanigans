@@ -30,6 +30,24 @@ function getAllReservations() {
     }
     return $reservations;
 }
+
+function setReservation($custName, $custPhone, $partySize, $resDate, $resTime, $storeNum) {
+    $db = Database::DBConnect();
+    $query = 'Insert Into reservations (custName, custPhone, partySize, resDate, resTime, storeNum) 
+        Values (:custName , :custPhone, :partySize, :resDate, :resTime, :storeNum)';
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':custName', $custName);
+    $statement->bindValue(':custPhone',$custPhone);
+    $statement->bindValue(':partySize' ,$partySize);
+    $statement->bindValue(':resDate' , $resDate);
+    $statement->bindValue(':resTime' , $resTime);
+    $statement->bindValue('$storeNum', $storeNum);
+    
+    $statement->execute();
+    
+}
+
 function getReservationByStoreNum($storeNum) {
     //get reservation by resID
     $db = Database::DBConnect();
