@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2017 at 06:01 PM
+-- Generation Time: Aug 30, 2017 at 06:21 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -31,9 +31,19 @@ CREATE TABLE `customers` (
   `firstname` varchar(30) NOT NULL,
   `lastname` varchar(30) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `phone` char(10) NOT NULL,
+  `phone` char(15) NOT NULL,
   `email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`customerid`, `firstname`, `lastname`, `address`, `phone`, `email`) VALUES
+(1, 'Fred', 'Scott', '8800 O St', '(222) 222-2222', 'fscott@southeast.edu'),
+(2, 'Aaron', 'Aaronson', '3319 A St', '(444) 444-4444', 'aaaa@gmail.com'),
+(3, 'Billy', 'Batts', '5701 South St', '(333) 333-3333', 'bbatts@gmail.com'),
+(4, 'Brie', 'Larson', '303 Broadway Ct', '(777) 777-7777', 'cmarvel@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -43,11 +53,20 @@ CREATE TABLE `customers` (
 
 CREATE TABLE `lineitem` (
   `invoiceID` int(11) NOT NULL,
-  `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
   `customerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lineitem`
+--
+
+INSERT INTO `lineitem` (`invoiceID`, `productID`, `qty`, `customerID`) VALUES
+(2, 3, 2, 1),
+(3, 1, 1, 4),
+(4, 1, 1, 4),
+(5, 5, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -101,7 +120,6 @@ ALTER TABLE `customers`
 --
 ALTER TABLE `lineitem`
   ADD PRIMARY KEY (`invoiceID`),
-  ADD KEY `fk_orders` (`orderID`),
   ADD KEY `fk_customers` (`customerID`);
 
 --
@@ -125,17 +143,17 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customerid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `lineitem`
 --
 ALTER TABLE `lineitem`
-  MODIFY `invoiceID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `invoiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -149,8 +167,7 @@ ALTER TABLE `products`
 -- Constraints for table `lineitem`
 --
 ALTER TABLE `lineitem`
-  ADD CONSTRAINT `fk_customers` FOREIGN KEY (`customerID`) REFERENCES `customers` (`customerid`),
-  ADD CONSTRAINT `fk_orders` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderid`);
+  ADD CONSTRAINT `fk_customers` FOREIGN KEY (`customerID`) REFERENCES `customers` (`customerid`);
 
 --
 -- Constraints for table `orders`
