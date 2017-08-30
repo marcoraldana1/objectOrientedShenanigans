@@ -34,7 +34,7 @@
         <hr>
         <div class="servers">
             <?php foreach ($allActiveServers as $server): ?>
-                <p><?php echo $server[0] . " " . $server[1] . " " . $server[2]; ?></p>
+                <p><?php echo $server; ?></p>
 
             <?php endforeach; ?>
         </div>
