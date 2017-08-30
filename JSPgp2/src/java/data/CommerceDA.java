@@ -5,7 +5,7 @@
  */
 package data;
 
-
+import business.Product;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -18,113 +18,7 @@ import java.util.ArrayList;
  *
  * @author fssco
  */
-public class CommerceDA {
-   
-//    
-//    public static ArrayList<Product> getAllProducts() {
-//        ArrayList<Product> all = new ArrayList<Product>();
-//        
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//
-//        String query = "SELECT * FROM products";
-//        try {
-//            ps = connection.prepareStatement(query);            
-//            rs = ps.executeQuery();
-//            Product product = null;
-//            while (rs.next()) {
-//                product = new Product();
-//                product.setCategory(rs.getString("category"));
-//                product.setProductID(rs.getInt("productid"));
-//                product.setPrice(rs.getDecimal("price"));
-//                product.setName("" + rs.getString("name"));
-//                product.setDescription(rs.getString("description"));
-//                product.setImagePath(rs.getString("imagepath");
-//                all.add(product);                
-//            }
-//            return all;
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return null;
-//        } finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
-//    
-//    // adds a product object to the db
-//    public static int addProduct(Product prod) {
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//
-//        String query = "insert into products " +
-//                       "(category, price, name, description, imagepath) " +
-//                       "values (?, ?, ?, ?, ?)";
-//        
-//        try {
-//            ps = connection.prepareStatement(query);
-//            ps.setString(1, prod.getCategory());
-//            ps.setDecimal(2, prod.getPrice());
-//            ps.setString(3, prod.getName());
-//            ps.setString(4, prod.getDescription());
-//            ps.setString(5, prod.getImagePath());
-//            
-//            return ps.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return 0;
-//        } catch (NumberFormatException e) {
-//            System.out.println(e);
-//            return 0;
-//        } 
-//        finally {
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
-//    
-//    // adds product objects from list to db
-
- 
-//    public static ArrayList<Orders> getAllOrders(Order order){
-//        
-//        ArrayList<Orders> all = new ArrayList<Orders>();
-//        
-//        ConnectionPool pool = ConnectionPool.getInstance();
-//        Connection connection = pool.getConnection();
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//
-//        String query = "SELECT * FROM Orders";
-//        try {
-//            ps = connection.prepareStatement(query);            
-//            rs = ps.executeQuery();
-//            Orders order = null;
-//            while (rs.next()) {
-//                order = new Order();
-//                order.setOrderID(rs.getInt("orderid"));
-//                order.setProductID(rs.getInt("productid"));
-//                order.setPrice(rs.getDecimal("price"));
-//                order.setName("" + rs.getString("name"));
-//                order.setDescription(rs.getString("description"));
-//                order.setImagePath(rs.getString("imagepath");
-//                all.add(order);                
-//            }
-//            return all;
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//            return null;
-//        } finally {
-//            DBUtil.closeResultSet(rs);
-//            DBUtil.closePreparedStatement(ps);
-//            pool.freeConnection(connection);
-//        }
-//    }
-//    }
+public class CommerceDA {  
     // initial records added to db
     public static void initializeDB() {
 //        ArrayList<Product> all = new ArrayList<Product>();
@@ -136,7 +30,7 @@ public class CommerceDA {
 //            addEmployee(emp);
 //        }
     }
-    /*
+    
     // returns list of all products from db
     public static ArrayList<Product> getAllProducts() {
         ArrayList<Product> all = new ArrayList<Product>();
@@ -185,7 +79,7 @@ public class CommerceDA {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, prod.getCategory());
-            ps.setDecimal(2, prod.getPrice());
+            ps.setDouble(2, prod.getPrice());
             ps.setString(3, prod.getName());
             ps.setString(4, prod.getDescription());
             ps.setString(5, prod.getImagePath());
@@ -224,7 +118,7 @@ public class CommerceDA {
                 + "WHERE productid = ?";
         try {
             ps = connection.prepareStatement(query);
-            ps.setString(1, prod.getProductID());
+            ps.setInt(1, prod.getProductID());
 
             return ps.executeUpdate();
         } catch (SQLException e) {
@@ -252,12 +146,12 @@ public class CommerceDA {
             Product p = null;
             if (rs.next()) {
                 p = new Product();
-                product.setCategory(rs.getString("category"));
-                product.setProductID(rs.getInt("productid"));
-                product.setPrice(rs.getDouble("price"));
-                product.setName("" + rs.getString("name"));
-                product.setDescription(rs.getString("description"));
-                product.setImagePath(rs.getString("imagepath"));
+                p.setCategory(rs.getString("category"));
+                p.setProductID(rs.getInt("productid"));
+                p.setPrice(rs.getDouble("price"));
+                p.setName("" + rs.getString("name"));
+                p.setDescription(rs.getString("description"));
+                p.setImagePath(rs.getString("imagepath"));
             }
             return p;
         } catch (SQLException e) {
@@ -286,7 +180,7 @@ public class CommerceDA {
         try {
             ps = connection.prepareStatement(query);
             ps.setString(1, prod.getCategory());
-            ps.setDecimal(2, prod.getPrice());
+            ps.setDouble(2, prod.getPrice());
             ps.setString(3, prod.getName());
             ps.setString(4, prod.getDescription());
             ps.setString(5, prod.getImagePath());
@@ -302,5 +196,5 @@ public class CommerceDA {
         }
     }
     
-    */
+    
 }
