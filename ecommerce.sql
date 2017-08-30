@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2017 at 05:58 PM
+-- Generation Time: Aug 30, 2017 at 06:01 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -45,8 +45,6 @@ CREATE TABLE `lineitem` (
   `invoiceID` int(11) NOT NULL,
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `description` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL,
   `customerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
