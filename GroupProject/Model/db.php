@@ -102,18 +102,19 @@ public static function addReservation(Reservation $reservation)
     
 public function getUserByUserLogin($login){
     
-        $db = Database::DBConnect();
+    $db = Database::DBConnect();
 
-        $userRole = User::setUserRole();
-        $userLogin = User::setUserLogin();
-        $userName = User::setUserName();
-        $userPassword = User::setUserPassword();
-        $storeNum = User::setStoreNum();
+    $userRole = User::setUserRole();
+    $userLogin = User::setUserLogin();
+    $userName = User::setUserName();
+    $userPassword = User::setUserPassword();
+    $storeNum = User::setStoreNum();
         
     $query = 'SELECT * FROM users '
-            . 'WHERE userLogin = :userLogin';
+            . 'WHERE userLogin = :login';
     
     $statement = $db->prepare($query);
+    $statement->bindValue(':login', $login);
     $statement->bindValue(':userRole', $userRole);
     $statement->bindValue(':userLogin', $userLogin);
     $statement->bindValue(':userName',$userName);
@@ -128,8 +129,27 @@ public function getUserByUserLogin($login){
     
 /*function getServersByStore($storeNum){
     $db = Database::DBConnect();
-    $query = 'SELECT * FROM servers '
-            . 'WHERE storeNum = :storeNum';
+
+    $userRole = User::setUserRole();
+    $userLogin = User::setUserLogin();
+    $userName = User::setUserName();
+    $userPassword = User::setUserPassword();
+    $storeNum = User::setStoreNum();
+        
+    $query = 'SELECT * FROM servers WHERE storeNum = :storeNum';
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':userRole', $userRole);
+    $statement->bindValue(':userLogin', $userLogin);
+    $statement->bindValue(':userName',$userName);
+    $statement->bindValue(':userPassword' ,$userPassword);
+    $statement->bindValue(':storeNum' , $storeNum);  
+    $statement->execute();
+    $reservations = $statement->fetchall();
+    $statement->closeCursor();
+    
+    return $reservations;
+
     $statement = $db->prepare($query);
     $statement->bindValue(':storeNum', $storeNum);
     $statement->execute();
