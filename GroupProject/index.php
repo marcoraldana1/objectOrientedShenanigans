@@ -81,18 +81,23 @@ switch ($action) {
     case 'admin_attempt':
         //login with a username and password
         
-        $user = filter_input(INPUT_POST, 'user');
+        $login = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
+        $user = new User;
+        if(userNameExists($login)>0 ){
+        $user = getUserByUserLogin($login);
+        }
         
-        $manager = getUserByUserLogin($user);
+
+        
         $_SESSION['LOGGED_IN']=$manager;
         
-        if($manager->getUserPassword() != $password){
+        if($user->getUserPassword() != $password){
             $message = 'BAD LOGIN TRY AGAIN';
             include('Views/login.php');
             break;
         }
-        $_SESSION['store_number']=$manager->getStoreNum();
+        $_SESSION['store_number']=$user->getStoreNum();
         $store_number = $_SESSION['store_number'];
         
         $allActiveServers = getServersByStore($store_number);

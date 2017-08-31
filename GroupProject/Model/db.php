@@ -111,11 +111,11 @@ public function getUserByUserLogin($login){
         $storeNum = User::setStoreNum();
         
     $query = 'SELECT * FROM users '
-            . 'WHERE userLogin = :userLogin';
+            . 'WHERE userLogin = :login';
     
     $statement = $db->prepare($query);
     $statement->bindValue(':userRole', $userRole);
-    $statement->bindValue(':userLogin', $userLogin);
+    $statement->bindValue(':userLogin', $login);
     $statement->bindValue(':userName',$userName);
     $statement->bindValue(':userPassword' ,$userPassword);
     $statement->bindValue(':storeNum' , $storeNum);  
