@@ -23,7 +23,7 @@ if (!isset($user)) {
 if (!isset($password)) {
     $password = '';
 }
-$currentWaitlist = getAllReservations();
+
 
 $action = filter_input(INPUT_POST, 'action');
 
@@ -84,7 +84,7 @@ switch ($action) {
         break;
     case 'admin_attempt':
         //mostly working now, having issues with the DB not being able to prepare.
- 
+        $wait = new Waitlist();
        
         $user = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
@@ -100,8 +100,8 @@ switch ($action) {
         }
         $_SESSION['store_number']=$manager->getStoreNum();
         $store_number = $_SESSION['store_number'];
-        
-         //$allActiveServers = getServersByStore($store_number);
+        $currentWaitlist= $wait->getWaitlist();
+         //$allActiveServers = DB::
         include ('Views/home.php');
         break;
 }
