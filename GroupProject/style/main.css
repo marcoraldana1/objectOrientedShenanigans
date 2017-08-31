@@ -196,7 +196,6 @@ aside h2 {
 }
 
 
-
 .table8a  {
     padding: 25px;
     border-radius: 30px;
@@ -216,8 +215,6 @@ aside h2 {
     left: 533px;
     top: 430px;
 }
-
-
 
 .table6a {
     padding: 10px;
@@ -260,8 +257,6 @@ padding: 10px;
     top: 282px;
 }
 
-
-
 .table6e {
 padding: 10px;
     border-radius: 10px;
@@ -281,7 +276,6 @@ padding: 10px;
     left: 400px;
     top: 440px;
 }
-
 
 .table4a {
     padding: 10px 5px 10px 5px;
@@ -370,8 +364,6 @@ padding: 10px;
     top: 180px;
 }
 
-
-
 .table4j {
   padding: 10px 0px 10px 0px;
     border-radius: 10px;
@@ -436,8 +428,6 @@ padding: 10px;
     top: 430px;
 }
 
-
-
 .table6a100 {
     padding: 10px;
     border-radius: 10px;
@@ -479,8 +469,6 @@ padding: 10px;
     top: 282px;
 }
 
-
-
 .table6e100 {
 padding: 10px;
     border-radius: 10px;
@@ -500,7 +488,6 @@ padding: 10px;
     left: 400px;
     top: 440px;
 }
-
 
 .table4a100 {
     padding: 10px 5px 10px 5px;
@@ -589,8 +576,6 @@ padding: 10px;
     top: 180px;
 }
 
-
-
 .table4j100 {
   padding: 10px 0px 10px 0px;
     border-radius: 10px;
@@ -655,8 +640,6 @@ padding: 10px;
     top: 430px;
 }
 
-
-
 .table6a101 {
     padding: 10px;
     border-radius: 10px;
@@ -698,8 +681,6 @@ padding: 10px;
     top: 282px;
 }
 
-
-
 .table6e101 {
 padding: 10px;
     border-radius: 10px;
@@ -719,7 +700,6 @@ padding: 10px;
     left: 400px;
     top: 440px;
 }
-
 
 .table4a101 {
     padding: 10px 5px 10px 5px;
@@ -872,8 +852,6 @@ padding: 10px;
     top: 430px;
 }
 
-
-
 .table6a102 {
     padding: 10px;
     border-radius: 10px;
@@ -914,8 +892,6 @@ padding: 10px;
     left: 395px;
     top: 282px;
 }
-
-
 
 .table6e102 {
 padding: 10px;
@@ -1088,8 +1064,6 @@ padding: 10px;
     top: 430px;
 }
 
-
-
 .table6a103 {
     padding: 10px;
     border-radius: 10px;
@@ -1130,8 +1104,6 @@ padding: 10px;
     left: 395px;
     top: 282px;
 }
-
-
 
 .table6e103 {
 padding: 10px;
@@ -1391,10 +1363,15 @@ header p {
     margin: 0px;
 }
 
-.servers {
+.server {
     text-align: center;
 }
 
 .wait {
     text-align: center;
+}
+
+.servers {
+    width: 1000px;
+    
 }

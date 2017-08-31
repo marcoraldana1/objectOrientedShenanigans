@@ -16,7 +16,7 @@
         <hr>
         <div class="wait">
             <?php foreach ($currentWaitlist as $wait): ?>
-                <p><?php echo $wait[0] . " " . $wait[1] . " " . $wait[2]; ?></p>
+                
 
             <?php endforeach; ?>
         </div>
@@ -25,6 +25,7 @@
     <aside class="left">
         <br>
         <form action="index.php"  method="post">
+            <input type='hidden' name='action' value='servers'>
             <input type="submit" class="serverList" value="SERVER LIST"> 
         </form>
 
@@ -32,11 +33,8 @@
 
         <h2>Active Servers</h2>
         <hr>
-        <div class="servers">
-            <?php foreach ($allActiveServers as $server): ?>
-                <p><?php echo $server; ?></p>
+        <div class="server">
 
-            <?php endforeach; ?>
         </div>
     </aside>
     <article>

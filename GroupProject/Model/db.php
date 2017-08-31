@@ -102,18 +102,19 @@ public static function addReservation(Reservation $reservation)
     
 public function getUserByUserLogin($login){
     
-        $db = Database::DBConnect();
+    $db = Database::DBConnect();
 
-        $userRole = User::setUserRole();
-        $userLogin = User::setUserLogin();
-        $userName = User::setUserName();
-        $userPassword = User::setUserPassword();
-        $storeNum = User::setStoreNum();
+    $userRole = User::setUserRole();
+    $userLogin = User::setUserLogin();
+    $userName = User::setUserName();
+    $userPassword = User::setUserPassword();
+    $storeNum = User::setStoreNum();
         
     $query = 'SELECT * FROM users '
             . 'WHERE userLogin = :login';
     
     $statement = $db->prepare($query);
+    $statement->bindValue(':login', $login);
     $statement->bindValue(':userRole', $userRole);
     $statement->bindValue(':userLogin', $login);
     $statement->bindValue(':userName',$userName);
@@ -126,26 +127,27 @@ public function getUserByUserLogin($login){
     return $reservations;
     }
     
-/*function getServersByStore($storeNum){
+public function getServersByStore($store_number){
     $db = Database::DBConnect();
-    $query = 'SELECT * FROM servers '
-            . 'WHERE storeNum = :storeNum';
+
+    $serverID = Server::getServerID();
+    $serverFName = Server::getServerFName();
+    $serverLName = Server::getServerLName();
+    $storeNum = Server::getStoreNum();
+        
+    $query = 'SELECT * FROM servers WHERE storeNum = :store_number';
+    
     $statement = $db->prepare($query);
-    $statement->bindValue(':storeNum', $storeNum);
+    $statement->bindValue(':store_number', $store_number);
+    $statement->bindValue(':serverID', $serverID);
+    $statement->bindValue(':serverFName',$serverFName);
+    $statement->bindValue(':serverLName' ,$serverLName);
+    $statement->bindValue(':storeNum' , $storeNum);  
     $statement->execute();
-    $result = $statement->fetch();
-    $servers = parseUserArray($result);
+    $servers = $statement->fetchall();
+    $statement->closeCursor();
+    
     return $servers;
 }
-function getServerByServerID($serverID) {
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM users '
-            . 'WHERE serverID = :serverID';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':serverID', $serverID);
-    $statement->execute();
-    $result = $statement->fetch();
-    $servers = parseUserArray($result);
-    return $servers;
-}*/
+
 }
