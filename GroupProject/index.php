@@ -23,7 +23,7 @@ if (!isset($user)) {
 if (!isset($password)) {
     $password = '';
 }
-$currentWaitlist = getAllReservations();
+//$currentWaitlist = getAllReservations();
 
 $action = filter_input(INPUT_POST, 'action');
 
@@ -79,16 +79,14 @@ switch ($action) {
         include ('Views/login.php');
         break;
     case 'admin_attempt':
-        //mostly working now, having issues with the DB not being able to prepare.
- 
-       
+        //login with a username and password
+        
         $user = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
         
         $manager = getUserByUserLogin($user);
         $_SESSION['LOGGED_IN']=$manager;
         
-        $allActiveServers = getServersByStore($store_number);
         if($manager->getUserPassword() != $password){
             $message = 'BAD LOGIN TRY AGAIN';
             include('Views/login.php');
@@ -97,7 +95,7 @@ switch ($action) {
         $_SESSION['store_number']=$manager->getStoreNum();
         $store_number = $_SESSION['store_number'];
         
-         $allActiveServers = getServersByStore($store_number);
+        $allActiveServers = getServersByStore($store_number);
         include ('Views/home.php');
         break;
 }

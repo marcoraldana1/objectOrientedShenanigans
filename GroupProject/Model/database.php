@@ -18,7 +18,6 @@ class Database {
                 exit();
             }
         }
-
         return self::$db;
     }
 }
