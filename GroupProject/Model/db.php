@@ -99,6 +99,19 @@ public static function addReservation(Reservation $reservation)
     $statement->closeCursor();
     
     }
+    public static function userNameExists($login)
+    {
+        $db = Database::DBConnect();
+
+        $query = 'SELECT * FROM users WHERE userLogin = :login';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':login', $login);
+        $statement->execute();
+        $row_count = $statement->rowCount();
+        $statement->closeCursor();
+
+        return $row_count;
+    }
     
 public function getUserByUserLogin($login){
     
@@ -150,4 +163,31 @@ public function getServersByStore($store_number){
     return $servers;
 }
 
+public static function addServer(Server $server)
+    {
+        $db = Database::DBConnect();
+
+        $serverID = $server->getServerId();
+        $
+        $partySize = $reservation->getPartySize();
+        $resTime = $reservation->getResTime();
+        $resDate = $reservation->getResDate();
+        $storeNum = $reservation->getStoreNum();
+    
+
+    $query = 'Insert Into reservations (custName, custPhone, partySize, resDate, resTime, storeNum) 
+        Values (:custName , :custPhone, :partySize, :resDate, :resTime, :storeNum)';
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':custName', $custName);
+    $statement->bindValue(':custPhone',$custPhone);
+    $statement->bindValue(':partySize' ,$partySize);
+    $statement->bindValue(':resDate' , $resDate);
+    $statement->bindValue(':resTime' , $resTime);
+    $statement->bindValue(':storeNum', $storeNum);
+    
+    $statement->execute();
+    $statement->closeCursor();
+    
+    }
 }
