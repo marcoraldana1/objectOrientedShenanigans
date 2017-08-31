@@ -3,7 +3,7 @@
 
 
 <main>
-    <article>
+   <article class="servers">
         <h1>Server Listing</h1>
         <hr>
         <?php foreach ($allActiveServers as $server): ?>
