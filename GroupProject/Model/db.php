@@ -99,7 +99,7 @@ public static function addReservation(Reservation $reservation)
     $statement->closeCursor();
     
     }
-    public static function userNameExists($login)
+    public function userNameExists($login)
     {
         $db = Database::DBConnect();
 
@@ -116,25 +116,14 @@ public static function addReservation(Reservation $reservation)
 public function getUserByUserLogin($login){
     
     $db = Database::DBConnect();
-
-    $userRole = User::setUserRole();
-    $userLogin = User::setUserLogin();
-    $userName = User::setUserName();
-    $userPassword = User::setUserPassword();
-    $storeNum = User::setStoreNum();
         
     $query = 'SELECT * FROM users '
             . 'WHERE userLogin = :login';
     
     $statement = $db->prepare($query);
-    $statement->bindValue(':login', $login);
-    $statement->bindValue(':userRole', $userRole);
-    $statement->bindValue(':userLogin', $login);
-    $statement->bindValue(':userName',$userName);
-    $statement->bindValue(':userPassword' ,$userPassword);
-    $statement->bindValue(':storeNum' , $storeNum);  
+    $statement->bindValue(':login', $login);  
     $statement->execute();
-    $reservations = $statement->fetchall();
+    $reservations = $statement->fetch();
     $statement->closeCursor();
     
     return $reservations;

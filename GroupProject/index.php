@@ -85,25 +85,26 @@ switch ($action) {
         include ('Views/login.php');
         break;
     case 'admin_attempt':
-        //mostly working now, having issues with the DB not being able to prepare.
         $wait = new Waitlist();
        
-        $user = filter_input(INPUT_POST, 'user');
+        $login = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
-        $user = new User;
-        if(userNameExists($login)>0 ){
-        $user = getUserByUserLogin($login);
+        if(db::userNameExists($login)>0 ){
+        $user = db::getUserByUserLogin($login);
+        $signin = new User($user["userID"], $user["userRole"], $user["userName"], $user["userLogin"], $user["userPassword"], $user["storeNum"]);
+        }
+        else{
+            $message = 'NO SUCH USERNAME TRY AGAIN';
+            include('Views/login.php');
+            break;
         }
         
-       //$manager = getUserByUserLogin($login);
-       // $_SESSION['LOGGED_IN']=$manager;
-        
-        if($user->getUserPassword() != $password){
+        if($signin->getUserPassword() != $password){
             $message = 'BAD LOGIN TRY AGAIN';
             include('Views/login.php');
             break;
         }
-        $_SESSION['store_number']=$user->getStoreNum();
+        $_SESSION['store_number']=$signin->getStoreNum();
         $store_number = $_SESSION['store_number'];
         include ('Views/home.php');
         break;
