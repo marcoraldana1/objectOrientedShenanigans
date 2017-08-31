@@ -34,8 +34,8 @@ class Customer {
         return $this->customerId;
     }
     
-    public function setCustomerName($id) {
-        $this->customerName = $id;
+    public function setCustomerName($customerName) {
+        $this->customerName = $customerName;
     }
     public function getCustomerName() {
         return $this->customerName;

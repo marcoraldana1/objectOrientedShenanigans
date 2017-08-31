@@ -1,5 +1,5 @@
 <?php
-
+class DB{
 /* 
  * This contains all the database queries as well as a few
  * functions to parse information from the database if it
@@ -9,32 +9,20 @@
  */
 
 //reservations
-function parseReservationArray($reservationArray) {
-    //parse results of reservation queries into reservation objects
-    $reservation = new Reservation($reservationArray['resID'], $reservationArray['resDate'],
-            $reservationArray['resTime'], $reservationArray['storeNum'],
-            $reservationArray['custName'], $reservationArray['partySize'],
-            $reservationArray['custPhone']);
-    return $reservation;
-}
-function getAllReservations() {
-    //get an array of all reservations
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM reservations';
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $result = $statement->fetchall();
-    $reservations = array();
-    foreach ($result as $reservationArray) {
-        array_push($reservations, parseReservationArray($reservationArray));
-    }
-    return $reservations;
-}
+public function getReservationsByStore()
+    {
+        $db = Database::DBConnect();
 
-function setReservation($custName, $custPhone, $partySize, $resDate, $resTime, $storeNum) {
-    $db = Database::DBConnect();
-    $query = 'Insert Into reservations (custName, custPhone, partySize, resDate, resTime, storeNum) 
-        Values (:custName , :custPhone, :partySize, :resDate, :resTime, :storeNum)';
+        $custName = Reservation::setCustName();
+        $custPhone = Reservation::setCustPhone();
+        $partySize = Reservation::setPartySize();
+        $resTime = Reservation::setResTime();
+        $resDate = Reservation::setResDate();
+        $storeNum = Reservation::setStoreNum();
+    
+
+    $query = 'Select * from reservations 
+             where storeNum = :storeNum';
     
     $statement = $db->prepare($query);
     $statement->bindValue(':custName', $custName);
@@ -45,9 +33,41 @@ function setReservation($custName, $custPhone, $partySize, $resDate, $resTime, $
     $statement->bindValue('$storeNum', $storeNum);
     
     $statement->execute();
+    $reservations = $statement->fetchall();
     
-}
+    
+    return $reservations;
+    
+    }
 
+
+public static function addReservation(Reservation $reservation)
+    {
+        $db = Database::DBConnect();
+
+        $custName = $reservation->getCustName();
+        $custPhone = $reservation->getCustPhone();
+        $partySize = $reservation->getPartySize();
+        $resTime = $reservation->getResTime();
+        $resDate = $reservation->getResDate();
+        $storeNum = $reservation->getStoreNum();
+    
+
+    $query = 'Insert Into reservations (custName, custPhone, partySize, resDate, resTime, storeNum) 
+        Values (:custName , :custPhone, :partySize, :resDate, :resTime, :storeNum)';
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':custName', $custName);
+    $statement->bindValue(':custPhone',$custPhone);
+    $statement->bindValue(':partySize' ,$partySize);
+    $statement->bindValue(':resDate' , $resDate);
+    $statement->bindValue(':resTime' , $resTime);
+    $statement->bindValue(':storeNum', $storeNum);
+    
+    $statement->execute();
+    
+    }
+    
 function getReservationByStoreNum($storeNum) {
     //get reservation by resID
     $db = Database::DBConnect();
@@ -172,4 +192,5 @@ function getServerByServerID($serverID) {
     $result = $statement->fetch();
     $servers = parseUserArray($result);
     return $servers;
+}
 }
