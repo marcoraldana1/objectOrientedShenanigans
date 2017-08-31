@@ -34,7 +34,38 @@ public function getReservationsByStore()
     
     $statement->execute();
     $reservations = $statement->fetchall();
+    $statement->closeCursor();
     
+    return $reservations;
+    
+    }
+    
+public function getReservationsByPhone()
+    {
+        $db = Database::DBConnect();
+
+        $custName = Reservation::setCustName();
+        $custPhone = Reservation::setCustPhone();
+        $partySize = Reservation::setPartySize();
+        $resTime = Reservation::setResTime();
+        $resDate = Reservation::setResDate();
+        $storeNum = Reservation::setStoreNum();
+    
+
+    $query = 'Select * from reservations 
+             where custPhone = :custPhone';
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':custName', $custName);
+    $statement->bindValue(':custPhone',$custPhone);
+    $statement->bindValue(':partySize' ,$partySize);
+    $statement->bindValue(':resDate' , $resDate);
+    $statement->bindValue(':resTime' , $resTime);
+    $statement->bindValue('$storeNum', $storeNum);
+    
+    $statement->execute();
+    $reservations = $statement->fetchall();
+    $statement->closeCursor();
     
     return $reservations;
     
@@ -65,113 +96,37 @@ public static function addReservation(Reservation $reservation)
     $statement->bindValue(':storeNum', $storeNum);
     
     $statement->execute();
+    $statement->closeCursor();
     
     }
     
-function getReservationByStoreNum($storeNum) {
-    //get reservation by resID
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM reservations '
-            . 'WHERE storeNum = :storeNum';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':storeNum', $storeNum);
-    $statement->execute();
-    $result = $statement->fetch();
-    $reservation = parseReservationArray($result);
-    return $reservation;
-}
-function getReservationByResID($resID) {
-    //get reservation by resID
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM reservations '
-            . 'WHERE resID = :resID';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':resID', $resID);
-    $statement->execute();
-    $result = $statement->fetch();
-    $reservation = parseReservationArray($result);
-    return $reservation;
-}
-function getReservationByPhoneNumber($custPhone) {
-    //by phone number.. we may ditch this one or the next..
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM reservations '
-            . 'WHERE custPhone = :custPhone';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':custPhone', $custPhone);
-    $statement->execute();
-    $result = $statement->fetch();
-    $reservation = parseReservationArray($result);
-    return $reservation;
-}
-function getReservationByName($custName) {
-    //by name
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM reservations '
-            . 'WHERE custName = :custName';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':custName', $custName);
-    $statement->execute();
-    $result = $statement->fetch();
-    $reservation = parseReservationArray($result);
-    return $reservation;
-}
+public function getUserByUserLogin($login){
+    
+        $db = Database::DBConnect();
 
-//users
-function parseUserArray($userArray) {
-    //parse result of user table queries into user objects
-    $user = new User($userArray['userID'], $userArray['userRole'],
-            $userArray['userName'], $userArray['userLogin'], 
-            $userArray['userPassword'], $userArray['storeNum']);
-    return $user;
-}
-function getAllUsers() {
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM users';
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $result = $statement->fetchall();
-    $users = array();
-    foreach ($result as $userArray) {
-        array_push($users, parseReservationArray($userArray));
-    }
-    return $users;    
-}
-function getUserByStore($storeNum){
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM users '
-            . 'WHERE storeNum = :storeNum';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':storeNum', $storeNum);
-    $statement->execute();
-    $result = $statement->fetch();
-    $users = parseUserArray($result);
-    return $users;
-}
-function getUserByUserID($userID) {
-    $db = Database::DBConnect();
-    $query = 'SELECT * FROM users '
-            . 'WHERE userID = :userID';
-    $statement = $db->prepare($query);
-    $statement->bindValue(':userID', $userID);
-    $statement->execute();
-    $result = $statement->fetch();
-    $user = parseUserArray($result);
-    return $user;
-}
-function getUserByUserLogin($userLogin) {
-    //should userLogin be the primary key and ditch userID?
-    $db = Database::DBConnect();
+        $userRole = User::setUserRole();
+        $userLogin = User::setUserLogin();
+        $userName = User::setUserName();
+        $userPassword = User::setUserPassword();
+        $storeNum = User::setStoreNum();
+        
     $query = 'SELECT * FROM users '
             . 'WHERE userLogin = :userLogin';
+    
     $statement = $db->prepare($query);
+    $statement->bindValue(':userRole', $userRole);
     $statement->bindValue(':userLogin', $userLogin);
+    $statement->bindValue(':userName',$userName);
+    $statement->bindValue(':userPassword' ,$userPassword);
+    $statement->bindValue(':storeNum' , $storeNum);  
     $statement->execute();
-    $result = $statement->fetch();
-    $user = parseUserArray($result);
-    return $user;
-}
-function getServersByStore($storeNum){
+    $reservations = $statement->fetchall();
+    $statement->closeCursor();
+    
+    return $reservations;
+    }
+    
+/*function getServersByStore($storeNum){
     $db = Database::DBConnect();
     $query = 'SELECT * FROM servers '
             . 'WHERE storeNum = :storeNum';
@@ -192,5 +147,5 @@ function getServerByServerID($serverID) {
     $result = $statement->fetch();
     $servers = parseUserArray($result);
     return $servers;
-}
+}*/
 }

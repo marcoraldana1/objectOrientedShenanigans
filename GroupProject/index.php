@@ -92,7 +92,6 @@ switch ($action) {
         $manager = getUserByUserLogin($user);
         $_SESSION['LOGGED_IN']=$manager;
         
-       // $allActiveServers = getServersByStore($store_number);
         if($manager->getUserPassword() != $password){
             $message = 'BAD LOGIN TRY AGAIN';
             include('Views/login.php');
@@ -100,10 +99,12 @@ switch ($action) {
         }
         $_SESSION['store_number']=$manager->getStoreNum();
         $store_number = $_SESSION['store_number'];
-        $currentWaitlist= $wait->getWaitlist();
-         //$allActiveServers = DB::
         include ('Views/home.php');
         break;
 }
 ?>
 
+        
+        $allActiveServers = getServersByStore($store_number);
+        $currentWaitlist= $wait->getWaitlist();
+         //$allActiveServers = DB::
