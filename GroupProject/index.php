@@ -89,8 +89,9 @@ switch ($action) {
        
         $login = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
-        if(db::userNameExists($login)>0 ){
-        $user = db::getUserByUserLogin($login);
+        if(DB::userNameExists($login)>0 ){
+         
+        $user = DB::getUserByUserLogin($login);
         $signin = new User($user["userID"], $user["userRole"], $user["userName"], $user["userLogin"], $user["userPassword"], $user["storeNum"]);
         }
         else{
