@@ -10,6 +10,7 @@ require('Model/Store.php');
 require('Model/Table.php');
 require('Model/User.php');
 require('Model/Waitlist.php');
+require('Model/database.php');
 
 
 //gets initial page action to direct to main login
