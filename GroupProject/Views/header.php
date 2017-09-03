@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="style/main.css">
     </head>
+    <body>
     <header>
 
         <nav>
@@ -17,7 +18,11 @@
                         <li><input type="hidden" name="action" value="admin_attempt"></li>
                         <li>FOR ADMIN USE ONLY!</li>
                         <li><label for="user">User Name:</label></li>
-                        <li><input type="text" name="user" value="<?php echo htmlspecialchars($user); ?>" ></li>
+                        <li><input type="text" name="user" <?php 
+                        if (isset($user['userLogin'])) {
+                            echo 'value="'.htmlspecialchars($user['userLogin']).'"'; 
+                        }
+                        ?> ></li>
 
                         <li><label for="password">Password:</label></li>
                         <li><input type="text" name="password" value="<?php echo htmlspecialchars($password); ?>" ></li>

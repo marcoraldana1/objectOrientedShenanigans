@@ -10,7 +10,6 @@ require('Model/Store.php');
 require('Model/Table.php');
 require('Model/User.php');
 require('Model/Waitlist.php');
-require('Model/database.php');
 
 
 //gets initial page action to direct to main login
@@ -23,6 +22,14 @@ if (!isset($user)) {
 }
 if (!isset($password)) {
     $password = '';
+}
+
+if (isset($_SESSION['waitList'])) {
+    //get wait list out of session
+    $waitList = unserialize($_SESSION['waitList']);
+}
+else {
+    $waitList = new Waitlist();
 }
 
 

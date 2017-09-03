@@ -25,10 +25,10 @@ class Waitlist {
     //add customer, $withReservation should be true if they have a reservation
     public function add($customer, $withReservation = null) {
         if ($withreservation == true) {
-            $this->reservedWaits.push($customer);
+            array_push($this->reservedWaits,$customer);
         }
         else {
-            $this->unreservedWaits.push($customer);
+            array_push($this->unreservedWaits,$customer);
         }
     }
     

@@ -15,8 +15,15 @@
         <h2>Waitlist</h2>
         <hr>
         <div class="wait">
-            <?php foreach ($currentWaitlist as $wait): ?>
-                
+            <?php 
+            
+            $currentWaitlist = $waitList->getWaitlist();
+            foreach ($currentWaitlist as $customer): ?>
+            <p>
+                <?php echo $customer->getCustomerName() ?>
+                <br>Party of 
+                <?php echo $customer->getPartySize() ?>
+            </p>
 
             <?php endforeach; ?>
         </div>
@@ -333,7 +340,7 @@
 
     </article>
 </main>
-</body>
+
 
 <?php include('Views/footer.php'); ?>
 
