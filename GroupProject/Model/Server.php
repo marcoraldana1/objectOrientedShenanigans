@@ -18,11 +18,11 @@ class Server {
     public $serverLName;
     
     //constructor
-    public function __construct($serverId, $serverName) {
+    public function __construct($serverId, $storeNum, $serverFName, $serverLName) {
         $this->setServerId($serverId);
-        $this->setsStoreNum($storeNum);
-        $this->setServerName($serverFName);
-        $this->setServerName($serverLName);
+        $this->setStoreNum($storeNum);
+        $this->setServerFName($serverFName);
+        $this->setServerLName($serverLName);
     }
     
     //getters and setters

@@ -122,54 +122,68 @@ class DB {
 
         return $user;
     }
-
-    public function getServersByStore($store_number) {
+    
+    //returns an array of server objects.. I rewrote this -- Michael
+    public static function getServersByStore($store_number) {
         $db = Database::DBConnect();
 
+        /*
         $serverID = Server::getServerID();
         $serverFName = Server::getServerFName();
         $serverLName = Server::getServerLName();
         $storeNum = Server::getStoreNum();
+        */
 
         $query = 'SELECT * FROM servers WHERE storeNum = :store_number';
 
         $statement = $db->prepare($query);
         $statement->bindValue(':store_number', $store_number);
-        $statement->bindValue(':serverID', $serverID);
-        $statement->bindValue(':serverFName', $serverFName);
-        $statement->bindValue(':serverLName', $serverLName);
-        $statement->bindValue(':storeNum', $storeNum);
         $statement->execute();
-        $servers = $statement->fetchall();
+        $results = $statement->fetchall();
         $statement->closeCursor();
+        
+        $servers = array();
+        foreach ($results as $result) {
+            $server = new Server($result['serverID'], $result['storeNum'],
+                $result['serverFName'], $result['serverLName']);
+            array_push($servers, $server);
+        }
 
         return $servers;
     }
 
-    public static function addServer(Server $server) {
+    //I rewrote this so that it works -- Michael
+    public static function addServer($server) {
         $db = Database::DBConnect();
 
         $serverID = $server->getServerId();
-        $
-                $partySize = $reservation->getPartySize();
-        $resTime = $reservation->getResTime();
-        $resDate = $reservation->getResDate();
-        $storeNum = $reservation->getStoreNum();
+        $storeNum = $server->getStoreNum();
+        $serverFName = $server->getServerFName();
+        $serverLName = $server->getServerLName();
 
 
-        $query = 'Insert Into reservations (custName, custPhone, partySize, resDate, resTime, storeNum) 
-        Values (:custName , :custPhone, :partySize, :resDate, :resTime, :storeNum)';
+        $query = 'Insert Into servers (serverID, storeNum, serverFName, serverLName) 
+        Values (:serverID, :storeNum, :serverFName, :serverLName)';
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':custName', $custName);
-        $statement->bindValue(':custPhone', $custPhone);
-        $statement->bindValue(':partySize', $partySize);
-        $statement->bindValue(':resDate', $resDate);
-        $statement->bindValue(':resTime', $resTime);
+        $statement->bindValue(':serverID', $serverID);
         $statement->bindValue(':storeNum', $storeNum);
+        $statement->bindValue(':serverFName', $serverFName);
+        $statement->bindValue(':serverLName', $serverLName);
+        
 
         $statement->execute();
         $statement->closeCursor();
     }
-
+    
+    //delete server by server ID.  --Michael
+    public static function deleteServerByID($serverID) {
+        $db = Database::DBConnect();
+        
+        $query = 'DELETE FROM Servers WHERE serverID = :serverID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':serverID', $serverID);
+        $statement->execute();
+        
+    }
 }

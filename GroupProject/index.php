@@ -10,6 +10,7 @@ require('Model/Store.php');
 require('Model/Table.php');
 require('Model/User.php');
 require('Model/Waitlist.php');
+require('Model/Server.php');
 
 
 //gets initial page action to direct to main login
@@ -17,15 +18,20 @@ if (!isset($store_number)) {
     $store_number = '';
 }
 
-if (!isset($user)) {
-    $user = '';
+if (isset($_SESSION['user'])) {
+    //pull user out of session.  this is a User object
+    $user = unserialize($_SESSION['user']);
+    $store_number = $user->getStoreNum();
+}
+elseif (!isset($user)) {
+    $user = null;
 }
 if (!isset($password)) {
     $password = '';
 }
 
 if (isset($_SESSION['waitList'])) {
-    //get wait list out of session
+    //get Waitlist object out of session
     $waitList = unserialize($_SESSION['waitList']);
 }
 else {
@@ -52,8 +58,8 @@ switch ($action) {
         $store_number = filter_input(INPUT_POST, 'store_number');
         
         
-           // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
-      // $allActiveServers = getServersByStore($store_number);
+        // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
+        // $allActiveServers = getServersByStore($store_number);
        
        
            // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
@@ -61,7 +67,7 @@ switch ($action) {
         break;
     case 'servers':
     
-         $allActiveServers = getServersByStore($store_number);
+        $allActiveServers = DB::getServersByStore($store_number);
         include('Views/serverList.php');
         
         break;
@@ -99,8 +105,8 @@ switch ($action) {
         $password = filter_input(INPUT_POST, 'password');
         if(DB::userNameExists($login)>0 ){
          
-        $user = DB::getUserByUserLogin($login);
-        $signin = new User($user["userID"], $user["userRole"], $user["userName"], $user["userLogin"], $user["userPassword"], $user["storeNum"]);
+            $user = DB::getUserByUserLogin($login);
+            $signin = new User($user["userID"], $user["userRole"], $user["userName"], $user["userLogin"], $user["userPassword"], $user["storeNum"]);
         }
         else{
             $message = 'NO SUCH USERNAME TRY AGAIN';
@@ -113,11 +119,46 @@ switch ($action) {
             include('Views/login.php');
             break;
         }
-        $_SESSION['store_number']=$signin->getStoreNum();
+        //store user in session
+        $user = $signin;
+        $_SESSION['user'] = serialize($user);
+        $_SESSION['store_number'] = $signin->getStoreNum();
         $store_number = $_SESSION['store_number'];
         include ('Views/home.php');
+        break;    
+    case 'deleteServer':
+        if ($user->getUserRole() == "Manager") {
+            //only manager has access to do this
+            $index = filter_input(INPUT_POST, 'index');
+            DB::deleteServerByID($index);
+        }
+        //ideally, I would put an else to send to an access denied page
+        $allActiveServers = DB::getServersByStore($store_number);
+        include('Views/serverList.php');
         break;
-}
+    case 'addServer':
+        if ($user->getUserRole() == "Manager") {
+            //only manager has access to do this
+            $serverID = filter_input(INPUT_POST, 'serverID');
+            $storeNum = $user->getStoreNum();
+            $serverFName = filter_input(INPUT_POST, 'FName');
+            $serverLName = filter_input(INPUT_POST, 'LName');
+            $server = new Server($serverID, $storeNum, $serverFName, $serverLName);
+
+            DB::addServer($server);
+        }
+        //ideally, I would put an else to send to an access denied page
+        $allActiveServers = DB::getServersByStore($store_number);
+        include('Views/serverList.php');
+        break;
+    case 'Logout':
+        session_destroy();
+        header('Location: .', true);
+        exit;
+        break;
+    }
+    //put user and waitlist back into session
+    
 ?>
 
         

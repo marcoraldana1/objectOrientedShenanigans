@@ -12,13 +12,13 @@
               <h5>FOR ADMIN USE ONLY!</h5>
               <p><?php if(isset($message)){ echo htmlspecialchars($message);} ?></p>
         <label>User Name: </label>
-        <input type="text" name="user" value="<?php echo htmlspecialchars($user); ?>" required>
+        <input type="text" name="user" value="" required>
         <br>
         
          <label>Password: </label>
-        <input type="text" name="password" value="<?php echo htmlspecialchars($password); ?>" required>
+        <input type="text" name="password" value="" required>
         <br>
-        <input type="submit" value="LOGIN">
+        <input type="submit" value="Login">
     </form>
         
         

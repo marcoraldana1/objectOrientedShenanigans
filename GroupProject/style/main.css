@@ -1375,3 +1375,20 @@ header p {
     width: 1000px;
     
 }
+
+.input_form form {
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 300px;
+}
+.input_form label {
+    float: left;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+.input_form input[type='text'] {
+    width: 130px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 0px;
+}

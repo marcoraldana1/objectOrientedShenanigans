@@ -15,28 +15,35 @@
                 <div class="home_controls">
                 
                     <form action="index.php" method="post">
-                        <li><input type="hidden" name="action" value="admin_attempt"></li>
-                        <li>FOR ADMIN USE ONLY!</li>
-                        <li><label for="user">User Name:</label></li>
-                        <li><input type="text" name="user" <?php 
-                        if (isset($user['userLogin'])) {
-                            echo 'value="'.htmlspecialchars($user['userLogin']).'"'; 
-                        }
-                        ?> ></li>
-
-                        <li><label for="password">Password:</label></li>
-                        <li><input type="text" name="password" value="<?php echo htmlspecialchars($password); ?>" ></li>
                         
-                        <li><input class="nav_login" type="submit" name="admin-attempt" value="LOGIN">
+                        <?PHP 
+                        if ($user == null) { ?>
+                            <li><input type="hidden" name="action" value="admin_attempt"></li>
+                            <li>FOR ADMIN USE ONLY!</li>
+                            <li><label for="user">User Name:</label></li>
+                            <li><input type="text" name="user" value=""></li>
+
+                            <li><label for="password">Password:</label></li>
+                            <li><input type="text" name="password" value="" ></li>
+
+                            <li><input class="nav_login" type="submit" name="admin-attempt" value="LOGIN">
+                        <?PHP }
+                        else { ?>
+                            <li><input class="nav_login" type="submit" name="action" value="Logout">
+                        <?PHP } ?>
                     </form>
                 </div>
-                 <div class="home_controls2">
-                            <form action="index.php" class="home_reg" method="post">
+                <div class="home_controls2">
+                    <?PHP if ($user != null) { ?>
+                    <form action="index.php" class="home_reg" method="post">
                                 <li><input type="hidden" name="action" value="update"><li>
                                
-                                <li><label>Change Store#</label></li>
+                                <li><label>Store# <?PHP echo $user->getStoreNum(); ?>
+                                </label></li>
                                  <li><input  type="submit" value="Update"></li>
-</form>
+                    </form>
+                    <?PHP } ?>
+                </div>
             </ul>
         </nav>
                 <p>
