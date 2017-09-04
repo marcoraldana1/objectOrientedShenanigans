@@ -152,7 +152,7 @@ switch ($action) {
         include('Views/serverList.php');
         break;
     case 'Logout':
-        session_destroy();
+        unset($_SESSION['user']);
         header('Location: .', true);
         exit;
         break;
