@@ -47,6 +47,42 @@ main {
    
 }
 
+#confirmation {
+    margin: 0 auto;
+    width: 954px;
+    border: solid black;
+    padding: 20px;
+}
+
+#reservation {
+    height: 20em;
+    padding-left: 30px;
+    margin: 0 auto;
+    width: 1000px;
+    font-size: 2em;
+    
+}
+
+
+
+#reservation label{
+    float: left;
+}
+
+#reservation input {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-top: 10px;
+    height:35px;
+}
+
+#reservation input[type=submit] {
+    width:15em;
+    float: left;
+    margin-bottom: 30px;
+}
+
 .home{
    
   

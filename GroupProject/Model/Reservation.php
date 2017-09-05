@@ -14,7 +14,7 @@
 
 //added in Differentiation of First and Last Name
 class Reservation {
-    private $resID;
+    //private $resID;
     private $customerName;
     private $resDate;
     private $resTime;
@@ -23,9 +23,9 @@ class Reservation {
     private $customerPhone;
     
     //constructor
-    public function __construct($resID, $resDate, $resTime, $storeNum,
+    public function __construct(/*$resID,*/ $resDate, $resTime, $storeNum,
             $customerName, $partySize, $customerPhone) {
-        $this->setResID($resID);
+        //$this->setResID($resID);
         $this->setCustomerName($customerName);
         $this->setResDate($resDate);
         $this->setResTime($resTime);

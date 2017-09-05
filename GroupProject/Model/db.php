@@ -71,8 +71,8 @@ class DB {
     public static function addReservation(Reservation $reservation) {
         $db = Database::DBConnect();
 
-        $custName = $reservation->getCustName();
-        $custPhone = $reservation->getCustPhone();
+        $custName = $reservation->getCustomerName();
+        $custPhone = $reservation->getCustomerPhone();
         $partySize = $reservation->getPartySize();
         $resTime = $reservation->getResTime();
         $resDate = $reservation->getResDate();

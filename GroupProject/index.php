@@ -22,8 +22,7 @@ if (isset($_SESSION['user'])) {
     //pull user out of session.  this is a User object
     $user = unserialize($_SESSION['user']);
     $store_number = $user->getStoreNum();
-}
-elseif (!isset($user)) {
+} elseif (!isset($user)) {
     $user = null;
 }
 if (!isset($password)) {
@@ -33,8 +32,7 @@ if (!isset($password)) {
 if (isset($_SESSION['waitList'])) {
     //get Waitlist object out of session
     $waitList = unserialize($_SESSION['waitList']);
-}
-else {
+} else {
     $waitList = new Waitlist();
 }
 
@@ -56,65 +54,66 @@ switch ($action) {
     case 'login':
         //this information needs to be pulled from the database. We probably need a validation model
         $store_number = filter_input(INPUT_POST, 'store_number');
-        
-        
+
+
         // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
         // $allActiveServers = getServersByStore($store_number);
-       
-       
-           // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
+        // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
         include('Views/home.php');
         break;
     case 'servers':
-    
+
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/serverList.php');
-        
+
         break;
     case 'reservation':
         include('Views/reservations.php');
         break;
     case 'res_confirmation':
-        //$resID = 1; //this should be auto incrementing. For another time though
-        $cust_name = filter_input(INPUT_POST,'cust_name');
-        $phone = filter_input (INPUT_POST, 'phone_number');
+        //gets all information from user and creates object
+        //needs validation
+        $cust_name = filter_input(INPUT_POST, 'cust_name');
+        $phone = filter_input(INPUT_POST, 'phone_number');
         $partySize = filter_input(INPUT_POST, 'party_size');
         $res_store_number = filter_input(INPUT_POST, 'store_number');
         $date = filter_input(INPUT_POST, 'res_date');
         $time = filter_input(INPUT_POST, 'res_time');
-        
-        //gets all information from user and creates object
-        //needs validation
-        //$newRes = new Reservation($resID, $date, $time, $res_store_number, $cust_name, $partySize, $phone);
-        setReservation($cust_name, $phone, $partySize, $date, $time, $res_store_number);
-        
-             
+
+
+        $newRes = new Reservation($date, $time, $res_store_number, $cust_name, $partySize, $phone);
+        DB::addReservation($newRes);
+
+
+
         include('Views/res_confirmation.php');
         break;
-        
-   
+    case 'home':
+        include('Views/home.php');
+        break;
+
+
     case 'update':
-         $store_number = $_SESSION['store_number'];
-        
+        $store_number = $_SESSION['store_number'];
+
         include ('Views/login.php');
         break;
     case 'admin_attempt':
         $wait = new Waitlist();
-       
+
         $login = filter_input(INPUT_POST, 'user');
         $password = filter_input(INPUT_POST, 'password');
-        if(DB::userNameExists($login)>0 ){
-         
+        if (DB::userNameExists($login) > 0) {
+
             $user = DB::getUserByUserLogin($login);
             $signin = new User($user["userID"], $user["userRole"], $user["userName"], $user["userLogin"], $user["userPassword"], $user["storeNum"]);
-        }
-        else{
+        } else {
             $message = 'NO SUCH USERNAME TRY AGAIN';
             include('Views/login.php');
             break;
         }
-        
-        if($signin->getUserPassword() != $password){
+
+        if ($signin->getUserPassword() != $password) {
             $message = 'BAD LOGIN TRY AGAIN';
             include('Views/login.php');
             break;
@@ -125,7 +124,7 @@ switch ($action) {
         $_SESSION['store_number'] = $signin->getStoreNum();
         $store_number = $_SESSION['store_number'];
         include ('Views/home.php');
-        break;    
+        break;
     case 'deleteServer':
         if ($user->getUserRole() == "Manager") {
             //only manager has access to do this
@@ -156,10 +155,9 @@ switch ($action) {
         header('Location: .', true);
         exit;
         break;
-    }
-    //put user and waitlist back into session
-    
+}
+//put user and waitlist back into session
 ?>
 
-        
- 
+
+

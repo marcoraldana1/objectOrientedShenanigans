@@ -2,11 +2,17 @@
 
 
 <!--simple page used to ensure reservation is set -->
-<h1>Thank you <?php echo(htmlspecialchars($cust_name))?></h1><br>
-<h3>for your reservation at Store #<?php echo(htmlspecialchars($res_store_number));?><br>
-    set on <?php echo(htmlspecialchars($date));?><br>
-    at <?php echo(htmlspecialchars($time));?>
-for a party of <?php echo(htmlspecialchars($partySize))?></h3>
+<form action='index.php' method='post'>
+<section id="confirmation">
+<h1>Thank you <?php echo(htmlspecialchars($newRes->getCustomerName()));?>!</h1>
 
+<h2>Your reservation at Store #<?php echo(htmlspecialchars($newRes->getStoreNum()));?><br>
+    has been successfully set for <?php echo(htmlspecialchars($newRes->getPartySize()))?> people
+    at <?php echo(htmlspecialchars($newRes->getResTime()));?>.<br><br>
 
+    Contact Info: <?php echo(htmlspecialchars($newRes->getCustomerPhone()));?></h2>
+<input type="hidden" name="action" value="home">
+<input type='submit' value="Home">
+</section>
+</form>
 <?php include('Views/footer.php');?>
