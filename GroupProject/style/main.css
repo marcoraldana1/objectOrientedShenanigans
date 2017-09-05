@@ -35,12 +35,12 @@ footer {
 footer h3 {
     padding-top: 15px;
      background-color: #1C913F;
-     border-top: 1px solid black;
+     border-top: 3px solid black;
      height: 40px;
 }
 main {
     width: 1000px;
-    height: 580px;
+    height: 100%;
     margin: 0 auto;
     
     border-collapse: collapse;
@@ -91,7 +91,7 @@ main {
     margin-top: 27px;
     margin-left: 0px;
     padding-left: 0px;
-    border-bottom: 4px solid black;
+   
     border-top: 3px solid black;
     background-image: url("../images/background1.png");
     background-repeat: no-repeat;
@@ -106,7 +106,7 @@ main {
     margin-top: 27px;
     margin-left: 0px;
     padding-left: 0px;
-    border-bottom: 4px solid black;
+    
     border-top: 3px solid black;
     background-image: url("../images/background1.png");
     background-repeat: no-repeat;
@@ -122,7 +122,7 @@ main {
     margin-top: 27px;
     margin-left: 0px;
     padding-left: 0px;
-    border-bottom: 4px solid black;
+ 
     border-top: 3px solid black;
     background-image: url("../images/background1.png");
     background-repeat: no-repeat;
@@ -138,7 +138,7 @@ main {
     margin-top: 27px;
     margin-left: 0px;
     padding-left: 0px;
-    border-bottom: 4px solid black;
+
     border-top: 3px solid black;
     background-image: url("../images/background1.png");
     background-repeat: no-repeat;
@@ -153,7 +153,7 @@ main {
     margin-top: 27px;
     margin-left: 0px;
     padding-left: 0px;
-    border-bottom: 4px solid black;
+   
     border-top: 3px solid black;
     background-image: url("../images/background1.png");
     background-repeat: no-repeat;
@@ -187,7 +187,7 @@ fieldset {
     height: 595px;
     float: right;
     width: 17%;
-    border-bottom: 4px solid black;
+   
     border-left: 3px solid black;
     margin-right: 0;
      background-color: #1C913F;
@@ -197,7 +197,7 @@ fieldset {
     height: 595px;
     float: left;
     width: 17%;
-    border-bottom: 4px solid black;
+ 
     border-right: 3px solid black;
      background-color: #1C913F;
 
@@ -1386,21 +1386,36 @@ nav li {
 
 .home_controls {
     float: right;
-    
+    margin-right: 20px;
 }
 
 nav {
     background-color: #BEBEBE;
-    height: 25px;
+    height: 27px;
 }
 
+nav input[type='submit'] {
+    border-style:outset;
+    margin-top: 2px;
+    
+}
 header p {
     padding-top: 0px;
     margin: 0px;
 }
 
-.server {
-    text-align: center;
+
+.server{
+   padding-left: 5px;
+   margin-top: 0px;
+   
+   
+    
+}
+
+.server td {
+    padding: 2px 0px 4px 5px;
+     font-size: 1.1em;
 }
 
 .wait {
@@ -1427,4 +1442,80 @@ header p {
     float: right;
     margin-right: 20px;
     margin-top: 0px;
+}
+
+.home_controls2 {
+    float: left;
+    width: 350px;
+    margin-left: 20px;
+}
+.home_controls3 input[type='submit']{
+    padding: 0px 40px 0px 40px;
+    margin-left: 50px;
+   background-color: #1C913F;
+   color: #ffffff;
+   
+  
+    
+}
+
+.addWait {
+       margin: 20px 0px 0px 10px;
+    padding: 2px 10px 2px 10px;
+    border: 4px groove #BEBEBE;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.waitList {
+    background-color: #1C913F;
+    padding-bottom: 20px;
+    height: 250px;
+    padding-top: 30px;
+}
+.waitList fieldset {
+    padding: 25px;
+    margin: 0 auto;
+   margin-top: 10px;
+    width: 500px;
+}
+
+.waitList legend{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    
+}
+
+.waitList form {
+    width: 350px;
+    margin: 0 auto;
+    line-height: 25px;
+    font-size: 1.2em;
+    
+}
+
+.waitList input[type='text']{
+    float: right;
+    width: 175px;
+}
+
+.waitList input[type='time']{
+    float: right;
+    width: 95px;
+    margin-right:78px;
+}
+
+.waitList input.pSize {
+        width: 97px;
+    margin-right:78px;
+}
+
+.waitList input[type='submit']{
+      margin: 10px 0px 0px 130px;
+    padding: 3px 20px 3px 20px;
+    border: 4px groove #BEBEBE;
+    border-radius: 20px;
+    font-weight: 700;
+    
 }

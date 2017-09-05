@@ -49,13 +49,17 @@ if ($action === NULL) {
 
 switch ($action) {
     case 'initial_login':
+        
         include('Views/login.php');
         break;
-    case 'login':
+    case 'home':
+         $wait = new Waitlist();
         //this information needs to be pulled from the database. We probably need a validation model
-        $store_number = filter_input(INPUT_POST, 'store_number');
-
-
+        //$store_number = filter_input(INPUT_POST, 'store_number');
+        $store_number = $_SESSION['store_number'];
+          
+        $allActiveServers = DB::getServersByStore($store_number);
+        $currentWaitlist = $wait->getWaitlist();
         // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
         // $allActiveServers = getServersByStore($store_number);
         // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
@@ -94,9 +98,14 @@ switch ($action) {
 
 
     case 'update':
-        $store_number = $_SESSION['store_number'];
-
+         $store_number = $_SESSION['store_number'];
+        $_SESSION['store_number']= $store_number;
+        
         include ('Views/login.php');
+        break;
+    case 'addWait':
+        
+         include ('Views/addWaitlist.php');
         break;
     case 'admin_attempt':
         $wait = new Waitlist();
@@ -119,10 +128,16 @@ switch ($action) {
             break;
         }
         //store user in session
-        $user = $signin;
+        
+     
+        
+        $store_number = $_SESSION['store_number'];
+        $allActiveServers = DB::getServersByStore($store_number);
+        $currentWaitlist = $wait->getWaitlist();
+        
+           $user = $signin;
         $_SESSION['user'] = serialize($user);
         $_SESSION['store_number'] = $signin->getStoreNum();
-        $store_number = $_SESSION['store_number'];
         include ('Views/home.php');
         break;
     case 'deleteServer':
@@ -151,7 +166,7 @@ switch ($action) {
         include('Views/serverList.php');
         break;
     case 'Logout':
-        session_destroy();
+        unset($_SESSION['user']);
         header('Location: .', true);
         exit;
         break;
