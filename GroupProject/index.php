@@ -107,6 +107,10 @@ switch ($action) {
         
          include ('Views/addWaitlist.php');
         break;
+    case 'addWait':
+        
+         include ('Views/addWaitlist.php');
+        break;
     case 'admin_attempt':
         $wait = new Waitlist();
 
