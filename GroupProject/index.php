@@ -55,11 +55,13 @@ switch ($action) {
         include('Views/login.php');
         break;
     case 'home':
-        
+         $wait = new Waitlist();
         //this information needs to be pulled from the database. We probably need a validation model
         //$store_number = filter_input(INPUT_POST, 'store_number');
         $store_number = $_SESSION['store_number'];
-        
+          
+        $allActiveServers = DB::getServersByStore($store_number);
+        $currentWaitlist = $wait->getWaitlist();
         // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
         // $allActiveServers = getServersByStore($store_number);
        
@@ -128,14 +130,15 @@ switch ($action) {
         }
         //store user in session
         
-        $user = $signin;
-        $_SESSION['user'] = serialize($user);
-        $_SESSION['store_number'] = $signin->getStoreNum();
-        
-         $allActiveServers = DB::getServersByStore($store_number);
-        $currentWaitlist = $wait->getWaitlist();
+     
         
         $store_number = $_SESSION['store_number'];
+        $allActiveServers = DB::getServersByStore($store_number);
+        $currentWaitlist = $wait->getWaitlist();
+        
+           $user = $signin;
+        $_SESSION['user'] = serialize($user);
+        $_SESSION['store_number'] = $signin->getStoreNum();
         include ('Views/home.php');
         break;    
     case 'deleteServer':
