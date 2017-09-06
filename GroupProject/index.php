@@ -180,7 +180,7 @@ switch ($action) {
         //store user in session
         //was not storing store number in session initially. Hard coded the value. 
         //User is not used as an object here so cannot use getStoreNum()
-        $store_number = 100;
+        
         $_SESSION['store_number'] = $store_number;
          
         $allActiveServers = DB::getServersByStore($store_number);

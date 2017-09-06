@@ -31,10 +31,13 @@ public class CartServlet extends HttpServlet {
         // perform action and set URL to appropriate page
         String url = "/index.jsp";
         if (action.equals("shop")) {
-            url = "/index.jsp";    // the "index" page
+              HttpSession session = request.getSession();
+            
             ArrayList<Product> product = new ArrayList<Product>();
             
             product = CommerceDA.getAllProducts();
+            session.setAttribute("product", product);
+             url = "/index.jsp";    // the "index" page
         } 
         else if (action.equals("cart")) {
             String productCode = request.getParameter("productID");
