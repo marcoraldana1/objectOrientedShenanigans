@@ -63,10 +63,54 @@ switch ($action) {
         // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
         // $allActiveServers = getServersByStore($store_number);
         // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
+        
+        //working on generating tables -- not working yet
+//        $tables = DB::getTablesByStore($store_number);
+//        $allTables($tables['2seat'],$tables['4seat'], $tables['6seat'], $tables['8seat']);
+//        $tableID = 1;
+//        $seatingCapacity = 0;
+//        $serverID = null; 
+//        $isOccupied = FALSE;
+//        $x = 0;
+//        $storeTables()= new Table();
+//        foreach ($allTables as $table){
+//            if($table == $tables['2seat']){
+//                foreach ($tables as $t){
+//                $seatingCapacity = 2;
+//                $t = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+//                $storeTables[$x] = $t;
+//                $x++;
+//                $tableID++;}
+//            }
+//            if($table == $tables['4seat']){
+//                foreach ($tables as $t){
+//                $seatingCapacity = 4;
+//                $t = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+//                $storeTables[$x] = $t;
+//                $x++;
+//                $tableID++;}
+//            }
+//            if($table == $tables['6seat']){
+//                foreach ($tables as $t){
+//                $seatingCapacity = 6;
+//                $t = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+//                $storeTables[$x] = $t;
+//                $x++;
+//                $tableID++;}
+//            }
+//            if($table == $tables['8seat']){
+//                foreach ($tables as $t){
+//                $seatingCapacity = 8;
+//                $t = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+//                $storeTables[$x] = $t;
+//                $x++;
+//                $tableID++;}
+//            }   
+//        }
+        
         include('Views/home.php');
-        break;
+        break;       
     case 'servers':
-
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/serverList.php');
 
@@ -92,24 +136,12 @@ switch ($action) {
 
         include('Views/res_confirmation.php');
         break;
-    case 'home':
-        include('Views/home.php');
-        break;
-
 
     case 'update':
          $store_number = $_SESSION['store_number'];
         $_SESSION['store_number']= $store_number;
         
         include ('Views/login.php');
-        break;
-    case 'addWait':
-        
-         include ('Views/addWaitlist.php');
-        break;
-    case 'addWait':
-        
-         include ('Views/addWaitlist.php');
         break;
     case 'addWait':
         
@@ -136,10 +168,11 @@ switch ($action) {
             break;
         }
         //store user in session
-        
-     
-        
-        $store_number = $_SESSION['store_number'];
+        //was not storing store number in session initially. Hard coded the value. 
+        //User is not used as an object here so cannot use getStoreNum()
+        $store_number = 100;
+        $_SESSION['store_number'] = $store_number;
+         
         $allActiveServers = DB::getServersByStore($store_number);
         $currentWaitlist = $wait->getWaitlist();
         

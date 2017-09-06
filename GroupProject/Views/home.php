@@ -64,6 +64,7 @@
         <h2>Store # <?php echo htmlspecialchars($store_number); ?></h2>
 
         <section>
+            
             <?php if ($store_number == 100) : ?>
                 <div class="home100">
 

@@ -16,10 +16,11 @@ class Table {
     public $seatingCapacity;
     public $serverID;
     
-    public function __construct($tableId, $seatingCapacity, $serverID = null) {
+    public function __construct($tableId, $seatingCapacity, $serverID, $isOccupied) {
         $this->setTableId($tableId);
         $this->setSeatingCapacity($seatingCapacity);
-        $this->assignServer($serverID);
+        $this->setServerID($serverID);
+        $this->setIsOccupied($isOccupied);
     }
     
     //getters and setters
@@ -37,11 +38,18 @@ class Table {
         return $this->seatingCapacity;
     }
     
-    public function getServerID() {
+    public function setServerID() {
         return $this->serverID;
     }
-    public function setServerID($serverID = null) {
+    public function getServerID($serverID) {
         $this->serverID = $serverID;
     }
+     public function setIsOccupied() {
+        return $this->isOccupied;
+    }
+    public function getIsOccupied($isOccupied) {
+        $this->serverID = $serverID;
+    }
+
     
 }

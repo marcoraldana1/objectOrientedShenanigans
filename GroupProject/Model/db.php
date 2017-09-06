@@ -107,7 +107,7 @@ class DB {
         return $row_count;
     }
 
-    public static function getUserByUserLogin($login) {
+    public function getUserByUserLogin($login) {
 
         $db = Database::DBConnect();
 
@@ -124,7 +124,7 @@ class DB {
     }
     
     //returns an array of server objects.. I rewrote this -- Michael
-    public static function getServersByStore($store_number) {
+    public function getServersByStore($store_number) {
         $db = Database::DBConnect();
 
         /*
@@ -141,7 +141,7 @@ class DB {
         $statement->execute();
         $results = $statement->fetchall();
         $statement->closeCursor();
-        
+        //this does not make an object that can be used with getters and setters
         $servers = array();
         foreach ($results as $result) {
             $server = new Server($result['serverID'], $result['storeNum'],
@@ -153,7 +153,7 @@ class DB {
     }
 
     //I rewrote this so that it works -- Michael
-    public static function addServer($server) {
+    public function addServer($server) {
         $db = Database::DBConnect();
 
         $serverID = $server->getServerId();
@@ -177,7 +177,7 @@ class DB {
     }
     
     //delete server by server ID.  --Michael
-    public static function deleteServerByID($serverID) {
+    public function deleteServerByID($serverID) {
         $db = Database::DBConnect();
         
         $query = 'DELETE FROM Servers WHERE serverID = :serverID';
@@ -185,5 +185,22 @@ class DB {
         $statement->bindValue(':serverID', $serverID);
         $statement->execute();
         
+    }
+    
+    public function getTablesByStore($storeNum){
+        $db = Database::DBConnect();
+
+        $query = 'Select * from store 
+             where storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue('$storeNum', $storeNum);
+
+        $statement->execute();
+        $tables = $statement->fetchall();
+        $statement->closeCursor();
+        
+        return $tables;
     }
 }
