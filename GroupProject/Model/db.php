@@ -10,27 +10,31 @@ class DB {
      */
 
 //reservations
-    public function getReservationsByStore() {
+    
+    //rewrote to get reservations by parameter - Marco
+    public function getReservationsByStore($storeNum) {
         $db = Database::DBConnect();
 
-        $custName = Reservation::setCustName();
-        $custPhone = Reservation::setCustPhone();
-        $partySize = Reservation::setPartySize();
-        $resTime = Reservation::setResTime();
-        $resDate = Reservation::setResDate();
-        $storeNum = Reservation::setStoreNum();
+//        $custName = Reservation::setCustomerName();
+//        $custPhone = Reservation::setCustomerPhone();
+//        $partySize = Reservation::setPartySize();
+//        $resTime = Reservation::setResTime();
+//        $resDate = Reservation::setResDate();
+//        $storeNum = Reservation::setStoreNum();
 
 
         $query = 'Select * from reservations 
              where storeNum = :storeNum';
 
         $statement = $db->prepare($query);
-        $statement->bindValue(':custName', $custName);
-        $statement->bindValue(':custPhone', $custPhone);
-        $statement->bindValue(':partySize', $partySize);
-        $statement->bindValue(':resDate', $resDate);
-        $statement->bindValue(':resTime', $resTime);
-        $statement->bindValue('$storeNum', $storeNum);
+        
+//        $statement->bindValue(':custName', $custName);
+//        $statement->bindValue(':custPhone', $custPhone);
+//        $statement->bindValue(':partySize', $partySize);
+//        $statement->bindValue(':resDate', $resDate);
+//        $statement->bindValue(':resTime', $resTime);
+        
+        $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
         $reservations = $statement->fetchall();

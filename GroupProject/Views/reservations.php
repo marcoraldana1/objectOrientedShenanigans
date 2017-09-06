@@ -30,9 +30,14 @@
 
         <input type='hidden' name='action' value='res_confirmation'>
         <input type='submit'  id='submit'  value='Set Reservation'>
+        
 
 
-
+    </form>
+    
+    <form action='index.php' method ='POST'>
+        <input type='submit' value='View Reservations'>
+        <input type='hidden' name='action' value='viewReservations'>
     </form>
 </section>
 

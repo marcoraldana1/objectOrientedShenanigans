@@ -92,8 +92,14 @@ switch ($action) {
 
         include('Views/res_confirmation.php');
         break;
-    case 'home':
-        include('Views/home.php');
+    
+    case 'viewReservations':
+        
+        $store_number = $_SESSION['store_number'];
+        
+        $reservations = DB::getReservationsByStore($store_number);
+        
+        include('Views/reservationList.php');
         break;
 
 
