@@ -136,6 +136,16 @@ switch ($action) {
 
         include('Views/res_confirmation.php');
         break;
+    
+    case 'viewReservations':
+        
+        $store_number = $_SESSION['store_number'];
+        
+        $reservations = DB::getReservationsByStore($store_number);
+        
+        include('Views/reservationList.php');
+        break;
+
 
     case 'update':
          $store_number = $_SESSION['store_number'];
