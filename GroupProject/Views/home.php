@@ -68,26 +68,26 @@
             <?php if ($store_number == 100) : ?>
                 <div class="home100">
                     <form action="index.php"  method="post">
-                        <input type="hidden" name="action" value="2 seat">
-
+                        <input type="hidden" name="action" value="assignTable">
+                        <input type="hidden" name ="seat_1" value="1">
                         <input type="button" class="table2a100" value="#1--2 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
-                        <input type="hidden" name="action" value="2 seat">
-
+                        <input type="hidden" name="action" value="assignTable">
+                        <input type="hidden" name ="seat_1" value="2">
                         <input type="button" class="table2b100" value="#2--2 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
-                        <input type="hidden" name="action" value="2 seat">
-
+                        <input type="hidden" name="action" value="assignTable">
+                          <input type="hidden" name ="seat_1" value="3">
                         <input type="button" class="table2c100" value="#3--2 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
-                        <input type="hidden" name="action" value="2 seat">
-
+                        <input type="hidden" name="action" value="assignTable">
+  <input type="hidden" name ="seat_1" value="4">
                         <input type="button" class="table2d100" value="#4--2 seat"> 
 
                     </form>
