@@ -36,10 +36,10 @@
     <aside class="left">
         <br>
         <?php if ($user->getUserRole() == "Manager") { ?>
-        <form action="index.php"  method="post">
-            <input type='hidden' name='action' value='manageServers'>
-            <input type="submit" class="serverList" value="Manage Servers"> 
-        </form>
+            <form action="index.php"  method="post">
+                <input type='hidden' name='action' value='manageServers'>
+                <input type="submit" class="serverList" value="Manage Servers"> 
+            </form>
         <?php } ?> 
 
         <h2>Active Servers</h2>
@@ -69,140 +69,140 @@
                 <div class="home100">
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="assignTable">
-                        <input type="hidden" name ="seat_1" value="1">
-                        <input type="button" class="table2a100" value="#1--2 seat"> 
+                        <input type="hidden" name ="table1" value="1">
+                        <input type="button" class="table1" value="#1--2 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="assignTable">
-                        <input type="hidden" name ="seat_1" value="2">
-                        <input type="button" class="table2b100" value="#2--2 seat"> 
+                        <input type="hidden" name ="table2" value="2">
+                        <input type="button" class="table2" value="#2--2 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="assignTable">
-                          <input type="hidden" name ="seat_1" value="3">
+                        <input type="hidden" name ="seat_1" value="3">
                         <input type="button" class="table2c100" value="#3--2 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="assignTable">
-  <input type="hidden" name ="seat_1" value="4">
+                        <input type="hidden" name ="seat_1" value="4">
                         <input type="button" class="table2d100" value="#4--2 seat"> 
 
                     </form>
 
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="8 seat">
-
+                        <input type="hidden" name ="seat_1" value="19">
                         <input type="button" class="table8a100" value="#19--8 seat"> 
 
                     </form>  <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="8 seat">
-
+                        <input type="hidden" name ="seat_1" value="23">
                         <input type="button" class="table8b100" value="#23--8 seat"> 
 
                     </form>
 
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="table7">
-
+                        <input type="hidden" name ="seat_1" value="15">
                         <input type="button" class="table6a100" value="#15---6 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="6 seat">
-
+                        <input type="hidden" name ="seat_1" value="16">
                         <input type="button" class="table6b100" value="#16--6 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="table5">
-
+                        <input type="hidden" name ="seat_1" value="17">
                         <input type="button" class="table6c100" value="#17--6 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="table6">
-
+                        <input type="hidden" name ="seat_1" value="18">
                         <input type="button" class="table6d100" value="#18--6 seat"> 
 
                     </form>
 
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="table8">
-
-                        <input type="button" class="table6e100" value="#19--6 seat"> 
+                        <input type="hidden" name ="seat_1" value="20">
+                        <input type="button" class="table6e100" value="#20--6 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="table8">
-
-                        <input type="button" class="table6f100" value="#21--6 seat"> 
+                        <input type="hidden" name ="seat_1" value="22">
+                        <input type="button" class="table6f100" value="#22--6 seat"> 
 
                     </form>
 
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="6">
                         <input type="button" class="table4a100" value="#6--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="7">
                         <input type="button" class="table4b100" value="#7--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="8">
                         <input type="button" class="table4c100" value="#8--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="9">
                         <input type="button" class="table4d100" value="#9--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="10">
                         <input type="button" class="table4e100" value="#10--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="11">
                         <input type="button" class="table4f100" value="#11--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="12">
                         <input type="button" class="table4g100" value="#12--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="13">
                         <input type="button" class="table4h100" value="#13--4 seat"> 
 
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
+                        <input type="hidden" name ="seat_1" value="14">
                         <input type="button" class="table4i100" value="#14--4 seat"> 
 
                     </form>
-                      <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
-
-                        <input type="button" class="table4j100" value="#14--4 seat"> 
+                        <input type="hidden" name ="seat_1" value="21">
+                        <input type="button" class="table4j100" value="#21--4 seat"> 
 
                     </form>
-           
+
                 </div>
             <?php elseif ($store_number == 101) : ?>
                 <div class="home101"> 
@@ -325,7 +325,7 @@
                         <input type="button" class="table4i101" value="#14--4 seat"> 
 
                     </form>
-                     <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
 
                         <input type="button" class="table4j101" value="#12--4 seat"> 
@@ -343,7 +343,7 @@
                         <input type="button" class="table4l101" value="#14--4 seat"> 
 
                     </form>
-          
+
                 </div>
             <?php elseif ($store_number == 102) : ?>
                 <div class="home102">
@@ -371,7 +371,7 @@
                         <input type="button" class="table2d102" value="#4--2 seat"> 
 
                     </form>
-                            <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="2 seat">
 
                         <input type="button" class="table2e102" value="#2--2 seat"> 
@@ -433,7 +433,7 @@
                         <input type="button" class="table6e102" value="#19--6 seat"> 
 
                     </form>
-                    
+
 
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
@@ -489,9 +489,9 @@
                         <input type="button" class="table4i102" value="#14--4 seat"> 
 
                     </form>
-              
-     
-         
+
+
+
                 </div>
             <?php elseif ($store_number == 103) : ?>
                 <div class="home103">
@@ -507,7 +507,7 @@
                         <input type="button" class="table2b103" value="#2--2 seat"> 
 
                     </form>
-                          <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="2 seat">
 
                         <input type="button" class="table2c103" value="#3--2 seat"> 
@@ -519,7 +519,7 @@
                         <input type="button" class="table2d103" value="#3--2 seat"> 
 
                     </form>
-                      <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="2 seat">
 
                         <input type="button" class="table2e103" value="#1--2 seat"> 
@@ -537,7 +537,7 @@
                         <input type="button" class="table2g103" value="#3--2 seat"> 
 
                     </form>
-               <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="2 seat">
 
                         <input type="button" class="table2h103" value="#3--2 seat"> 
@@ -628,7 +628,7 @@
                         <input type="button" class="table4i103" value="#14--4 seat"> 
 
                     </form>
-                     <form action="index.php"  method="post">
+                    <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="4 seat">
 
                         <input type="button" class="table4j103" value="#12--4 seat"> 
@@ -646,7 +646,7 @@
                         <input type="button" class="table4l103" value="#14--4 seat"> 
 
                     </form>
-           
+
 
                 </div>
             <?php else: ?>
