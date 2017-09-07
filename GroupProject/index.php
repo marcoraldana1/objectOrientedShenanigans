@@ -163,7 +163,7 @@ switch ($action) {
         }
         //ideally, I would put an else to send to an access denied page
         $allActiveServers = DB::getServersByStore($store_number);
-        include('Views/serverList.php');
+        include('Views/manageServers.php');
         break;
     case 'addServer':
         if ($user->getUserRole() == "Manager") {
@@ -178,7 +178,7 @@ switch ($action) {
         }
         //ideally, I would put an else to send to an access denied page
         $allActiveServers = DB::getServersByStore($store_number);
-        include('Views/serverList.php');
+        include('Views/manageServers.php');
         break;
     case 'Logout':
         unset($_SESSION['user']);

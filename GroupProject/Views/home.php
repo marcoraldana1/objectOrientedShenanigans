@@ -37,7 +37,7 @@
         <br>
         <?php if ($user->getUserRole() == "Manager") { ?>
         <form action="index.php"  method="post">
-            <input type='hidden' name='action' value='servers'>
+            <input type='hidden' name='action' value='manageServers'>
             <input type="submit" class="serverList" value="Manage Servers"> 
         </form>
         <?php } ?> 
