@@ -476,8 +476,8 @@ aside h2 {
 
 }
 
-.table8a100  {
-    padding: 25px;
+.table18_100  {
+  padding: 25px;
     border-radius: 30px;
     position: absolute;
     width:120px;
@@ -486,7 +486,7 @@ aside h2 {
     top: 430px;
 }
 
-.table8b100  {
+.table22_100  {
     padding: 15px;
     border-radius: 30px;
     position: absolute;
@@ -496,7 +496,7 @@ aside h2 {
     top: 430px;
 }
 
-.table6a100 {
+.table14_100 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -507,7 +507,7 @@ aside h2 {
     -webkit-transform:rotate(270deg);
 
 }
-.table6b100 {
+.table15_100 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -517,7 +517,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6c100 {
+.table16_100 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -527,7 +527,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6d100 {
+.table17_100 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -537,7 +537,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6e100 {
+.table19_100 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -547,7 +547,7 @@ aside h2 {
     top: 440px;
 }
 
-.table6f100 {
+.table21_100 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -557,7 +557,7 @@ aside h2 {
     top: 440px;
 }
 
-.table4a100 {
+.table5_100 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -567,7 +567,7 @@ aside h2 {
     top: 80px;
 }
 
-.table4b100 {
+.table6_100 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -577,7 +577,7 @@ aside h2 {
     top: 80px;
 }
 
-.table4c100 {
+.table7_100 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -586,7 +586,7 @@ aside h2 {
     left: 315px;
     top: 80px;
 }
-.table4d100 {
+.table8_100 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -596,7 +596,7 @@ aside h2 {
     top: 80px;
 }
 
-.table4e100 {
+.table9_100 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -607,7 +607,7 @@ aside h2 {
     -webkit-transform:rotate(270deg);
 }
 
-.table4f100 {
+.table10_100 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -616,7 +616,7 @@ aside h2 {
     left: 110px;
     top: 180px;
 }
-.table4g100 {
+.table11_100 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -625,7 +625,7 @@ aside h2 {
     left: 215px;
     top: 180px;
 }
-.table4h100 {
+.table12_100 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -634,7 +634,7 @@ aside h2 {
     left: 315px;
     top: 180px;
 }
-.table4i100 {
+.table13_100 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -644,7 +644,7 @@ aside h2 {
     top: 180px;
 }
 
-.table4j100 {
+.table20_100 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -653,7 +653,7 @@ aside h2 {
     left: 285px;
     top: 449px;
 }
-.table2a100 {
+.table1_100 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -662,7 +662,7 @@ aside h2 {
 
 }
 
-.table2b100 {
+.table2_100 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -671,7 +671,7 @@ aside h2 {
 
 }
 
-.table2c100 {
+.table3_100 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -679,7 +679,7 @@ aside h2 {
     top: 0px;
 }
 
-.table2d100 {
+.table4_100 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -688,27 +688,27 @@ aside h2 {
 
 }
 
-.table8a101  {
-    padding: 25px;
-    border-radius: 30px;
-    position: absolute;
-    width:120px;
-    height: 70px;
-    left: 0px;
-    top: 430px;
-}
-
-.table8b101  {
+.table5_101  {
     padding: 15px;
     border-radius: 30px;
     position: absolute;
     width:120px;
     height: 70px;
-    left: 533px;
+      left: 533px;
     top: 0px;
 }
 
-.table6a101 {
+.table19_101  {
+    padding: 15px;
+    border-radius: 30px;
+    position: absolute;
+    width:120px;
+    height: 70px;
+      left: 0px;
+    top: 430px;
+}
+
+.table15_101 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -719,7 +719,7 @@ aside h2 {
     -webkit-transform:rotate(270deg);
 
 }
-.table6b101 {
+.table16_101 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -729,7 +729,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6c101 {
+.table17_101 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -739,7 +739,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6d101 {
+.table18_101 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -751,7 +751,7 @@ aside h2 {
 
 
 
-.table4a101 {
+.table6_101 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -761,7 +761,7 @@ aside h2 {
     top: 80px;
 }
 
-.table4b101 {
+.table7_101 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -771,7 +771,7 @@ aside h2 {
     top: 80px;
 }
 
-.table4c101 {
+.table8_101 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -780,7 +780,7 @@ aside h2 {
     left: 320px;
     top: 80px;
 }
-.table4d101 {
+.table9_101 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -790,7 +790,7 @@ aside h2 {
     top: 80px;
 }
 
-.table4e101 {
+.table10_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -801,7 +801,7 @@ aside h2 {
     -webkit-transform:rotate(270deg);
 }
 
-.table4f101 {
+.table11_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -810,7 +810,7 @@ aside h2 {
     left: 110px;
     top: 180px;
 }
-.table4g101 {
+.table12_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -819,7 +819,7 @@ aside h2 {
     left: 215px;
     top: 180px;
 }
-.table4h101 {
+.table13_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -828,7 +828,7 @@ aside h2 {
     left: 320px;
     top: 180px;
 }
-.table4i101 {
+.table14_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -838,7 +838,7 @@ aside h2 {
     top: 180px;
 }
 
-.table4j101 {
+.table20_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -848,7 +848,7 @@ aside h2 {
     top: 450px;
 }
 
-.table4k101 {
+.table21_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -858,7 +858,7 @@ aside h2 {
     top: 450px;
 }
 
-.table4l101 {
+.table22_101 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -867,7 +867,7 @@ aside h2 {
     left: 380px;
     top: 450px;
 }
-.table2a101 {
+.table1_101 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -876,7 +876,7 @@ aside h2 {
 
 }
 
-.table2b101 {
+.table2_101 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -885,7 +885,7 @@ aside h2 {
 
 }
 
-.table2c101 {
+.table3_101 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -893,7 +893,7 @@ aside h2 {
     top: 0px;
 }
 
-.table2d101 {
+.table4_101 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -902,7 +902,7 @@ aside h2 {
 
 }
 
-.table8a102  {
+.table1_102  {
     padding: 25px;
     border-radius: 30px;
     position: absolute;
@@ -913,7 +913,7 @@ aside h2 {
 }
 
 
-.table6a102 {
+.table17_102 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -924,7 +924,7 @@ aside h2 {
    
 
 }
-.table6b102 {
+.table18_102 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -934,7 +934,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6c102 {
+.table19_102 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -944,7 +944,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6d102 {
+.table20_102 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -954,7 +954,7 @@ aside h2 {
     top: 440px;
 }
 
-.table6e102 {
+.table22_102 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -966,7 +966,7 @@ aside h2 {
 
 
 
-.table4a102 {
+.table2_102 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -976,7 +976,7 @@ aside h2 {
     top: 0px;
 }
 
-.table4b102 {
+.table3_102 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -986,7 +986,7 @@ aside h2 {
     top: 0px;
 }
 
-.table4c102 {
+.table4_102 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -995,7 +995,7 @@ aside h2 {
     left:370px;
     top: 0px;
 }
-.table4d102 {
+.table5_102 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -1005,7 +1005,7 @@ aside h2 {
     top: 0px;
 }
 
-.table4e102 {
+.table12_102 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1016,7 +1016,7 @@ aside h2 {
     
 }
 
-.table4f102 {
+.table13_102 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1025,7 +1025,7 @@ aside h2 {
     left: 235px;
     top: 175px;
 }
-.table4g102 {
+.table14_102 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1034,7 +1034,7 @@ aside h2 {
     left: 355px;
    top: 175px;
 }
-.table4h102 {
+.table15_102 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1043,7 +1043,7 @@ aside h2 {
     left: 465px;
     top: 175px;
 }
-.table4i102 {
+.table21_102 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1054,7 +1054,7 @@ aside h2 {
 }
 
 
-.table2a102 {
+.table7_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1063,7 +1063,7 @@ aside h2 {
 
 }
 
-.table2b102 {
+.table8_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1073,7 +1073,7 @@ aside h2 {
 
 }
 
-.table2c102 {
+.table9_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1081,7 +1081,7 @@ aside h2 {
     top: 95px;
 }
 
-.table2d102 {
+.table10_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1090,7 +1090,7 @@ aside h2 {
 
 }
 
-.table2e102 {
+.table6_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1099,7 +1099,7 @@ aside h2 {
 -webkit-transform:rotate(270deg);
 
 }
-.table2f102 {
+.table11_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1108,7 +1108,7 @@ aside h2 {
     -webkit-transform:rotate(270deg);
 
 }
-.table2g102 {
+.table16_102 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1118,7 +1118,7 @@ aside h2 {
 
 }
 
-.table8a103  {
+.table1_103  {
     padding: 25px;
     border-radius: 30px;
     position: absolute;
@@ -1129,7 +1129,7 @@ aside h2 {
 }
 
 
-.table6a103 {
+.table17_103 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -1140,7 +1140,7 @@ aside h2 {
    
 
 }
-.table6b103 {
+.table18_103 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -1150,7 +1150,7 @@ aside h2 {
     top: 282px;
 }
 
-.table6c103 {
+.table19_103 {
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -1160,37 +1160,8 @@ aside h2 {
     top: 282px;
 }
 
-.table6d103 {
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute;
-    width:100px;
-    height: 60px;
-     left: 160px;
-    top: 440px;
-}
 
-.table6e103 {
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute;
-    width:100px;
-    height: 60px;
-    left: 305px;
-    top: 440px;
-}
-
-.table6f103 {
-    padding: 10px;
-    border-radius: 10px;
-    position: absolute;
-    width:100px;
-    height: 60px;
-    left: 450px;
-    top: 440px;
-}
-
-.table4a103 {
+.table2_103 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -1200,7 +1171,7 @@ aside h2 {
     top: 0px;
 }
 
-.table4b103 {
+.table3_103 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -1210,7 +1181,7 @@ aside h2 {
     top: 0px;
 }
 
-.table4c103 {
+.table4_103 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -1219,7 +1190,7 @@ aside h2 {
     left:370px;
     top: 0px;
 }
-.table4d103 {
+.table5_103 {
     padding: 10px 5px 10px 5px;
     border-radius: 10px;
     position: absolute;
@@ -1229,7 +1200,7 @@ aside h2 {
     top: 0px;
 }
 
-.table4e103 {
+.table12_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1240,7 +1211,7 @@ aside h2 {
     
 }
 
-.table4f103 {
+.table13_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1249,7 +1220,7 @@ aside h2 {
     left: 235px;
     top: 175px;
 }
-.table4g103 {
+.table14_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1258,7 +1229,7 @@ aside h2 {
     left: 355px;
    top: 175px;
 }
-.table4h103 {
+.table15_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1267,7 +1238,7 @@ aside h2 {
     left: 465px;
     top: 175px;
 }
-.table4i103 {
+.table20_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1277,7 +1248,7 @@ aside h2 {
     top: 450px;
 }
 
-.table4j103 {
+.table21_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1286,7 +1257,7 @@ aside h2 {
     left: 235px;
     top: 450px;
 }
-.table4k103 {
+.table22_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1296,7 +1267,7 @@ aside h2 {
     top: 450px;
 }
 
-.table4l103 {
+.table23_103 {
     padding: 10px 0px 10px 0px;
     border-radius: 10px;
     position: absolute;
@@ -1305,7 +1276,7 @@ aside h2 {
     left: 475px;
     top: 450px;
 }
-.table2a103 {
+.table7_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1314,7 +1285,7 @@ aside h2 {
 
 }
 
-.table2b103 {
+.table8_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1324,7 +1295,7 @@ aside h2 {
 
 }
 
-.table2c103 {
+.table9_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1332,7 +1303,7 @@ aside h2 {
     top: 95px;
 }
 
-.table2d103 {
+.table10_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1341,7 +1312,7 @@ aside h2 {
 
 }
 
-.table2e103 {
+.table6_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -1350,20 +1321,21 @@ aside h2 {
 -webkit-transform:rotate(270deg);
 
 }
-.table2f103 {
+
+.table11_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left:-20px;
+    left:-22px;
     top: 240px;
     -webkit-transform:rotate(270deg);
 
 }
-.table2g103 {
+.table16_103 {
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
-    left:-20px;
+    left:-22px;
     top: 355px;
     -webkit-transform:rotate(270deg);
 

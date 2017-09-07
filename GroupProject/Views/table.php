@@ -2,7 +2,7 @@
 
 
 <section id='table'>
-    <h1><?php echo $tableName ?></h1>
+    <h1><?php echo $tableNum ?></h1>
     <form action='index.php' method='POST'>
 
         <label>Occupied </label>
