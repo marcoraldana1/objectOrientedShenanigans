@@ -35,12 +35,12 @@
 
     <aside class="left">
         <br>
+        <?php if ($user->getUserRole() == "Manager") { ?>
         <form action="index.php"  method="post">
-            <input type='hidden' name='action' value='servers'>
-            <input type="submit" class="serverList" value="SERVER LIST"> 
+            <input type='hidden' name='action' value='manageServers'>
+            <input type="submit" class="serverList" value="Manage Servers"> 
         </form>
-
-
+        <?php } ?> 
 
         <h2>Active Servers</h2>
         <hr>
