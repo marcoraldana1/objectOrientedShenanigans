@@ -12,25 +12,7 @@
 
 
 
-        <h2>Waitlist</h2>
-        <hr>
-        <div class="wait">
-            <?php
-            $currentWaitlist = $waitList->getWaitlist();
-            foreach ($currentWaitlist as $customer):
-                ?>
-                <p>
-                    <?php echo $customer->getCustomerName() ?>
-                    <br>Party of 
-                    <?php echo $customer->getPartySize() ?>
-                </p>
-
-            <?php endforeach; ?>
-            <form action="index.php"  method="post">
-                <input type='hidden' name='action' value='addWait'>
-                <input type="submit" class="addWait" value="ADD"> 
-            </form>
-        </div>
+        <?php include('Waitlist.php'); ?>
     </aside>
 
     <aside class="left">

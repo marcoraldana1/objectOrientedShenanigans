@@ -21,12 +21,15 @@
                 <label>Party Size: </label>
                 <input type='text' class='pSize' name='party_size'>
                 <br>
-
+<!--
                 <label>Check-in Time: </label>
                 <input type='time' name='in_time'>
+
+-->
                 <br>
                 <input type='hidden' name='action' value='wait_confirm'>
                 <input type='submit' value='ENTER'>
+
             </form>
 
         </fieldset>

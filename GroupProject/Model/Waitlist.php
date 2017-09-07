@@ -24,7 +24,7 @@ class Waitlist {
     
     //add customer, $withReservation should be true if they have a reservation
     public function add($customer, $withReservation = null) {
-        if ($withreservation == true) {
+        if ($withReservation == true) {
             array_push($this->reservedWaits,$customer);
         }
         else {
@@ -35,7 +35,14 @@ class Waitlist {
     //get the whole waitlist array, or a specific index
     public function getWaitlist($index = null) {
         //full wait list starts with those with reservations, and then those without
-        $waitlist = array_merge($this->reservedWaits, $this->unreservedWaits);
+        $waitlist = array();
+        foreach ($this->reservedWaits as $wait) {
+            array_push($waitlist, $wait);
+        }
+        
+        foreach ($this->unreservedWaits as $wait) {
+            array_push($waitlist, $wait);
+        }
         
         //if there is no index specified, return the whole waitlist
         if ($index == null) {
@@ -44,6 +51,17 @@ class Waitlist {
         //otherwise, return just the Nth customer in the waitlist
         else {
             return $waitlist[$index];
+        }
+    }
+    
+    public function removeWaitByIndex($index) {
+        $reserves = count($this->reservedWaits);
+        if ($index >= $reserves) {
+            $index -= $reserves;
+            return $this->unreservedWaits[$index];
+        }
+        else {
+            return $this->reservedWaits[$index];
         }
     }
     

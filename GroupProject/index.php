@@ -47,6 +47,10 @@ if ($action === NULL) {
     }
 }
 
+    $_SESSION['store_number'] = $store_number;
+
+    $allActiveServers = DB::getServersByStore($store_number);
+
 switch ($action) {
     case 'initial_login':
         
@@ -117,9 +121,26 @@ switch ($action) {
         
         include ('Views/login.php');
         break;
-    case 'addWait':
+    case 'deleteWait':
+        $index = filter_input(INPUT_POST, 'index');
         
-         include ('Views/addWaitlist.php');
+        $waitList->removeWaitByIndex($index);
+        $_SESSION['waitList'] = serialize($waitList);
+        include('Views/home.php');
+        break;
+    case 'addWait':
+        include ('Views/addWaitlist.php');
+        break;
+    case 'wait_confirm':
+        $name = filter_input(INPUT_POST, 'cust_name');
+        $size = filter_input(INPUT_POST, 'party_size');
+        $phone = filter_input(INPUT_POST, 'phone_number');
+        $cust = new Customer($name, $size, $phone);
+        $waitList->add($cust);
+        
+        $_SESSION['waitList'] = serialize($waitList);
+        
+        include('Views/home.php');
         break;
     case 'admin_attempt':
         $wait = new Waitlist();
@@ -145,9 +166,7 @@ switch ($action) {
         //was not storing store number in session initially. Hard coded the value. 
         //User is not used as an object here so cannot use getStoreNum()
         
-        $_SESSION['store_number'] = $store_number;
-         
-        $allActiveServers = DB::getServersByStore($store_number);
+
         $currentWaitlist = $wait->getWaitlist();
         
            $user = $signin;
