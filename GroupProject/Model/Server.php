@@ -18,6 +18,7 @@ class Server {
     public $serverLName;
     
     //constructor
+    
     public function __construct($serverId, $storeNum, $serverFName, $serverLName) {
         $this->setServerId($serverId);
         $this->setStoreNum($storeNum);

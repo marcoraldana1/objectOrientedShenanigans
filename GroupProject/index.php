@@ -79,10 +79,44 @@ switch ($action) {
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/manageServers.php');
         break;
-    case 'assignServer':
-        $assignedServer = $server->serverFName." ".$server->serverLName;
-        include('Views/table.php');
+    case 'tableAssign':
+           $tableNum = filter_input(INPUT_POST, 'tableNum');
+           $store_number = $_SESSION['store_number'];
+           $assignedServer = "NONE";
+           $_SESSION['store_number']= $store_number;
+           $_SESSION['tableNum'] = $tableNum;
+            include('Views/table.php');
         break; 
+    case 'table':
+         $serverId = filter_input(INPUT_POST, 'serverId');
+        $storeNum = filter_input(INPUT_POST, 'storeNum');
+        $serverFName = filter_input(INPUT_POST, 'serverFName');
+        $serverLName = filter_input(INPUT_POST, 'serverLName');
+        
+         $store_number = $_SESSION['store_number'];
+        $tableNum = $_SESSION['tableNum'];
+        $server = $_SESSION['server'];
+           $server = new Server($serverId, $storeNum, $serverFName, $serverLName);
+        $assignedServer = $server->serverFName." ".$server->serverLName;
+        
+            include('Views/table.php');
+        break; 
+    case 'assignServer':
+         $store_number = $_SESSION['store_number'];
+        $servers = DB::getServersByStore($store_number);
+                $serverId = filter_input(INPUT_POST, 'serverId');
+        $storeNum = filter_input(INPUT_POST, 'storeNum');
+        $serverFName = filter_input(INPUT_POST, 'serverFName');
+        $serverLName = filter_input(INPUT_POST, 'serverLName');
+        
+        $server = new Server($serverId, $storeNum, $serverFName, $serverLName);
+       // $server = new Server($servers["serverId"], $servers["storeNum"], $servers["serverFName"], $servers["serverLName"]);
+       //$assignedServer = $server->serverFName." ".$server->serverLName;
+       $_SESSION['server'] = $server;
+       
+        include('Views/serverList.php');
+        break; 
+    
     case 'reservation':
         include('Views/reservations.php');
         break;

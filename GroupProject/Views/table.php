@@ -2,7 +2,7 @@
 
 
 <section id='table'>
-    <h1><?php echo $tableNum ?></h1>
+    <h1>Table #<?php echo $tableNum ?></h1>
     <form action='index.php' method='POST'>
 
         <label>Occupied </label>
@@ -11,14 +11,14 @@
 
         <label>Server:  </label>
         <input type='text' name='Server' value="<?php echo $assignedServer ?>">
-        <br>
-
-    </form>
-    
+       
     <form action='index.php' method ='POST'>
-        <input type='submit' value='Back to tables'>
-        <input type='hidden' name='action' value='home'>
+        <input type='submit' value='Assign'>
+        <input type='hidden' name='action' value='assignServer'>
     </form>
+    </form>
+     <br>
+
 </section>
 
 

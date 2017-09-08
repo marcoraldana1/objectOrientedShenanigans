@@ -19,6 +19,7 @@ class User {
     private $userPassword;
     private $storeNum;
     
+  
     public function __construct($userID, $userRole, $userName, $userLogin, $userPassword, $storeNum) {
         $this->setUserID($userID);
         $this->setUserRole($userRole);

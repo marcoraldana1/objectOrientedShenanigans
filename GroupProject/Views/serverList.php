@@ -14,7 +14,7 @@
                 <td><?php echo $server->getServerFName() . " " . $server->getServerLName(); ?></td>
                     <td>
                         <form action="index.php" method="post">
-                            <input type="hidden" name="action" value="assignServer">
+                            <input type="hidden" name="action" value="table">
                             <input type="hidden" name="index" value="<?php echo $server->getServerFName() . " " . $server->getServerLName(); ?>">
                             <input type="submit" name="assign" value="assign">
                         </form>
