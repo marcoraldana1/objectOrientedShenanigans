@@ -3,10 +3,10 @@
 
 
 <main>
-       <article class="servers">
-        <h1>Assign Servers</h1>
+       <section class="servers">
+        <h1>Assign Server</h1>
         <hr>
-        
+    
         <table>
 
         <?php foreach ($allActiveServers as $server): ?>
@@ -15,7 +15,8 @@
                     <td>
                         <form action="index.php" method="post">
                             <input type="hidden" name="action" value="table">
-                            <input type="hidden" name="index" value="<?php echo $server->getServerFName() . " " . $server->getServerLName(); ?>">
+                            <input type="hidden" name="serverFName" value="<?php echo $server->getServerFName(); ?>">
+                            <input type="hidden" name="serverLName" value="<?php echo $server->getServerLName(); ?>">
                             <input type="submit" name="assign" value="assign">
                         </form>
                     </td>   
@@ -23,7 +24,8 @@
             <?php endforeach; ?>
     
         </table>
-    </article>
+       
+    </section>
 </main>
 
 <?php include('Views/footer.php'); ?>

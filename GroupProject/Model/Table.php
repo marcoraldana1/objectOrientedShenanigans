@@ -15,6 +15,7 @@ class Table {
     public $tableID;
     public $seatingCapacity;
     public $serverID;
+    public $isOccupied;
     
     public function __construct($tableId, $seatingCapacity, $serverID, $isOccupied) {
         $this->setTableId($tableId);
