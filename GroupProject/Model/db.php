@@ -38,9 +38,22 @@ class DB {
 
         $statement->execute();
         $reservations = $statement->fetchall();
+        
+        
         $statement->closeCursor();
 
         return $reservations;
+    }
+    
+    public function deleteReservation($custName) {
+        $db = Database::DBConnect();
+        
+        $query = 'DELETE FROM reservations WHERE custName = :custName';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':custName', $custName);
+        
+        $statement->execute();
+        $statement->closeCursor();
     }
 
     public function getReservationsByPhone() {

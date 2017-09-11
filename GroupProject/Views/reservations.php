@@ -18,11 +18,11 @@
         <br>
 
         <label>Date: </label>
-        <input type='date' name='res_date'>
+        <input type='text' name='res_date'>
         <br>
 
         <label>Time of Reservation: </label>
-        <input type='time' name='res_time'>
+        <input type='text' name='res_time'>
         <br>
 
         <label>Store Number: </label>

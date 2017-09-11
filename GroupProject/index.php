@@ -180,8 +180,33 @@ $_SESSION['assignedServer'] = $assignedServer;
         $store_number = $_SESSION['store_number'];
 
         $reservations = DB::getReservationsByStore($store_number);
+        $allReservations = array();
+        
+        //this takes the items from the array and assigns them to objects
+        foreach($reservations as $res) {
+            $tempReservation = new Reservation($res['resDate'], $res['resTime'],
+                    $res['storeNum'], $res['custName'], $res['partySize'], $res['custPhone']);
+            
+            array_push($allReservations, $tempReservation);
+        }
 
         include('Views/reservationList.php');
+        break;
+    
+    case 'selectReservation':
+        $name = filter_input(INPUT_POST, 'customer');
+        $phone = filter_input(INPUT_POST, 'phone');
+        $party = filter_input(INPUT_POST, 'party');
+        $date = filter_input(INPUT_POST, 'date');
+        $time = filter_input(INPUT_POST, 'time');
+        include('Views/manageReservations.php');
+        break;
+    
+    case 'clearedReservation':
+        $selectedName = filter_input(INPUT_POST, 'custName');
+        
+        DB::deleteReservation($selectedName);
+        include('Views/resCleared.php');
         break;
 
 

@@ -8,12 +8,12 @@
 //added in Differentiation of First and Last Name
 class Reservation {
     //private $resID;
-    private $customerName;
-    private $resDate;
-    private $resTime;
-    private $storeNum;
-    private $partySize;
-    private $customerPhone;
+    public $customerName;
+    public $resDate;
+    public $resTime;
+    public $storeNum;
+    public $partySize;
+    public $customerPhone;
     
     //constructor
     public function __construct(/*$resID,*/ $resDate, $resTime, $storeNum,

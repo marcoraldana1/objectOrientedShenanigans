@@ -12,12 +12,15 @@
             <th>Select</th>
         </tr>
         <?php foreach($reservations as $res) {
-            echo "<tr><td>".($res['custName'])."</td>"
-                    . "<td>".($res['custPhone'])."</td>"
-                    ."<td>".($res['partySize'])."</td>"
-                    ."<td>".($res['resDate'])."</td>"
-                    ."<td>".($res['resTime'])."</td>"
-                    ."<td><input type=submit value='Select Reservation'></td>";
+            echo "<tr>"
+                    ."<td>".($res['custName'])."<input type='hidden' name='customer' value='".$res['custName']."'></td>"
+                    . "<td>".($res['custPhone'])."<input type='hidden' name='phone' value='".$res['custPhone']."'></td>"
+                    ."<td>".($res['partySize'])."<input type='hidden' name='party' value='".$res['partySize']."'></td>"
+                    ."<td>".($res['resDate'])."<input type='hidden' name='date' value='".$res['resDate']."'></td>"
+                    ."<td>".($res['resTime'])."<input type='hidden' name='time' value='".$res['resTime']."'></td>"
+                    
+                    ."<td><input type=submit value='Select Reservation'></td>"
+                    . "<input type='hidden' name='action' value='selectReservation'><tr>";
         } ?>
     </table>
     </form>
