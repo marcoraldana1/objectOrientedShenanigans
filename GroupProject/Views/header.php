@@ -4,6 +4,9 @@
         <title>O'Shea Shenanigans Pub & Grill</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style/main.css">
+        <style>
+            <?php if(isset($tableColors)) echo htmlspecialchars($tableColors);?>
+        </style>
     </head>
     <body>
         <header>
