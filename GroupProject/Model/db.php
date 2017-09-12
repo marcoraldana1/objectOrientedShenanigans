@@ -255,5 +255,21 @@ class DB {
        
         $statement->closeCursor();
     }
+    
+    public static function checkIfTableSat($tableID, $storeNum) {
+        $db = Database::DBConnect();
+
+        $query = 'select isOccupied from tables
+                        where tableID = :tableID AND where storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue('$tableID', $tableID);
+        $statement->bindValue('$storeNum', $storeNum);
+
+        $statement->execute();
+        $tables = $statement->fetchall();
+        $statement->closeCursor();
+    }
 
 }
