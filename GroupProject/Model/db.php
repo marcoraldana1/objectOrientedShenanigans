@@ -228,8 +228,8 @@ class DB {
 
         $statement = $db->prepare($query);
 
-        $statement->bindValue('$storeNum', $storeNum);
-        $statement->bindValue('$tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
+        $statement->bindValue(':tableID', $tableID);
 
         $statement->execute();
         $tables = $statement->fetchall();
