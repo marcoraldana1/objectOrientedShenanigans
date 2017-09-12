@@ -200,16 +200,17 @@ class DB {
         $statement->bindValue(':serverID', $serverID);
         $statement->execute();
     }
-
-    public function getTablesByStore($storeNum) {
+    
+    //updated this to reflect Joe's new tables table
+    public function getTablesByStore($storeNum){
         $db = Database::DBConnect();
 
-        $query = 'Select * from store 
-             where storeNum = :storeNum';
+        $query = 'Select * from tables 
+             where storeNumber = :storeNum';
 
         $statement = $db->prepare($query);
-
-        $statement->bindValue('$storeNum', $storeNum);
+        
+        $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
         $tables = $statement->fetchall();
