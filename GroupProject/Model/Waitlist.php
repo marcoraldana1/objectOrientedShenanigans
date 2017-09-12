@@ -28,6 +28,13 @@ class Waitlist {
         }
     }
     
+    public function checkIn($reservation) {
+        $cust = new Customer($reservation->customerName, $reservation->partySize, $reservation->customerPhone);
+        $waitList->add($cust, true);
+        unset($reservation);
+        $_SESSION['waitList'] = serialize($waitList);
+    }
+    
     //get the whole waitlist array, or a specific index
     public function getWaitlist($index = null) {
         //full wait list starts with those with reservations, and then those without
@@ -45,9 +52,10 @@ class Waitlist {
             return $waitlist;
         }
         //otherwise, return just the Nth customer in the waitlist
-        else {
+        elseif (($index < count($waitlist)) && ($index >= 0)) {
             return $waitlist[$index];
         }
+        else return null;
     }
     
     public function removeWaitByIndex($index) {

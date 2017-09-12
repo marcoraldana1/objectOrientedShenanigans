@@ -296,6 +296,15 @@ switch ($action) {
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/manageServers.php');
         break;
+    case 'checkIn':
+        //reservation check in
+        $index = filter_input(INPUT_POST, 'index');
+        
+        //somehow get the correct reservation into $reservation....
+        
+        $waitList->checkIn($reservation);
+        include('Views/home.php');
+        break;
     case 'Logout':
         unset($_SESSION['user']);
         header('Location: .', true);
