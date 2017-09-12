@@ -10,11 +10,11 @@
                 <br>
                 <br>
                 <label>Server:  </label>
-                <input type='text' name='Server' value="<?php echo $assignedServer ?>">
+                <input type='text' name='Server' value="<?php echo $output ?>">
 
                 <form action='index.php' method ='POST'>
                     <input type='submit' value='Assign'>
-                      <input type="hidden" name="assignedServer" value="<?php echo $assignedServer ?>">
+                      <input type="hidden" name="assignedServer" value="<?php echo $output ?>">
                     <input type='hidden' name='action' value='assignServer'>
                 </form>
             </form>

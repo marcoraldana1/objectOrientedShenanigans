@@ -80,15 +80,18 @@ switch ($action) {
         include('Views/manageServers.php');
         break;
     case 'tableAssign':
-        $assignedServer = $_SESSION['assignedServer'];
-        
-        $tableNum = filter_input(INPUT_POST, 'tableNum');
+        //$assignedServer = $_SESSION['assignedServer'];
+    
+        $tableID = filter_input(INPUT_POST, 'tableNum');
         $tableSize = filter_input(INPUT_POST, 'tableSize');
-        $store_number = $_SESSION['store_number'];
+        $storeNum = $_SESSION['store_number'];
+        $assignedServer = DB::getTableServerByStore($tableID, $storeNum);
         
-        $_SESSION['store_number'] = $store_number;
-        $_SESSION['tableNum'] = $tableNum;
+        $_SESSION['storeNum'] = $storeNum;
+        $_SESSION['tableID'] = $tableID;
         $_SESSION['tableSize'] = $tableSize;
+        $_SESSION['assignedServer']= $assignedServer;
+        
         include('Views/table.php');
         break;
     case 'table':
@@ -123,7 +126,7 @@ switch ($action) {
         break;
 
     case 'assignServer':
-                $tableId = filter_input(INPUT_POST, 'tableNum');
+        $tableId = filter_input(INPUT_POST, 'tableNum');
         $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
         $serverID = filter_input(INPUT_POST, 'serverId');
         $storeNum = filter_input(INPUT_POST, 'storeNum');
@@ -149,7 +152,7 @@ switch ($action) {
         // $server = new Server($servers["serverId"], $servers["storeNum"], $servers["serverFName"], $servers["serverLName"]);
         //$assignedServer = $server->serverFName." ".$server->serverLName;
         $_SESSION['server'] = $server;
-$_SESSION['assignedServer'] = $assignedServer;
+        $_SESSION['assignedServer'] = $assignedServer;
         include('Views/serverList.php');
         break;
 
@@ -181,18 +184,17 @@ $_SESSION['assignedServer'] = $assignedServer;
 
         $reservations = DB::getReservationsByStore($store_number);
         $allReservations = array();
-        
+
         //this takes the items from the array and assigns them to objects
-        foreach($reservations as $res) {
-            $tempReservation = new Reservation($res['resDate'], $res['resTime'],
-                    $res['storeNum'], $res['custName'], $res['partySize'], $res['custPhone']);
-            
+        foreach ($reservations as $res) {
+            $tempReservation = new Reservation($res['resDate'], $res['resTime'], $res['storeNum'], $res['custName'], $res['partySize'], $res['custPhone']);
+
             array_push($allReservations, $tempReservation);
         }
 
         include('Views/reservationList.php');
         break;
-    
+
     case 'selectReservation':
         $name = filter_input(INPUT_POST, 'customer');
         $phone = filter_input(INPUT_POST, 'phone');
@@ -201,10 +203,10 @@ $_SESSION['assignedServer'] = $assignedServer;
         $time = filter_input(INPUT_POST, 'time');
         include('Views/manageReservations.php');
         break;
-    
+
     case 'clearedReservation':
         $selectedName = filter_input(INPUT_POST, 'custName');
-        
+
         DB::deleteReservation($selectedName);
         include('Views/resCleared.php');
         break;
