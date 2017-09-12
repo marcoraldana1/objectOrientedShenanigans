@@ -224,15 +224,15 @@ class DB {
 
         $query = 'Select serverID from tables  
              where storeNum = :storeNum AND 
-             where tableID = :tableID';
+             tableID = :tableID';
 
         $statement = $db->prepare($query);
 
-        $statement->bindValue('$storeNum', $storeNum);
-        $statement->bindValue('$tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
+        $statement->bindValue(':tableID', $tableID);
 
         $statement->execute();
-        $tables = $statement->fetchall();
+        $assignedServer = $statement->fetchall();
         $statement->closeCursor();
 
         return $assignedServer;
@@ -242,17 +242,17 @@ class DB {
         $db = Database::DBConnect();
 
         $query = 'UPDATE  tables
-                        serverID = :serverID
-                        where tableID = :tableID AND where storeNum = :storeNum';
+                        SET serverID = :serverID
+                        where tableID = :tableID AND storeNum = :storeNum';
 
         $statement = $db->prepare($query);
 
-        $statement->bindValue('$serverID', $serverID);
-        $statement->bindValue('$tableID', $tableID);
-        $statement->bindValue('$storeNum', $storeNum);
+        $statement->bindValue(':serverID', $serverID);
+        $statement->bindValue(':tableID', $tableID);
+        $statement->bindValue(':storeID', $storeNum);
 
         $statement->execute();
-        $tables = $statement->fetchall();
+       
         $statement->closeCursor();
     }
 

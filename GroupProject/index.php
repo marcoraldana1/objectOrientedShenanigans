@@ -70,6 +70,16 @@ switch ($action) {
 
         include('Views/home.php');
         break;
+    case 'assign':
+        $tableID = $_SESSION['tableID'];
+        $storeNum = $_SESSION['storeNum'];
+        
+         $assignedServer = DB::setTableServerByID($tableID, $storeNum);
+         $_SESSION['assignedServer']= $assignedServer;
+         
+          include('Views/table.php');
+          
+        break;
     case 'servers':
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/serverList.php');
@@ -85,12 +95,14 @@ switch ($action) {
         $tableID = filter_input(INPUT_POST, 'tableNum');
         $tableSize = filter_input(INPUT_POST, 'tableSize');
         $storeNum = $_SESSION['store_number'];
-        $assignedServer = DB::getTableServerByStore($tableID, $storeNum);
+        //$assignedServer = $_SESSION['assignedServer'];
+        
+        //$assignedServer = DB::getTableServerByStore($tableID, $storeNum);
         
         $_SESSION['storeNum'] = $storeNum;
         $_SESSION['tableID'] = $tableID;
         $_SESSION['tableSize'] = $tableSize;
-        $_SESSION['assignedServer']= $assignedServer;
+       //$_SESSION['assignedServer']= $assignedServer;
         
         include('Views/table.php');
         break;
@@ -105,7 +117,7 @@ switch ($action) {
 
         $serverFName = filter_input(INPUT_POST, 'serverFName');
         $serverLName = filter_input(INPUT_POST, 'serverLName');
-        $tableNum = $_SESSION['tableNum'];
+        $tableNum = $_SESSION['tableID'];
 
         $tableSize = $_SESSION['tableSize'];
         $tableSize = $table->setSeatingCapacity($tableSize);
@@ -136,11 +148,12 @@ switch ($action) {
 
         $serverFName = filter_input(INPUT_POST, 'serverFName');
         $serverLName = filter_input(INPUT_POST, 'serverLName');
-        $tableNum = $_SESSION['tableNum'];
+        $tableID = $_SESSION['tableID'];
 
         $tableSize = $_SESSION['tableSize'];
         $tableSize = $table->setSeatingCapacity($tableSize);
-        $assignedServer = $_SESSION['assignedServer'];
+       
+        
         $store_number = $_SESSION['store_number'];
         $servers = DB::getServersByStore($store_number);
         $serverId = filter_input(INPUT_POST, 'serverId');
