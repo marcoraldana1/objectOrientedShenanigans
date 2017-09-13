@@ -45,6 +45,24 @@ class DB {
         return $reservations;
     }
     
+    public function updateReservation($custName, $custPhone, $partySize, $date, $time) {
+        $db = Database::DBConnect();
+        
+        $query = 'UPDATE reservations '
+                . 'Set custPhone = :custPhone, partySize = :partySize, resDate = :date, resTime= :time '
+                .'Where custName = :custName';
+        
+        $statement = $db->prepare($query);
+        $statement->bindValue(':custName', $custName);
+        $statement->bindValue(':custPhone', $custPhone);
+        $statement->bindValue(':partySize', $partySize);
+        $statement->bindValue(':date', $date);
+        $statement->bindValue(':time', $time);
+        
+        $statement->execute();
+        $statement->closeCursor();
+    }
+    
     public function deleteReservation($custName) {
         $db = Database::DBConnect();
         

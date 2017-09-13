@@ -183,6 +183,7 @@ $_SESSION['assignedServer'] = $assignedServer;
         $allReservations = array();
         
         //this takes the items from the array and assigns them to objects
+        //currently not used
         foreach($reservations as $res) {
             $tempReservation = new Reservation($res['resDate'], $res['resTime'],
                     $res['storeNum'], $res['custName'], $res['partySize'], $res['custPhone']);
@@ -198,6 +199,7 @@ $_SESSION['assignedServer'] = $assignedServer;
         $phone = filter_input(INPUT_POST, 'phone');
         $party = filter_input(INPUT_POST, 'party');
         $date = filter_input(INPUT_POST, 'date');
+        
         $time = filter_input(INPUT_POST, 'time');
         include('Views/manageReservations.php');
         break;
@@ -206,9 +208,24 @@ $_SESSION['assignedServer'] = $assignedServer;
         $selectedName = filter_input(INPUT_POST, 'custName');
         
         DB::deleteReservation($selectedName);
+        
+        $message = 'Item successfully deleted';
         include('Views/resCleared.php');
         break;
 
+    case 'updateReservation':
+        $name = filter_input(INPUT_POST, 'custName');
+        $phone = filter_input(INPUT_POST, 'phoneNumber');
+        $party = filter_input(INPUT_POST, 'partySize');
+        $date = filter_input(INPUT_POST, 'resDate');
+        $time = filter_input(INPUT_POST, 'resTime');
+        
+        
+        DB::updateReservation($name, $phone, $party, $date, $time);
+        
+        $message ='Reservation successfully updated';
+        include('Views/resCleared.php');
+        break;
 
     case 'update':
         $store_number = $_SESSION['store_number'];

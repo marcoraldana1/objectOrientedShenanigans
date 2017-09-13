@@ -5,7 +5,7 @@
     <form action='index.php' method='POST'>
 
         <label>Customer Name: </label>
-        <input type='text' name='custName' value='<?php echo(htmlspecialchars($name))?>'>
+        <input type='text' name='custName' readonly='readonly' value='<?php echo(htmlspecialchars($name))?>'>
         <br>
 
         <label>Phone Number: </label>
@@ -17,7 +17,7 @@
         <br>
 
         <label>Date: </label>
-        <input type='text' name='resDate' value='<?php echo(htmlspecialchars($date))?>'>
+        <input type='text' name='resDate' value='<?php echo (htmlspecialchars($date));?>'>
         <br>
 
         <label>Time of Reservation: </label>
@@ -27,6 +27,11 @@
 
         <input type='hidden' name='action' value='clearedReservation'>
         <input type='submit'  id='submit'  value='Clear Reservation'>
+        
+        <br><br>
+        
+        <input type='submit' value='Update Reservation'>
+        <input type='hidden' name='action' value='updateReservation'>
         </section>
 
 
