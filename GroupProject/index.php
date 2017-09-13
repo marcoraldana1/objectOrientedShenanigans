@@ -70,6 +70,7 @@ switch ($action) {
 
         include('Views/home.php');
         break;
+
     case 'servers':
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/serverList.php');
@@ -80,18 +81,95 @@ switch ($action) {
         include('Views/manageServers.php');
         break;
     case 'tableAssign':
-        $assignedServer = $_SESSION['assignedServer'];
-        
-        $tableNum = filter_input(INPUT_POST, 'tableNum');
+        $storeNum = $_SESSION['store_number'];
+        $tableId = filter_input(INPUT_POST, 'tableNum');
+        $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
+        $isOccupied = filter_input(INPUT_POST, 'isOccupied');
+        $serverId = filter_input(INPUT_POST, 'serverId');
+        $serverFName = filter_input(INPUT_POST, 'serverFName');
+        $serverLName = filter_input(INPUT_POST, 'serverLName');
+        $server = new Server($serverId, $storeNum, $serverFName, $serverLName);
+
+        $serverID = $serverId;
+
+        $serverFName = $server->getServerFName();
+        $serverLName = $server->getServerLName();
+
+
+        $tableID = filter_input(INPUT_POST, 'tableNum');
         $tableSize = filter_input(INPUT_POST, 'tableSize');
-        $store_number = $_SESSION['store_number'];
+
+        $assignServer = DB::getTableServerByStore($tableID, $storeNum);
+    
+        $serverID = $assignServer["serverID"];
+       
+        $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+        $table->setServerID($serverID);
+      
+        $assignedServer = DB::findServerByID($serverID);
         
-        $_SESSION['store_number'] = $store_number;
-        $_SESSION['tableNum'] = $tableNum;
+        $assignedServer = array_shift($assignedServer);
+       
+
+        if ($assignedServer == null) {
+            $assignedServer = 'NONE';
+        } else {
+            $assignedServer = $assignedServer["serverFName"] . '  ' . $assignedServer["serverLName"];
+        }
+
+
+        $_SESSION['storeNum'] = $storeNum;
+        $_SESSION['tableID'] = $tableID;
         $_SESSION['tableSize'] = $tableSize;
+        $_SESSION['assignedServer'] = $assignedServer;
+
         include('Views/table.php');
         break;
     case 'table':
+        $storeNum = $_SESSION['store_number'];
+        $tableId = filter_input(INPUT_POST, 'tableNum');
+        $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
+        $isOccupied = filter_input(INPUT_POST, 'isOccupied');
+        $serverId = filter_input(INPUT_POST, 'serverId');
+
+
+
+        $serverFName = filter_input(INPUT_POST, 'serverFName');
+        $serverLName = filter_input(INPUT_POST, 'serverLName');
+        $server = new Server($serverId, $storeNum, $serverFName, $serverLName);
+
+        $serverID = $server->getServerId();
+
+        $tableID = $_SESSION['tableID'];
+
+        $tableSize = filter_input(INPUT_POST, 'tableSize');
+
+        $assignServer = DB::getTableServerByStore($tableID, $storeNum);
+        $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+        $table->setServerID($serverID);
+
+        $assignedServer = DB::findServerByID($serverID);
+        $assignedServer = array_shift($assignedServer);
+
+        if ($assignedServer == null) {
+            $assignedServer = 'NONE';
+        } else {
+            DB::setTableServerByID($serverID, $tableID, $storeNum);
+            $assignedServer = $assignedServer['serverFName'] . '  ' . $assignedServer['serverLName'];
+        }
+
+
+        $_SESSION['storeNum'] = $storeNum;
+        $_SESSION['tableID'] = $tableID;
+        $_SESSION['tableSize'] = $tableSize;
+        $_SESSION['assignedServer'] = $assignedServer;
+
+
+        include('Views/table.php');
+        break;
+
+    case 'assignServer':
+        $assignedServer = $_SESSION['assignedServer'];
         $tableId = filter_input(INPUT_POST, 'tableNum');
         $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
         $serverID = filter_input(INPUT_POST, 'serverId');
@@ -102,46 +180,16 @@ switch ($action) {
 
         $serverFName = filter_input(INPUT_POST, 'serverFName');
         $serverLName = filter_input(INPUT_POST, 'serverLName');
-        $tableNum = $_SESSION['tableNum'];
+        $tableID = $_SESSION['tableID'];
 
         $tableSize = $_SESSION['tableSize'];
         $tableSize = $table->setSeatingCapacity($tableSize);
 
-        $assignedServer = $_SESSION['assignedServer'];
 
-
-        $store_number = $_SESSION['store_number'];
-
-
-        $server = $_SESSION['server'];
-        $server = new Server($serverID, $storeNum, $serverFName, $serverLName);
-        $assignedServer = $serverFName . " " . $serverLName;
-        $serverId = $table->setServerID();
-
-        $_SESSION['assignedServer'] = $assignedServer;
-        include('Views/table.php');
-        break;
-
-    case 'assignServer':
-                $tableId = filter_input(INPUT_POST, 'tableNum');
-        $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
-        $serverID = filter_input(INPUT_POST, 'serverId');
-        $storeNum = filter_input(INPUT_POST, 'storeNum');
-        $isOccupied = filter_input(INPUT_POST, 'isOccupied');
-
-        $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
-
-        $serverFName = filter_input(INPUT_POST, 'serverFName');
-        $serverLName = filter_input(INPUT_POST, 'serverLName');
-        $tableNum = $_SESSION['tableNum'];
-
-        $tableSize = $_SESSION['tableSize'];
-        $tableSize = $table->setSeatingCapacity($tableSize);
-        $assignedServer = $_SESSION['assignedServer'];
-        $store_number = $_SESSION['store_number'];
+        $storeNum = $_SESSION['storeNum'];
         $servers = DB::getServersByStore($store_number);
         $serverId = filter_input(INPUT_POST, 'serverId');
-        $storeNum = filter_input(INPUT_POST, 'storeNum');
+
         $serverFName = filter_input(INPUT_POST, 'serverFName');
         $serverLName = filter_input(INPUT_POST, 'serverLName');
 
@@ -149,7 +197,8 @@ switch ($action) {
         // $server = new Server($servers["serverId"], $servers["storeNum"], $servers["serverFName"], $servers["serverLName"]);
         //$assignedServer = $server->serverFName." ".$server->serverLName;
         $_SESSION['server'] = $server;
-$_SESSION['assignedServer'] = $assignedServer;
+        $_SESSION['assignedServer'] = $assignedServer;
+        $_SESSION['tableID'] = $tableID;
         include('Views/serverList.php');
         break;
 
@@ -181,19 +230,17 @@ $_SESSION['assignedServer'] = $assignedServer;
 
         $reservations = DB::getReservationsByStore($store_number);
         $allReservations = array();
-        
+
         //this takes the items from the array and assigns them to objects
-        //currently not used
-        foreach($reservations as $res) {
-            $tempReservation = new Reservation($res['resDate'], $res['resTime'],
-                    $res['storeNum'], $res['custName'], $res['partySize'], $res['custPhone']);
-            
+        foreach ($reservations as $res) {
+            $tempReservation = new Reservation($res['resDate'], $res['resTime'], $res['storeNum'], $res['custName'], $res['partySize'], $res['custPhone']);
+
             array_push($allReservations, $tempReservation);
         }
 
         include('Views/reservationList.php');
         break;
-    
+
     case 'selectReservation':
         $name = filter_input(INPUT_POST, 'customer');
         $phone = filter_input(INPUT_POST, 'phone');
@@ -203,10 +250,10 @@ $_SESSION['assignedServer'] = $assignedServer;
         $time = filter_input(INPUT_POST, 'time');
         include('Views/manageReservations.php');
         break;
-    
+
     case 'clearedReservation':
         $selectedName = filter_input(INPUT_POST, 'custName');
-        
+
         DB::deleteReservation($selectedName);
         
         $message = 'Item successfully deleted';
@@ -277,13 +324,13 @@ $_SESSION['assignedServer'] = $assignedServer;
         //store user in session
         //was not storing store number in session initially. Hard coded the value. 
         //User is not used as an object here so cannot use getStoreNum()
-
-
+$storeNum = $signin->getStoreNum();
+$allActiveServers = DB::getServersByStore($storeNum);
         $currentWaitlist = $wait->getWaitlist();
 
         $user = $signin;
         $_SESSION['user'] = serialize($user);
-        $_SESSION['store_number'] = $signin->getStoreNum();
+        $_SESSION['storeNum'] = $signin->getStoreNum();
         include ('Views/home.php');
         break;
     case 'deleteServer':
@@ -293,7 +340,7 @@ $_SESSION['assignedServer'] = $assignedServer;
             DB::deleteServerByID($index);
         }
         //ideally, I would put an else to send to an access denied page
-        $allActiveServers = DB::getServersByStore($store_number);
+        $allActiveServers = DB::getServersByStore($storeNum);
         include('Views/manageServers.php');
         break;
     case 'addServer':
@@ -310,6 +357,15 @@ $_SESSION['assignedServer'] = $assignedServer;
         //ideally, I would put an else to send to an access denied page
         $allActiveServers = DB::getServersByStore($store_number);
         include('Views/manageServers.php');
+        break;
+    case 'checkIn':
+        //reservation check in
+        $index = filter_input(INPUT_POST, 'index');
+
+        //somehow get the correct reservation into $reservation....
+
+        $waitList->checkIn($reservation);
+        include('Views/home.php');
         break;
     case 'Logout':
         unset($_SESSION['user']);

@@ -15,9 +15,9 @@
                     <td>
                         <form action="index.php" method="post">
                             <input type="hidden" name="action" value="table">
-                            <input type="hidden" name="serverFName" value="<?php echo $server->getServerFName(); ?>">
-                            <input type="hidden" name="serverLName" value="<?php echo $server->getServerLName(); ?>">
-                            <input type="submit" name="assign" value="assign">
+                            <input type="hidden" name="serverId" value="<?php echo $server->getServerId(); ?>">
+          
+                            <input type="submit" name="assign" value="Assign">
                         </form>
                     </td>   
             </tr>

@@ -5,13 +5,13 @@
  * @author mm147988
  */
 class Server {
-    public $serverId;
-    public $storeNum;
-    public $serverFName;
-    public $serverLName;
+    private $serverId;
+    private $storeNum;
+    private $serverFName;
+    private $serverLName;
     
     //constructor
-    
+
     public function __construct($serverId, $storeNum, $serverFName, $serverLName) {
         $this->setServerId($serverId);
         $this->setStoreNum($storeNum);
@@ -19,6 +19,7 @@ class Server {
         $this->setServerLName($serverLName);
     }
     
+
     //getters and setters
     public function setServerId($serverId) {
         $this->serverId = $serverId;

@@ -10,7 +10,6 @@ class DB {
      */
 
 //reservations
-    
     //rewrote to get reservations by parameter - Marco
     public function getReservationsByStore($storeNum) {
         $db = Database::DBConnect();
@@ -27,19 +26,19 @@ class DB {
              where storeNum = :storeNum';
 
         $statement = $db->prepare($query);
-        
+
 //        $statement->bindValue(':custName', $custName);
 //        $statement->bindValue(':custPhone', $custPhone);
 //        $statement->bindValue(':partySize', $partySize);
 //        $statement->bindValue(':resDate', $resDate);
 //        $statement->bindValue(':resTime', $resTime);
-        
+
         $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
         $reservations = $statement->fetchall();
-        
-        
+
+
         $statement->closeCursor();
 
         return $reservations;
@@ -65,11 +64,11 @@ class DB {
     
     public function deleteReservation($custName) {
         $db = Database::DBConnect();
-        
+
         $query = 'DELETE FROM reservations WHERE custName = :custName';
         $statement = $db->prepare($query);
         $statement->bindValue(':custName', $custName);
-        
+
         $statement->execute();
         $statement->closeCursor();
     }
@@ -157,17 +156,17 @@ class DB {
 
         return $user;
     }
-    
+
     //returns an array of server objects.. I rewrote this -- Michael
     public function getServersByStore($store_number) {
         $db = Database::DBConnect();
 
         /*
-        $serverID = Server::getServerID();
-        $serverFName = Server::getServerFName();
-        $serverLName = Server::getServerLName();
-        $storeNum = Server::getStoreNum();
-        */
+          $serverID = Server::getServerID();
+          $serverFName = Server::getServerFName();
+          $serverLName = Server::getServerLName();
+          $storeNum = Server::getStoreNum();
+         */
 
         $query = 'SELECT * FROM servers WHERE storeNum = :store_number';
 
@@ -179,12 +178,27 @@ class DB {
         //this does not make an object that can be used with getters and setters
         $servers = array();
         foreach ($results as $result) {
-            $server = new Server($result['serverID'], $result['storeNum'],
-                $result['serverFName'], $result['serverLName']);
+            $server = new Server($result['serverID'], $result['storeNum'], $result['serverFName'], $result['serverLName']);
             array_push($servers, $server);
         }
 
         return $servers;
+    }
+
+    public static function findServerByID($serverID) {
+        $db = Database::DBConnect();
+
+        $query = 'Select * from servers
+                        where serverID = :serverID';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':serverID', $serverID);
+
+        $statement->execute();
+        $row = $statement->fetchall();
+
+        $statement->closeCursor();
+        return $row;
     }
 
     //I rewrote this so that it works -- Michael
@@ -205,38 +219,91 @@ class DB {
         $statement->bindValue(':storeNum', $storeNum);
         $statement->bindValue(':serverFName', $serverFName);
         $statement->bindValue(':serverLName', $serverLName);
-        
+
 
         $statement->execute();
         $statement->closeCursor();
     }
-    
+
     //delete server by server ID.  --Michael
     public function deleteServerByID($serverID) {
         $db = Database::DBConnect();
-        
+
         $query = 'DELETE FROM Servers WHERE serverID = :serverID';
         $statement = $db->prepare($query);
         $statement->bindValue(':serverID', $serverID);
         $statement->execute();
-        
     }
-    
+
     //updated this to reflect Joe's new tables table
-    public function getTablesByStore($storeNum){
+    public function getTablesByStore($storeNum) {
         $db = Database::DBConnect();
 
         $query = 'Select * from tables 
              where storeNumber = :storeNum';
 
         $statement = $db->prepare($query);
-        
+
         $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
         $tables = $statement->fetchall();
         $statement->closeCursor();
-        
+
         return $tables;
     }
+
+    public function getTableServerByStore($tableID, $storeNum) {
+        $db = Database::DBConnect();
+
+        $query = 'Select serverID from tables  
+             where storeNum = :storeNum AND 
+             tableID = :tableID';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':storeNum', $storeNum);
+        $statement->bindValue(':tableID', $tableID);
+
+        $statement->execute();
+        $row = $statement->fetch();
+        $statement->closeCursor();
+
+        return $row;
+    }
+
+    public static function setTableServerByID($serverID, $tableID, $storeNum) {
+        $db = Database::DBConnect();
+
+        $query = 'UPDATE  tables
+                        SET serverID = :serverID
+                        where tableID = :tableID AND storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':serverID', $serverID);
+        $statement->bindValue(':tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
+
+        $statement->execute();
+
+        $statement->closeCursor();
+    }
+
+    public static function checkIfTableSat($tableID, $storeNum) {
+        $db = Database::DBConnect();
+
+        $query = 'select isOccupied from tables
+                        where tableID = :tableID AND where storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue('$tableID', $tableID);
+        $statement->bindValue('$storeNum', $storeNum);
+
+        $statement->execute();
+        $tables = $statement->fetchall();
+        $statement->closeCursor();
+    }
+
 }
