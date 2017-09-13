@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2017 at 02:03 AM
+-- Generation Time: Sep 13, 2017 at 12:03 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -63,6 +63,7 @@ CREATE TABLE `servers` (
 --
 
 INSERT INTO `servers` (`serverID`, `storeNum`, `serverFName`, `serverLName`) VALUES
+('1453', '100', 'Kiera', 'O''Donnell'),
 ('2287', '101', 'Garrett', 'Finigan'),
 ('2356', '102', 'Moira', 'Braden'),
 ('2688', '102', 'Saoirse', 'Shovlin'),
@@ -115,19 +116,19 @@ CREATE TABLE `tables` (
   `seatingCapacity` varchar(5) NOT NULL,
   `serverID` varchar(6) DEFAULT NULL,
   `isOccupied` tinyint(1) NOT NULL DEFAULT '0',
-  `storeNumber` varchar(6) NOT NULL
+  `storeNum` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tables`
 --
 
-INSERT INTO `tables` (`tableID`, `seatingCapacity`, `serverID`, `isOccupied`, `storeNumber`) VALUES
-('1', '2', NULL, 0, '100'),
+INSERT INTO `tables` (`tableID`, `seatingCapacity`, `serverID`, `isOccupied`, `storeNum`) VALUES
+('1', '2', '5284', 0, '100'),
 ('1', '2', NULL, 0, '101'),
 ('1', '8', NULL, 0, '102'),
 ('1', '8', NULL, 0, '103'),
-('10', '4', NULL, 0, '100'),
+('10', '4', '8349', 0, '100'),
 ('10', '4', NULL, 0, '101'),
 ('10', '2', NULL, 0, '102'),
 ('10', '2', NULL, 0, '103'),
@@ -155,7 +156,7 @@ INSERT INTO `tables` (`tableID`, `seatingCapacity`, `serverID`, `isOccupied`, `s
 ('16', '6', NULL, 0, '101'),
 ('16', '2', NULL, 0, '102'),
 ('16', '2', NULL, 0, '103'),
-('17', '6', NULL, 0, '100'),
+('17', '6', '5284', 0, '100'),
 ('17', '6', NULL, 0, '101'),
 ('17', '6', NULL, 0, '102'),
 ('17', '6', NULL, 0, '103'),
@@ -167,7 +168,7 @@ INSERT INTO `tables` (`tableID`, `seatingCapacity`, `serverID`, `isOccupied`, `s
 ('19', '8', NULL, 0, '101'),
 ('19', '6', NULL, 0, '102'),
 ('19', '6', NULL, 0, '103'),
-('2', '2', NULL, 0, '100'),
+('2', '2', '9358', 0, '100'),
 ('2', '2', NULL, 0, '101'),
 ('2', '4', NULL, 0, '102'),
 ('2', '4', NULL, 0, '103'),
@@ -192,15 +193,15 @@ INSERT INTO `tables` (`tableID`, `seatingCapacity`, `serverID`, `isOccupied`, `s
 ('4', '2', NULL, 0, '101'),
 ('4', '4', NULL, 0, '102'),
 ('4', '4', NULL, 0, '103'),
-('5', '4', NULL, 0, '100'),
+('5', '4', '9358', 0, '100'),
 ('5', '8', NULL, 0, '101'),
 ('5', '4', NULL, 0, '102'),
 ('5', '4', NULL, 0, '103'),
 ('6', '4', NULL, 0, '100'),
 ('6', '4', NULL, 0, '101'),
-('6', '2', NULL, 0, '102'),
+('6', '2', '4367', 0, '102'),
 ('6', '2', NULL, 0, '103'),
-('7', '4', NULL, 0, '100'),
+('7', '4', '1453', 0, '100'),
 ('7', '4', NULL, 0, '101'),
 ('7', '2', NULL, 0, '102'),
 ('7', '2', NULL, 0, '103'),
@@ -268,9 +269,9 @@ ALTER TABLE `store`
 -- Indexes for table `tables`
 --
 ALTER TABLE `tables`
-  ADD PRIMARY KEY (`tableID`,`storeNumber`),
+  ADD PRIMARY KEY (`tableID`,`storeNum`),
   ADD KEY `fk_servers` (`serverID`),
-  ADD KEY `fk_store` (`storeNumber`);
+  ADD KEY `fk_store` (`storeNum`);
 
 --
 -- Indexes for table `users`
@@ -314,7 +315,7 @@ ALTER TABLE `servers`
 --
 ALTER TABLE `tables`
   ADD CONSTRAINT `fk_servers` FOREIGN KEY (`serverID`) REFERENCES `servers` (`serverID`),
-  ADD CONSTRAINT `fk_store` FOREIGN KEY (`storeNumber`) REFERENCES `store` (`storeID`);
+  ADD CONSTRAINT `fk_store` FOREIGN KEY (`storeNum`) REFERENCES `store` (`storeID`);
 
 --
 -- Constraints for table `users`
