@@ -167,6 +167,22 @@ class DB {
         return $servers;
     }
 
+    public static function findServerByID($serverID) {
+        $db = Database::DBConnect();
+
+        $query = 'Select * from servers
+                        where serverID = :serverID';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':serverID', $serverID);
+
+        $statement->execute();
+        $row = $statement->fetchall();
+
+        $statement->closeCursor();
+        return $row;
+    }
+
     //I rewrote this so that it works -- Michael
     public function addServer($server) {
         $db = Database::DBConnect();
@@ -200,16 +216,16 @@ class DB {
         $statement->bindValue(':serverID', $serverID);
         $statement->execute();
     }
-    
+
     //updated this to reflect Joe's new tables table
-    public function getTablesByStore($storeNum){
+    public function getTablesByStore($storeNum) {
         $db = Database::DBConnect();
 
         $query = 'Select * from tables 
              where storeNumber = :storeNum';
 
         $statement = $db->prepare($query);
-        
+
         $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
@@ -219,7 +235,7 @@ class DB {
         return $tables;
     }
 
-    public static function getTableServerByStore($tableID, $storeNum) {
+    public function getTableServerByStore($tableID, $storeNum) {
         $db = Database::DBConnect();
 
         $query = 'Select serverID from tables  
@@ -232,13 +248,13 @@ class DB {
         $statement->bindValue(':tableID', $tableID);
 
         $statement->execute();
-        $assignedServer = $statement->fetchall();
+        $row = $statement->fetch();
         $statement->closeCursor();
 
-        return $assignedServer;
+        return $row;
     }
 
-    public static function setTableServerByID($tableID, $storeNum) {
+    public static function setTableServerByID($serverID, $tableID, $storeNum) {
         $db = Database::DBConnect();
 
         $query = 'UPDATE  tables
@@ -249,13 +265,13 @@ class DB {
 
         $statement->bindValue(':serverID', $serverID);
         $statement->bindValue(':tableID', $tableID);
-        $statement->bindValue(':storeID', $storeNum);
+        $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
-       
+
         $statement->closeCursor();
     }
-    
+
     public static function checkIfTableSat($tableID, $storeNum) {
         $db = Database::DBConnect();
 

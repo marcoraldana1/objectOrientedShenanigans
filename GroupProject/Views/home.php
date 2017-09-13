@@ -5,11 +5,12 @@
 <main>
     <aside class="right">
         <br>
+        <div class="resButton">
         <form action="index.php"  method="post">
             <input type="submit" class="reserve" value="RESERVATIONS"> 
             <input type='hidden' name='action' value='reservation'>
         </form>
-
+        </div>
 
 
         <?php include('Waitlist.php'); ?>
@@ -17,10 +18,11 @@
 
     <aside class="left">
         <br>
+        
         <?php if ($user->getUserRole() == "Manager") { ?>
             <form action="index.php"  method="post">
                 <input type='hidden' name='action' value='manageServers'>
-                <input type="submit" class="serverList" value="Manage Servers"> 
+                <input type="submit" class="serverList" value="MANAGE SERVERS"> 
             </form>
         <?php } ?> 
 
@@ -43,7 +45,7 @@
     </aside>
     <article>
 
-        <h2>Store # <?php echo htmlspecialchars($store_number); ?></h2>
+        <h2>Store # <?php echo htmlspecialchars($user->getStoreNum()); ?></h2>
 
         <section>
 
@@ -394,7 +396,7 @@
                     </form>
                     <form action="index.php"  method="post">
                         <input type="hidden" name="action" value="tableAssign">
-                        <input type="hidden" name ="tableNum" value=9">
+                        <input type="hidden" name ="tableNum" value="9">
                         <input type="hidden" name ="tableSize" value="2">
                         <input type="submit" class="table9_102" value="#9--2 seat"> 
 
@@ -426,109 +428,109 @@
                         <input type="hidden" name ="tableNum" value="1">
                         <input type="hidden" name ="tableSize" value="8">
                         <input type="submit" class="table1_102" value="#1--8 seat"> 
+                    </form>
+
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="17">
+                        <input type="hidden" name ="tableSize" value="6">
+                        <input type="submit" class="table17_102" value="#17---6 seat"> 
+
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="18">
+                        <input type="hidden" name ="tableSize" value="6">
+                        <input type="submit" class="table18_102" value="#18--6 seat"> 
+
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="19">
+                        <input type="hidden" name ="tableSize" value="6">
+                        <input type="submit" class="table19_102" value="#19--6 seat"> 
+
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="20">
+                        <input type="hidden" name ="tableSize" value="6">
+                        <input type="submit" class="table20_102" value="#20--6 seat"> 
+
+                    </form>
+
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="22">
+                        <input type="hidden" name ="tableSize" value="6">
+                        <input type="submit" class="table22_102" value="#22--6 seat"> 
+
+                    </form>
 
 
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="17">
-                            <input type="hidden" name ="tableSize" value="6">
-                            <input type="submit" class="table17_102" value="#17---6 seat"> 
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="2">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table2_102" value="#2--4 seat"> 
 
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="18">
-                            <input type="hidden" name ="tableSize" value="6">
-                            <input type="submit" class="table18_102" value="#18--6 seat"> 
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="3">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table3_102" value="#3--4 seat"> 
 
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="19">
-                            <input type="hidden" name ="tableSize" value="6">
-                            <input type="submit" class="table19_102" value="#19--6 seat"> 
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="4">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table4_102" value="#4--4 seat"> 
 
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="20">
-                            <input type="hidden" name ="tableSize" value="6">
-                            <input type="submit" class="table20_102" value="#20--6 seat"> 
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="5">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table5_102" value="#5--4 seat"> 
 
-                        </form>
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="12">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table12_102" value="#12--4 seat"> 
 
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="22">
-                            <input type="hidden" name ="tableSize" value="6">
-                            <input type="submit" class="table22_102" value="#22--6 seat"> 
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="13">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table13_102" value="#13--4 seat"> 
 
-                        </form>
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="14">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table14_102" value="#14--4 seat"> 
 
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="15">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table15_102" value="#15--4 seat"> 
 
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="2">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table2_102" value="#2--4 seat"> 
+                    </form>
+                    <form action="index.php"  method="post">
+                        <input type="hidden" name="action" value="tableAssign">
+                        <input type="hidden" name ="tableNum" value="21">
+                        <input type="hidden" name ="tableSize" value="4">
+                        <input type="submit" class="table21_102" value="#21--4 seat"> 
 
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="3">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table3_102" value="#3--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="4">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table4_102" value="#4--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="5">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table5_102" value="#5--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="12">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table12_102" value="#12--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="13">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table13_102" value="#13--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="14">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table14_102" value="#14--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="15">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table15_102" value="#15--4 seat"> 
-
-                        </form>
-                        <form action="index.php"  method="post">
-                            <input type="hidden" name="action" value="tableAssign">
-                            <input type="hidden" name ="tableNum" value="21">
-                            <input type="hidden" name ="tableSize" value="4">
-                            <input type="submit" class="table21_102" value="#21--4 seat"> 
-
-                        </form>
+                    </form>
 
 
 

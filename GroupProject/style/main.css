@@ -243,17 +243,22 @@ fieldset {
 }
 
 .left hr {
-    width: 135px;
+    width: 145px;
 
 }
 
 .right hr {
-    width: 135px;
+    width: 145px;
 
 }
 
 .left input[type='submit']{
-    margin: 0px 0px 0px 30px;
+    margin-left: 10px;
+}
+
+
+.right input[type='submit']{
+    margin: 0px 0px 0px 0px;
 }
 aside h2 {
     text-align: center;
@@ -1349,7 +1354,7 @@ aside h2 {
 }
 
 .login form {
-    padding-top: 50px;
+    padding-top: 30px;
     text-align: center;
     font-size: 1.8em;
     font-weight: 700;
@@ -1364,7 +1369,9 @@ aside h2 {
     padding:  4px 20px 4px 20px;
     font-family: Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
     background-color: #1C913F;
+    font-size: 1em;
     font-weight: 800;
+    margin: 10px 0px 20px 0px;
 }
 
 .login h5 {
@@ -1373,9 +1380,12 @@ aside h2 {
 
 }
 
+.login fieldset{
+    margin-top: 30px;
+}
 .admin_log {
     font-size: .70em;
-    width: 300px;
+    width: 320px;
     margin: 0 auto;
     line-height: 35px;
 
@@ -1390,6 +1400,15 @@ aside h2 {
     margin-top: 0px;
 }
 
+.admin_log input[type='password']{
+     font-size: .9em;
+    width: 130px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 0px;
+}
+
+
 .admin_log label {
     float: left;
     margin-left: 20px;
@@ -1401,7 +1420,7 @@ aside h2 {
 }
 
 .reserve {
-    margin-left: 23px;
+    margin-left: 42px;
     padding: 7px;
     border: 4px groove #BEBEBE;
     border-radius: 20px;
@@ -1409,7 +1428,7 @@ aside h2 {
 }
 
 .serverList {
-    margin-left: 20px;
+    margin-left: 40px;
     padding: 7px;
     border: 4px groove #BEBEBE;
     border-radius: 20px;
@@ -1481,17 +1500,24 @@ header p {
 
 .servers h1 {
     text-align: center;
-    
+    font-size: 1.7em;
 }
 
 
 .servers table {
 margin: 0 auto;
 padding: 20px;
-
+font-size: 1.2em;
 
 }
 
+.servers input[type='submit']{
+      margin: 10px 0px 10px 10px;
+    padding: 2px 10px 2px 10px;
+    border: 2px outset red;
+
+    font-weight: 700;
+}
 .servers td {
     padding: 5px 10px;
     
@@ -1514,16 +1540,25 @@ padding: 20px;
     margin-top: 0px;
 }
 
+.input_form input[type='submit']{
+     margin: 10px 0px 10px 115px;
+    padding: 2px 15px 2px 15px;
+    border: 4px outset #1C913F;
+
+    font-weight: 700;
+}
+
 .home_controls2 {
     float: left;
     width:200px;
     margin-right: 30px;
+    margin-left: 30px;
 }
 
 .home_controls3{
-    width: 250px;
+    width: 320px;
     float: right;
-    margin-right: 220px;
+    margin-right: 159px;
     
 }
 .home_controls3 input[type='submit']{
@@ -1537,13 +1572,15 @@ padding: 20px;
 
 }
 
-.addWait {
-    margin: 20px 0px 0px 10px;
-    padding: 2px 10px 2px 10px;
+.addWait  {
+    margin: 20px 0px 0px 0px;
+    padding: 3px 10px 3px 10px;
     border: 4px groove #BEBEBE;
     border-radius: 20px;
     font-weight: 700;
 }
+
+
 
 .waitList {
     background-color: #1C913F;
@@ -1598,17 +1635,49 @@ padding: 20px;
 
 }
 
-#table {
+#tables {
     background-color: #BEBEBE;
     padding: 10px 0px 20px 0px;
-   font-size: 1.3em;
+   font-size: 1.4em;
    font-weight: 600;
    
     
 }
 
-#table h1,form {
+#tables form{
+    margin: 0 auto;
     text-align: center;
+}
+
+#tables h1 {
+    text-align: center;
+  
+}
+
+#tables input[type='text']{
+   font-size: .9em;
+    text-align: center;
+    font-weight: 600;
     
 }
 
+#tables input[type='submit']{
+    font-weight: 700;
+    padding: 5px 5px;
+    
+    border: 2px outset #1C913F;
+    
+}
+
+#tables table {
+    margin-left: 250px;
+    font-size: 1.1em;
+}
+
+#tables td{
+    padding: 10px 0px 0px 10px;
+}
+
+.resButton {
+    margin-left: 25px;
+}

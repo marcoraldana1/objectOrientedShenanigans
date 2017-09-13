@@ -1,28 +1,36 @@
 <?php include('Views/header.php'); ?>
 <main>
-   
-        <section id='table'>
-            <h1>Table #<?php echo $tableID ?></h1>
-            
-            
-            <form action='index.php' method='POST'>
-                <h3><?php echo $tableSize ?> seat</h3>
-                <label>Occupied </label>
-                <input type='checkbox' name='occupied'>
-                <br>
-                <br>
-                <label>Server:  </label>
-                <input type='text' name='Server' value="<?php echo $storeNum ?>">
 
-                <form action='index.php' method ='POST'>
-                    <input type='submit' value='Assign'>
-                      <input type="hidden" name="assignedServer" value="<?php echo $storeNum ?>">
-                    <input type='hidden' name='action' value='assignServer'>
-                </form>
-            </form>
+    <section id='tables'>
+        <h1>Table #<?php echo htmlspecialchars($tableID); ?></h1>
+
+
+        <form action='index.php' method='POST'>
+            <h3><?php echo $tableSize ?> seat</h3>
+            <label>Occupied </label>
+            <input type='checkbox' name='occupied'>
             <br>
-        </section>
-  
+            <br>
+            <div id="serverSelect">
+                <form action='index.php' method ='POST'>
+                    <input type='hidden' name='action' value='assignServer'>
+                    <table>
+
+                        <tr>
+                            <td>Server: </td>
+                            <td><input type='text' name='Server' value="<?php echo htmlspecialchars($assignedServer); ?>"></td>
+                            <td> <input type="hidden" name="assignedServer" value="<?php echo htmlspecialchars($assignedServer); ?>"></td>
+                            <td><input type='submit' value=UPDATE></td>
+                        </tr>
+
+                    </table>
+
+                </form>
+            </div>
+        </form>
+        <br>
+    </section>
+
 </main>
 
 <?php include('Views/footer.php') ?>

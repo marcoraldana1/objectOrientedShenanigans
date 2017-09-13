@@ -41,7 +41,7 @@
                             <form action="index.php" class="home_reg" method="post">
                                 <li><input type="hidden" name="action" value="update"><li>
 
-                                <li><label>Store# <?PHP echo $user->getStoreNum(); ?>
+                                <li><label>Store# <?php echo htmlspecialchars($user->getStoreNum()); ?>
                                     </label></li>
                                 <li><input  type="submit" value="Update"></li>
                             </form>
@@ -50,7 +50,7 @@
                             <form action="index.php" class="table_layout" method="post">
                                 <li><input type="hidden" name="action" value="home"><li>
 
-                                <li><input  type="submit" value="Table Layout"></li>
+                                <input  type="submit" value="Table Layout"></li>
                             </form>
                         <?PHP } ?>
                     </div>
