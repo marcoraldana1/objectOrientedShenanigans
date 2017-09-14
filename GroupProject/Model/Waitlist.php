@@ -27,13 +27,7 @@ class Waitlist {
             array_push($this->unreservedWaits,$customer);
         }
     }
-    
-    public function checkIn($reservation) {
-        $cust = new Customer($reservation->customerName, $reservation->partySize, $reservation->customerPhone);
-        $waitList->add($cust, true);
-        unset($reservation);
-        $_SESSION['waitList'] = serialize($waitList);
-    }
+
     
     //get the whole waitlist array, or a specific index
     public function getWaitlist($index = null) {

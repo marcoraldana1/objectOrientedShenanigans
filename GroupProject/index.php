@@ -205,6 +205,8 @@ switch ($action) {
         
          if($isOccupied[0] == 1){
              $isOccupied = 0;
+         else {
+             $isOccupied = 1;
          }
          else{
              $message = "THAT TABLE IS ALREADY CLEAN!";
@@ -219,6 +221,7 @@ switch ($action) {
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
         $_SESSION['isOccupied'] = $isOccupied;
+        $_SESSION['occupied']= $occupied;
         
          include('Views/table.php');
         break;
@@ -422,11 +425,18 @@ switch ($action) {
         break;
     case 'checkIn':
         //reservation check in
+        $reservations = DB::getReservationsByStore($store_number);
+        
         $index = filter_input(INPUT_POST, 'index');
-
-        //somehow get the correct reservation into $reservation....
-
-        $waitList->checkIn($reservation);
+        
+        $res = $reservations[$index];
+        $newCust = new Customer($res['custName'], $res['partySize'], $res['custPhone']);
+        $waitList->add($newCust, true);
+        unset($reservations[$index]);
+        DB::deleteReservation($newCust->getCustomerName());
+        
+        $_SESSION['waitList'] = serialize($waitList);
+        
         $tableColors = setTableColors();
         include('Views/home.php');
         break;

@@ -11,8 +11,6 @@
                 <input type='hidden' name='action' value='checkSeat'>
 
         <h3><?php echo $tableSize ?> seat</h3>
-        <br><br>
-                    <input type="submit" value="SEAT">
             </form>
             <form action='index.php' method ='POST'>
                 <input type='hidden' name='action' value='cleanTable'>
