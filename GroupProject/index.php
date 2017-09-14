@@ -393,11 +393,18 @@ switch ($action) {
         break;
     case 'checkIn':
         //reservation check in
+        $reservations = DB::getReservationsByStore($store_number);
+        
         $index = filter_input(INPUT_POST, 'index');
-
-        //somehow get the correct reservation into $reservation....
-
-        $waitList->checkIn($reservation);
+        
+        $res = $reservations[$index];
+        $newCust = new Customer($res['custName'], $res['partySize'], $res['custPhone']);
+        $waitList->add($newCust, true);
+        unset($reservations[$index]);
+        DB::deleteReservation($newCust->getCustomerName());
+        
+        $_SESSION['waitList'] = serialize($waitList);
+        
         $tableColors = setTableColors();
         include('Views/home.php');
         break;

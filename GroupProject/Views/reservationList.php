@@ -11,19 +11,35 @@
             <th>Time</th>
             <th>Select</th>
         </tr>
-        <?php foreach($reservations as $res) {
-     
-            echo 
-            "       <form action='index.php' method='POST'>    <tr>"
-                    ."<td>".($res['custName'])."<input type='hidden' name='customer' value='".$res['custName']."'></td>"
-                    . "<td>".($res['custPhone'])."<input type='hidden' name='phone' value='".$res['custPhone']."'></td>"
-                    ."<td>".($res['partySize'])."<input type='hidden' name='party' value='".$res['partySize']."'></td>"
-                    ."<td>".($res['resDate'])."<input type='hidden' name='date' value='".$res['resDate']."'></td>"
-                    ."<td>".($res['resTime'])."<input type='hidden' name='time' value='".$res['resTime']."'></td>"
-                    
-                    ."<td><input type='submit' value='Select Reservation'></td>"
-                    . "<input type='hidden' name='action' value='selectReservation'><tr>"
-          ."</form>";
+        
+        <?php foreach($reservations as $index=>$res) { ?>
+            <tr>
+                <td> <?php echo $res['custName']; ?></td>
+                <td> <?php echo $res['custPhone']; ?></td>
+                <td> <?php echo $res['partySize']; ?></td>
+                <td> <?php echo $res['resDate']; ?></td>
+                <td> <?php echo $res['resTime']; ?></td>
+                <td>
+                    <form action='index.php' method='POST'>
+                        <input type='hidden' name='customer' value='<?php echo $res['custName']; ?>'>
+                        <input type='hidden' name='phone' value='<?php echo $res['custPhone']; ?>'>
+                        <input type='hidden' name='party' value='<?php echo $res['partySize']; ?>'>
+                        <input type='hidden' name='date' value='<?php echo $res['resDate']; ?>'>
+                        <input type='hidden' name='time' value='<?php echo $res['resTime']; ?>'>
+                        <input type='submit' value='Select Reservation'>
+                        <input type='hidden' name='action' value='selectReservation'>
+                    </form>
+                </td>
+                <td>
+                    <form action='index.php' method='POST'> 
+                    <input type='submit' value='Check In'>
+                    <input type='hidden' name='action' value='checkIn'>
+                    <input type='hidden' name='index' value='<?php echo $index; ?>'>
+                    </form>
+                </td>
+            </tr>
+
+        <?php
         } ?>
     </table>
 

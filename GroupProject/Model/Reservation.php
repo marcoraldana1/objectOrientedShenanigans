@@ -30,7 +30,9 @@ class Reservation {
     
     //getters and setters
     public function setResID($resID) {
-        $this->resID = $resID;
+        if (is_numeric($resID)) {
+            $this->resID = $resID;
+        }
     }
     public function getResId() {
         return $this->resID;
@@ -66,7 +68,9 @@ class Reservation {
     }
     
     public function setPartySize($partySize) {
-        $this->partySize = $partySize;
+        if (is_numeric($partySize)) {
+            $this->partySize = $partySize;
+        }
     }
     public function getPartySize() {
         return $this->partySize;

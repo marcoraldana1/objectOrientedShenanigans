@@ -21,7 +21,9 @@ class Customer {
     
     //getters and setters
     public function setCustomerId($id) {
-        $this->customerId = $id;
+        if (is_numeric($id)) {
+            $this->customerId = $id;
+        }
     }
     public function getCustomerId() {
         return $this->customerId;
@@ -42,7 +44,9 @@ class Customer {
     }
 
     public function setPartySize($partySize) {
-        $this->partySize = $partySize;
+        if (is_numeric($partySize)) {
+            $this->partySize = $partySize;
+        }
     }
     public function getPartySize() {
         return $this->partySize;
