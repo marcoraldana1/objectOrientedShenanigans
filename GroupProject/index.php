@@ -133,6 +133,7 @@ switch ($action) {
         $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
         $isOccupied = filter_input(INPUT_POST, 'isOccupied');
         $serverId = filter_input(INPUT_POST, 'serverId');
+        $tableSize = $_SESSION['tableSize'];
 
 
 
@@ -144,7 +145,7 @@ switch ($action) {
 
         $tableID = $_SESSION['tableID'];
 
-        $tableSize = filter_input(INPUT_POST, 'tableSize');
+        //$tableSize = filter_input(INPUT_POST, 'tableSize');
 
         $assignServer = DB::getTableServerByStore($tableID, $storeNum);
         $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
@@ -188,6 +189,7 @@ switch ($action) {
 
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
+        $_SESSION['tableSize']= $tableSize;
         $_SESSION['isOccupied'] = $isOccupied;
         $_SESSION['occupied']= $occupied;
         
@@ -225,6 +227,7 @@ switch ($action) {
         $_SESSION['server'] = $server;
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
+        $_SESSION['tableSize']=$tableSize;
         $_SESSION['isOccupied'] = $isOccupied;
         include('Views/serverList.php');
         break;
