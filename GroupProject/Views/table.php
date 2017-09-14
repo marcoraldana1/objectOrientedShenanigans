@@ -10,7 +10,14 @@
             <form action='index.php' method ='POST'>
                 <input type='hidden' name='action' value='checkSeat'>
 
-        <h3><?php echo $tableSize ?> seat</h3>
+                <h3><?php echo htmlspecialchars($tableSize); ?> seat</h3>
+                <div class="occupied">
+                    <label>Occupied</label>
+                    <input type='checkbox' name='occupied' <?php if($isOccupied===1) {echo "checked";} ?>>
+                    
+                    <input type="submit" value="SET">
+
+                </div>
             </form>
             <form action='index.php' method ='POST'>
                 <input type='hidden' name='action' value='cleanTable'>

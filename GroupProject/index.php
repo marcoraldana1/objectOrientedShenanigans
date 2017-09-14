@@ -133,6 +133,7 @@ switch ($action) {
         $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
         $isOccupied = filter_input(INPUT_POST, 'isOccupied');
         $serverId = filter_input(INPUT_POST, 'serverId');
+        $tableSize = $_SESSION['tableSize'];
 
 
 
@@ -144,7 +145,7 @@ switch ($action) {
 
         $tableID = $_SESSION['tableID'];
 
-        $tableSize = filter_input(INPUT_POST, 'tableSize');
+        //$tableSize = filter_input(INPUT_POST, 'tableSize');
 
         $assignServer = DB::getTableServerByStore($tableID, $storeNum);
         $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
@@ -171,53 +172,24 @@ switch ($action) {
         break;
     case 'checkSeat':
          $tableID = $_SESSION['tableID'];
-         $storeNum = $_SESSION['storeNum'];
+         $storeNum = filter_input(INPUT_POST, 'storeNum');
          $tableSize = $_SESSION['tableSize'];
          $assignedServer = $_SESSION['assignedServer'];
-         $isOccupied = db::returnIsOccupied($tableID, $storeNum);
+         $occupied = filter_input(INPUT_POST, 'occupied');
         
-         if($isOccupied[0] == 0){
-             $isOccupied = 1;
-         }
-         else{
-             $message = "THAT TABLE IS ALREADY FULL";
-             include('Views/table.php');
-             break;
-         }
-         
-            
-         
-        DB::setIsOccupiedOnTable($tableID, $storeNum, $isOccupied);
-
-        $_SESSION['assignedServer'] = $assignedServer;
-        $_SESSION['tableID'] = $tableID;
-        $_SESSION['isOccupied'] = $isOccupied;
-        
-         include('Views/table.php');
-        break;
-    case 'cleanTable':
-        $tableID = $_SESSION['tableID'];
-         $storeNum = $_SESSION['storeNum'];
-         $tableSize = $_SESSION['tableSize'];
-         $assignedServer = $_SESSION['assignedServer'];
-         $isOccupied = db::returnIsOccupied($tableID, $storeNum);
-        
-        
-         if($isOccupied[0] == 1){
+         if(!isset($_POST['occupied'])){
              $isOccupied = 0;
          }
-         else{
-             $message = "THAT TABLE IS ALREADY CLEAN!";
-             include('Views/table.php');
-             break;
+         else {
+             $isOccupied = 1;
          }
-         
             
          
         DB::setIsOccupiedOnTable($tableID, $storeNum, $isOccupied);
 
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
+        $_SESSION['tableSize']= $tableSize;
         $_SESSION['isOccupied'] = $isOccupied;
         $_SESSION['occupied']= $occupied;
         
@@ -255,33 +227,9 @@ switch ($action) {
         $_SESSION['server'] = $server;
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
+        $_SESSION['tableSize']=$tableSize;
         $_SESSION['isOccupied'] = $isOccupied;
         include('Views/serverList.php');
-        break;
-     case 'removeServer':
-        $assignedServer = $_SESSION['assignedServer'];
-        $tableId = filter_input(INPUT_POST, 'tableNum');
-        $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
-        $serverID = filter_input(INPUT_POST, 'serverId');
-        $storeNum = filter_input(INPUT_POST, 'storeNum');
-        $isOccupied = filter_input(INPUT_POST, 'isOccupied');
-        $tableSize = filter_input(INPUT_POST, 'tableSize');
-        
-        $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
-        $table->setServerID(NULL);
-        $tableID = $_SESSION['tableID'];
-
-        //$tableSize = $_SESSION['tableSize'];
-        //$tableSize = $table->setSeatingCapacity($tableSize);
-
-        $assignedServer = 'NONE';        
-           
-        $_SESSION['storeNum'] = $storeNum;
-        $_SESSION['tableID'] = $tableID;
-        $_SESSION['tableSize'] = $tableSize;
-        $_SESSION['assignedServer'] = $assignedServer;
-
-        include('Views/table.php');
         break;
 
     case 'reservation':
@@ -479,14 +427,11 @@ function setTableColors() {
     $totalTables[3] = $tables[3];
     $totalTables = array_sum($totalTables);
     $tableNum = 1;
-    $tableSat = false;
 
     while ($tableNum <= $totalTables) {
         if (db::checkIfTableSat($tableNum, $_SESSION['storeNum'])) {
             $tableColors .= '.table' . $tableNum . '_' . $_SESSION['storeNum'] . " { background-color: #f44336; color: white; } " . "\n ";
-            $tableSat=true;
-        } 
-        if (db::checkIfTableAssigned($tableNum, $_SESSION['storeNum']) && !$tableSat ) {
+        } else if (db::checkIfTableAssigned($tableNum, $_SESSION['storeNum'])) {
             $tableColors .= '.table' . $tableNum . '_' . $_SESSION['storeNum'] . " { background-color: #4CAF50; color: white; } " . "\n ";
         }
         $tableNum++;
