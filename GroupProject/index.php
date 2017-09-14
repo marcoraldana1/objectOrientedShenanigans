@@ -24,6 +24,8 @@ if (isset($_SESSION['user'])) {
     //pull user out of session.  this is a User object
     $user = unserialize($_SESSION['user']);
     $store_number = $user->getStoreNum();
+    
+    $storeNum = $user->getStoreNum();
 } elseif (!isset($user)) {
     $user = null;
 }
@@ -205,10 +207,10 @@ switch ($action) {
         
          if($isOccupied[0] == 1){
              $isOccupied = 0;
+         }
          else {
              $isOccupied = 1;
-         }
-         else{
+         
              $message = "THAT TABLE IS ALREADY CLEAN!";
              include('Views/table.php');
              break;
