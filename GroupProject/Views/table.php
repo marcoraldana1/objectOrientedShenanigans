@@ -33,6 +33,15 @@
                 </table>
 
             </form>
+            <form action='index.php' method='POST'> 
+                <input type='hidden' name ='action' value='removeServer'>
+                <table>
+                    <tr>
+                        <td><input type="hidden" name="assignedServer" value="NONE"></td>
+                        <td><input type='submit' value="Remove Server"></td>
+                    </tr>
+                </table>
+            </form>   
         </div>
 
         <br>
