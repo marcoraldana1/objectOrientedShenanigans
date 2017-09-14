@@ -1,5 +1,7 @@
 <?php
 
+//
+
 session_start();
 
 require('Model/database.php');
@@ -227,25 +229,27 @@ switch ($action) {
         break;
 
     case 'reservation':
+        $errorMessage = '';
         include('Views/reservations.php');
         break;
     case 'res_confirmation':
         //gets all information from user and creates object
         //needs validation
-        $cust_name = filter_input(INPUT_POST, 'cust_name');
-        $phone = filter_input(INPUT_POST, 'phone_number');
-        $partySize = filter_input(INPUT_POST, 'party_size');
-        $res_store_number = filter_input(INPUT_POST, 'store_number');
-        $date = filter_input(INPUT_POST, 'res_date');
-        $time = filter_input(INPUT_POST, 'res_time');
+//        $cust_name = filter_input(INPUT_POST, 'cust_name');
+//        $phone = filter_input(INPUT_POST, 'phone_number');
+//        $partySize = filter_input(INPUT_POST, 'party_size');
+//        $res_store_number = filter_input(INPUT_POST, 'store_number');
+//        $date = filter_input(INPUT_POST, 'res_date');
+//        $time = filter_input(INPUT_POST, 'res_time');
+        include('Model/reservationValidation.php');
 
 
-        $newRes = new Reservation($date, $time, $res_store_number, $cust_name, $partySize, $phone);
-        DB::addReservation($newRes);
+//        $newRes = new Reservation($date, $time, $res_store_number, $cust_name, $partySize, $phone);
+//        DB::addReservation($newRes);
 
 
 
-        include('Views/res_confirmation.php');
+
         break;
 
     case 'viewReservations':
@@ -266,6 +270,7 @@ switch ($action) {
         break;
 
     case 'selectReservation':
+        $errorMessage = '';
         $name = filter_input(INPUT_POST, 'customer');
         $phone = filter_input(INPUT_POST, 'phone');
         $party = filter_input(INPUT_POST, 'party');
@@ -285,17 +290,19 @@ switch ($action) {
         break;
 
     case 'updateReservation':
-        $name = filter_input(INPUT_POST, 'custName');
-        $phone = filter_input(INPUT_POST, 'phoneNumber');
-        $party = filter_input(INPUT_POST, 'partySize');
-        $date = filter_input(INPUT_POST, 'resDate');
-        $time = filter_input(INPUT_POST, 'resTime');
+        $errorMessage = '';
+        $name = filter_input(INPUT_GET, 'custName');
+        $phone = filter_input(INPUT_GET, 'phoneNumber');
+        $party = filter_input(INPUT_GET, 'partySize');
+        $date = filter_input(INPUT_GET, 'resDate');
+        $time = filter_input(INPUT_GET, 'resTime');
 
 
-        DB::updateReservation($name, $phone, $party, $date, $time);
-
-        $message = 'Reservation successfully updated';
-        include('Views/resCleared.php');
+//        DB::updateReservation($name, $phone, $party, $date, $time);
+//
+//        $message = 'Reservation successfully updated';
+//        include('Views/resCleared.php');
+        include('Model/editResValidation.php');
         break;
 
     case 'update':
@@ -390,6 +397,7 @@ switch ($action) {
         //somehow get the correct reservation into $reservation....
 
         $waitList->checkIn($reservation);
+        $tableColors = setTableColors();
         include('Views/home.php');
         break;
     case 'Logout':
