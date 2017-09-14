@@ -23,7 +23,9 @@ class User {
     }
     
     public function setUserID($userID) {
-        $this->userID = $userID;
+        if (is_numeric($userID)) {
+            $this->userID = $userID;
+        }
     }
     public function getUserID() {
         return $this->userID;

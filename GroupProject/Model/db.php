@@ -62,6 +62,7 @@ class DB {
         $statement->closeCursor();
     }
     
+    
     public function deleteReservation($custName) {
         $db = Database::DBConnect();
 
