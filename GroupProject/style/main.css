@@ -47,6 +47,7 @@ main {
 
 }
 
+
 #reservationList {
     padding: 30px;
     margin: 0 auto;
@@ -1680,4 +1681,8 @@ font-size: 1.2em;
 
 .resButton {
     margin-left: 25px;
+}
+
+tr.occupied {
+    
 }

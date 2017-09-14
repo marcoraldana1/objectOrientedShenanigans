@@ -1,5 +1,7 @@
 <?php
 
+//
+
 session_start();
 
 require('Model/database.php');
@@ -100,16 +102,16 @@ switch ($action) {
         $tableSize = filter_input(INPUT_POST, 'tableSize');
 
         $assignServer = DB::getTableServerByStore($tableID, $storeNum);
-    
+
         $serverID = $assignServer["serverID"];
-       
+
         $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
         $table->setServerID($serverID);
-      
+
         $assignedServer = DB::findServerByID($serverID);
-        
+
         $assignedServer = array_shift($assignedServer);
-       
+
 
         if ($assignedServer == null) {
             $assignedServer = 'NONE';
@@ -167,8 +169,31 @@ switch ($action) {
 
         include('Views/table.php');
         break;
+    case 'checkSeat':
+         $tableID = $_SESSION['tableID'];
+         $storeNum = filter_input(INPUT_POST, 'storeNum');
+         $tableSize = $_SESSION['tableSize'];
+         $assignedServer = $_SESSION['assignedServer'];
+         $occupied = filter_input(INPUT_POST, 'occupied');
+        
+         if(isset($_POST['occupied'])){
+             $isOccupied = 1;
+         }
+         else {
+             $isOccupied = 0;
+         }
+            
+         
+        DB::setIsOccupiedOnTable($tableID, $storeNum, $isOccupied);
 
+        $_SESSION['assignedServer'] = $assignedServer;
+        $_SESSION['tableID'] = $tableID;
+        $_SESSION['isOccupied'] = $isOccupied;
+        
+         include('Views/table.php');
+        break;
     case 'assignServer':
+       
         $assignedServer = $_SESSION['assignedServer'];
         $tableId = filter_input(INPUT_POST, 'tableNum');
         $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
@@ -185,7 +210,7 @@ switch ($action) {
         $tableSize = $_SESSION['tableSize'];
         $tableSize = $table->setSeatingCapacity($tableSize);
 
-
+       
         $storeNum = $_SESSION['storeNum'];
         $servers = DB::getServersByStore($store_number);
         $serverId = filter_input(INPUT_POST, 'serverId');
@@ -199,29 +224,32 @@ switch ($action) {
         $_SESSION['server'] = $server;
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
+        $_SESSION['isOccupied'] = $isOccupied;
         include('Views/serverList.php');
         break;
 
     case 'reservation':
+        $errorMessage = '';
         include('Views/reservations.php');
         break;
     case 'res_confirmation':
         //gets all information from user and creates object
         //needs validation
-        $cust_name = filter_input(INPUT_POST, 'cust_name');
-        $phone = filter_input(INPUT_POST, 'phone_number');
-        $partySize = filter_input(INPUT_POST, 'party_size');
-        $res_store_number = filter_input(INPUT_POST, 'store_number');
-        $date = filter_input(INPUT_POST, 'res_date');
-        $time = filter_input(INPUT_POST, 'res_time');
+//        $cust_name = filter_input(INPUT_POST, 'cust_name');
+//        $phone = filter_input(INPUT_POST, 'phone_number');
+//        $partySize = filter_input(INPUT_POST, 'party_size');
+//        $res_store_number = filter_input(INPUT_POST, 'store_number');
+//        $date = filter_input(INPUT_POST, 'res_date');
+//        $time = filter_input(INPUT_POST, 'res_time');
+        include('Model/reservationValidation.php');
 
 
-        $newRes = new Reservation($date, $time, $res_store_number, $cust_name, $partySize, $phone);
-        DB::addReservation($newRes);
+//        $newRes = new Reservation($date, $time, $res_store_number, $cust_name, $partySize, $phone);
+//        DB::addReservation($newRes);
 
 
 
-        include('Views/res_confirmation.php');
+
         break;
 
     case 'viewReservations':
@@ -242,11 +270,12 @@ switch ($action) {
         break;
 
     case 'selectReservation':
+        $errorMessage = '';
         $name = filter_input(INPUT_POST, 'customer');
         $phone = filter_input(INPUT_POST, 'phone');
         $party = filter_input(INPUT_POST, 'party');
         $date = filter_input(INPUT_POST, 'date');
-        
+
         $time = filter_input(INPUT_POST, 'time');
         include('Views/manageReservations.php');
         break;
@@ -255,23 +284,25 @@ switch ($action) {
         $selectedName = filter_input(INPUT_POST, 'custName');
 
         DB::deleteReservation($selectedName);
-        
+
         $message = 'Item successfully deleted';
         include('Views/resCleared.php');
         break;
 
     case 'updateReservation':
-        $name = filter_input(INPUT_POST, 'custName');
-        $phone = filter_input(INPUT_POST, 'phoneNumber');
-        $party = filter_input(INPUT_POST, 'partySize');
-        $date = filter_input(INPUT_POST, 'resDate');
-        $time = filter_input(INPUT_POST, 'resTime');
-        
-        
-        DB::updateReservation($name, $phone, $party, $date, $time);
-        
-        $message ='Reservation successfully updated';
-        include('Views/resCleared.php');
+        $errorMessage = '';
+        $name = filter_input(INPUT_GET, 'custName');
+        $phone = filter_input(INPUT_GET, 'phoneNumber');
+        $party = filter_input(INPUT_GET, 'partySize');
+        $date = filter_input(INPUT_GET, 'resDate');
+        $time = filter_input(INPUT_GET, 'resTime');
+
+
+//        DB::updateReservation($name, $phone, $party, $date, $time);
+//
+//        $message = 'Reservation successfully updated';
+//        include('Views/resCleared.php');
+        include('Model/editResValidation.php');
         break;
 
     case 'update':
@@ -317,15 +348,15 @@ switch ($action) {
         }
 
         if ($signin->getUserPassword() != $password) {
-            $message = 'BAD LOGIN TRY AGAIN';
+            $message = 'BAD PASSWORD LOGIN, TRY AGAIN';
             include('Views/login.php');
             break;
         }
         //store user in session
         //was not storing store number in session initially. Hard coded the value. 
         //User is not used as an object here so cannot use getStoreNum()
-$storeNum = $signin->getStoreNum();
-$allActiveServers = DB::getServersByStore($storeNum);
+        $storeNum = $signin->getStoreNum();
+        $allActiveServers = DB::getServersByStore($storeNum);
         $currentWaitlist = $wait->getWaitlist();
 
         $user = $signin;
@@ -373,8 +404,7 @@ $allActiveServers = DB::getServersByStore($storeNum);
         
         $_SESSION['waitList'] = serialize($waitList);
         
-        setTableColors();
-        
+        $tableColors = setTableColors();
         include('Views/home.php');
         break;
     case 'Logout':
@@ -384,27 +414,27 @@ $allActiveServers = DB::getServersByStore($storeNum);
         break;
 }
 
-function setTableColors(){
+function setTableColors() {
     $tableColors = '';
     $tables = db::getTotalTablesForRestaurant($_SESSION['storeNum']);
-    $totalTables[0] = $tables[0]; 
+    $totalTables[0] = $tables[0];
     $totalTables[1] = $tables[1];
     $totalTables[2] = $tables[2];
-    $totalTables[3] = $tables[3]; 
+    $totalTables[3] = $tables[3];
     $totalTables = array_sum($totalTables);
     $tableNum = 1;
-    
-    while($tableNum <= $totalTables){
-        if(db::checkIfTableSat($tableNum, $_SESSION['storeNum'])){
-            $tableColors .= '.table' . $tableNum .  '_' . $_SESSION['storeNum'] . " { background-color: #f44336; color: white; } " . "\n " ;
-        }
-        else if(db::checkIfTableAssigned($tableNum, $_SESSION['storeNum'])){
-            $tableColors .= '.table' . $tableNum .  '_' . $_SESSION['storeNum'] . " { background-color: #4CAF50; color: white; } " . "\n " ;
+
+    while ($tableNum <= $totalTables) {
+        if (db::checkIfTableSat($tableNum, $_SESSION['storeNum'])) {
+            $tableColors .= '.table' . $tableNum . '_' . $_SESSION['storeNum'] . " { background-color: #f44336; color: white; } " . "\n ";
+        } else if (db::checkIfTableAssigned($tableNum, $_SESSION['storeNum'])) {
+            $tableColors .= '.table' . $tableNum . '_' . $_SESSION['storeNum'] . " { background-color: #4CAF50; color: white; } " . "\n ";
         }
         $tableNum++;
     }
     return $tableColors;
 }
+
 //put user and waitlist back into session
 ?>
 

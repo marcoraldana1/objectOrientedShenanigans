@@ -41,7 +41,7 @@
                             <form action="index.php" class="home_reg" method="post">
                                 <li><input type="hidden" name="action" value="update"><li>
 
-                                <li><label>Store# <?php echo htmlspecialchars($user->getStoreNum()); ?>
+                                <li><label>Store# 
                                     </label></li>
                                 <li><input  type="submit" value="Update"></li>
                             </form>

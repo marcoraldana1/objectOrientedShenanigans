@@ -43,26 +43,24 @@ class DB {
 
         return $reservations;
     }
-    
+
     public function updateReservation($custName, $custPhone, $partySize, $date, $time) {
         $db = Database::DBConnect();
-        
+
         $query = 'UPDATE reservations '
                 . 'Set custPhone = :custPhone, partySize = :partySize, resDate = :date, resTime= :time '
-                .'Where custName = :custName';
-        
+                . 'Where custName = :custName';
+
         $statement = $db->prepare($query);
         $statement->bindValue(':custName', $custName);
         $statement->bindValue(':custPhone', $custPhone);
         $statement->bindValue(':partySize', $partySize);
         $statement->bindValue(':date', $date);
         $statement->bindValue(':time', $time);
-        
+
         $statement->execute();
         $statement->closeCursor();
     }
-    
-    
     public function deleteReservation($custName) {
         $db = Database::DBConnect();
 
@@ -305,31 +303,32 @@ class DB {
         $statement->execute();
         $table = $statement->fetchall();
         $statement->closeCursor();
-        
-        if($table[0] == 0){
-                return false;
-        }
-        else if($table[0] == 1){
-                return true;
+
+        if ($table[0] == 0) {
+            return false;
+        } else if ($table[0] == 1) {
+            return true;
         }
     }
-    public static function getTotalTablesForRestaurant($storeNum){
+
+    public static function getTotalTablesForRestaurant($storeNum) {
         $db = Database::DBConnect();
-        
+
         $query = 'select num2pTables, num4pTables, num6pTables, num8pTables
                     from store
                     where storeID = :storeNum';
-        
+
         $statement = $db->prepare($query);
-        
+
         $statement->bindValue(':storeNum', $storeNum);
-        
+
         $statement->execute();
         $tables = $statement->fetch();
-        $statement->closeCursor(); 
-        
+        $statement->closeCursor();
+
         return $tables;
     }
+
     public static function checkIfTableAssigned($tableID, $storeNum) {
         $db = Database::DBConnect();
 
@@ -344,13 +343,30 @@ class DB {
         $statement->execute();
         $table = $statement->fetch();
         $statement->closeCursor();
-        
-        if(is_null($table[0])){
-                return false;
-        }
-        else{
+
+        if (is_null($table[0])) {
+            return false;
+        } else {
             return true;
         }
+    }
+
+    public static function setIsOccupiedOnTable($tableID, $storeNum, $isOccupied) {
+        $db = Database::DBConnect();
+
+        $query = 'update tables
+                        set isOccupied = :isOccupied
+                        where tableID = :tableID AND storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':isOccupied', $isOccupied);
+        $statement->bindValue(':tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
+
+        $statement->execute();
+
+        $statement->closeCursor();
     }
 
 }
