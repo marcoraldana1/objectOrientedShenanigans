@@ -176,11 +176,11 @@ switch ($action) {
          $assignedServer = $_SESSION['assignedServer'];
          $occupied = filter_input(INPUT_POST, 'occupied');
         
-         if(isset($_POST['occupied'])){
-             $isOccupied = 1;
+         if(!isset($_POST['occupied'])){
+             $isOccupied = 0;
          }
          else {
-             $isOccupied = 0;
+             $isOccupied = 1;
          }
             
          
@@ -189,6 +189,7 @@ switch ($action) {
         $_SESSION['assignedServer'] = $assignedServer;
         $_SESSION['tableID'] = $tableID;
         $_SESSION['isOccupied'] = $isOccupied;
+        $_SESSION['occupied']= $occupied;
         
          include('Views/table.php');
         break;
