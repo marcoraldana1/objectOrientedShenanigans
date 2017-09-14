@@ -4,7 +4,7 @@
     <section id='tables'>
         <h1>Table #<?php echo htmlspecialchars($tableID); ?></h1>
 
-
+        <p><?php if(isset($message)){ echo $message;}?></p>
 
         <div id="serverSelect">
             <form action='index.php' method ='POST'>
@@ -19,6 +19,12 @@
 
                 </div>
             </form>
+            <form action='index.php' method ='POST'>
+                <input type='hidden' name='action' value='cleanTable'>
+
+
+                    <input type="submit" value="CLEAN">
+                    </form>
             <br>
             <form action='index.php' method ='POST'>
                 <input type='hidden' name='action' value='assignServer'>

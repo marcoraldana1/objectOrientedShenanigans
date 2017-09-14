@@ -301,7 +301,7 @@ class DB {
         $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
-        $table = $statement->fetchall();
+        $table = $statement->fetch();
         $statement->closeCursor();
 
         if ($table[0] == 0) {
@@ -367,6 +367,24 @@ class DB {
         $statement->execute();
 
         $statement->closeCursor();
+    }
+
+    public static function returnIsOccupied($tableID, $storeNum) {
+        $db = Database::DBConnect();
+
+        $query = 'select isOccupied from tables
+                        where tableID = :tableID AND storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
+
+        $statement->execute();
+        $table = $statement->fetch();
+        $statement->closeCursor();
+
+        return $table;
     }
 
 }
