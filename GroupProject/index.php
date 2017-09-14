@@ -69,7 +69,7 @@ switch ($action) {
         // $allActiveServers = array(array('Billy','Bob','6-cl'),array('Heather','Johnson','11-5'),array('Mark','Rathjen','5-9'),array('Jenn', 'Larson','11-5'));
         // $allActiveServers = getServersByStore($store_number);
         // $currentWaitlist = array(array('Bob','6-top','5:03pm'),array('Johnson','2-top','5:05pm'),array('Rathjen','8-top','5:10pm'),array('Leonard','4-top','513pm'));
-
+        $tableColors = setTableColors();
         include('Views/home.php');
         break;
 
@@ -318,7 +318,7 @@ switch ($action) {
             $user = DB::getUserByUserLogin($login);
             $signin = new User($user["userID"], $user["userRole"], $user["userName"], $user["userLogin"], $user["userPassword"], $user["storeNum"]);
         } else {
-            $message = 'NO SUCH USERNAME TRY AGAIN';
+            $message = 'BAD USERNAME TRY AGAIN';
             include('Views/login.php');
             break;
         }
@@ -338,6 +338,7 @@ switch ($action) {
         $user = $signin;
         $_SESSION['user'] = serialize($user);
         $_SESSION['storeNum'] = $signin->getStoreNum();
+        $tableColors = setTableColors();
         include ('Views/home.php');
         break;
     case 'deleteServer':
@@ -379,6 +380,28 @@ switch ($action) {
         header('Location: .', true);
         exit;
         break;
+}
+
+function setTableColors(){
+    $tableColors = '';
+    $tables = db::getTotalTablesForRestaurant($_SESSION['storeNum']);
+    $totalTables[0] = $tables[0]; 
+    $totalTables[1] = $tables[1];
+    $totalTables[2] = $tables[2];
+    $totalTables[3] = $tables[3]; 
+    $totalTables = array_sum($totalTables);
+    $tableNum = 1;
+    
+    while($tableNum <= $totalTables){
+        if(db::checkIfTableSat($tableNum, $_SESSION['storeNum'])){
+            $tableColors .= '.table' . $tableNum .  '_' . $_SESSION['storeNum'] . " { background-color: #f44336; color: white; } " . "\n " ;
+        }
+        else if(db::checkIfTableAssigned($tableNum, $_SESSION['storeNum'])){
+            $tableColors .= '.table' . $tableNum .  '_' . $_SESSION['storeNum'] . " { background-color: #4CAF50; color: white; } " . "\n " ;
+        }
+        $tableNum++;
+    }
+    return $tableColors;
 }
 //put user and waitlist back into session
 ?>

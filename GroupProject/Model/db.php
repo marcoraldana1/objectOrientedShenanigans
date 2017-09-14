@@ -294,16 +294,62 @@ class DB {
         $db = Database::DBConnect();
 
         $query = 'select isOccupied from tables
-                        where tableID = :tableID AND where storeNum = :storeNum';
+                        where tableID = :tableID AND storeNum = :storeNum';
 
         $statement = $db->prepare($query);
 
-        $statement->bindValue('$tableID', $tableID);
-        $statement->bindValue('$storeNum', $storeNum);
+        $statement->bindValue(':tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
 
         $statement->execute();
-        $tables = $statement->fetchall();
+        $table = $statement->fetchall();
         $statement->closeCursor();
+        
+        if($table[0] == 0){
+                return false;
+        }
+        else if($table[0] == 1){
+                return true;
+        }
+    }
+    public static function getTotalTablesForRestaurant($storeNum){
+        $db = Database::DBConnect();
+        
+        $query = 'select num2pTables, num4pTables, num6pTables, num8pTables
+                    from store
+                    where storeID = :storeNum';
+        
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue(':storeNum', $storeNum);
+        
+        $statement->execute();
+        $tables = $statement->fetch();
+        $statement->closeCursor(); 
+        
+        return $tables;
+    }
+    public static function checkIfTableAssigned($tableID, $storeNum) {
+        $db = Database::DBConnect();
+
+        $query = 'select serverID from tables
+                        where tableID = :tableID AND storeNum = :storeNum';
+
+        $statement = $db->prepare($query);
+
+        $statement->bindValue(':tableID', $tableID);
+        $statement->bindValue(':storeNum', $storeNum);
+
+        $statement->execute();
+        $table = $statement->fetch();
+        $statement->closeCursor();
+        
+        if(is_null($table[0])){
+                return false;
+        }
+        else{
+            return true;
+        }
     }
 
 }

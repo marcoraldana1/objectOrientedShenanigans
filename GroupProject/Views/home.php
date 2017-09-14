@@ -48,7 +48,6 @@
         <h2>Store # <?php echo htmlspecialchars($user->getStoreNum()); ?></h2>
 
         <section>
-
             <?php if ($store_number == 100) : ?>
                 <div class="home100">
                     <form action="index.php"  method="post">
