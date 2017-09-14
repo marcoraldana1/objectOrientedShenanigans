@@ -366,6 +366,7 @@ $allActiveServers = DB::getServersByStore($storeNum);
         //somehow get the correct reservation into $reservation....
 
         $waitList->checkIn($reservation);
+        $tableColors = setTableColors();
         include('Views/home.php');
         break;
     case 'Logout':
