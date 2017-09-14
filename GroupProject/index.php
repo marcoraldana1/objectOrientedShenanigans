@@ -171,17 +171,47 @@ switch ($action) {
         break;
     case 'checkSeat':
          $tableID = $_SESSION['tableID'];
-         $storeNum = filter_input(INPUT_POST, 'storeNum');
+         $storeNum = $_SESSION['storeNum'];
          $tableSize = $_SESSION['tableSize'];
          $assignedServer = $_SESSION['assignedServer'];
-         $occupied = filter_input(INPUT_POST, 'occupied');
+         $isOccupied = db::returnIsOccupied($tableID, $storeNum);
         
-         if(isset($_POST['occupied'])){
+         if($isOccupied[0] == 0){
              $isOccupied = 1;
          }
-         else {
+         else{
+             $message = "THAT TABLE IS ALREADY FULL";
+             include('Views/table.php');
+             break;
+         }
+         
+            
+         
+        DB::setIsOccupiedOnTable($tableID, $storeNum, $isOccupied);
+
+        $_SESSION['assignedServer'] = $assignedServer;
+        $_SESSION['tableID'] = $tableID;
+        $_SESSION['isOccupied'] = $isOccupied;
+        
+         include('Views/table.php');
+        break;
+    case 'cleanTable':
+        $tableID = $_SESSION['tableID'];
+         $storeNum = $_SESSION['storeNum'];
+         $tableSize = $_SESSION['tableSize'];
+         $assignedServer = $_SESSION['assignedServer'];
+         $isOccupied = db::returnIsOccupied($tableID, $storeNum);
+        
+        
+         if($isOccupied[0] == 1){
              $isOccupied = 0;
          }
+         else{
+             $message = "THAT TABLE IS ALREADY CLEAN!";
+             include('Views/table.php');
+             break;
+         }
+         
             
          
         DB::setIsOccupiedOnTable($tableID, $storeNum, $isOccupied);
@@ -416,11 +446,14 @@ function setTableColors() {
     $totalTables[3] = $tables[3];
     $totalTables = array_sum($totalTables);
     $tableNum = 1;
+    $tableSat = false;
 
     while ($tableNum <= $totalTables) {
         if (db::checkIfTableSat($tableNum, $_SESSION['storeNum'])) {
             $tableColors .= '.table' . $tableNum . '_' . $_SESSION['storeNum'] . " { background-color: #f44336; color: white; } " . "\n ";
-        } else if (db::checkIfTableAssigned($tableNum, $_SESSION['storeNum'])) {
+            $tableSat=true;
+        } 
+        if (db::checkIfTableAssigned($tableNum, $_SESSION['storeNum']) && !$tableSat ) {
             $tableColors .= '.table' . $tableNum . '_' . $_SESSION['storeNum'] . " { background-color: #4CAF50; color: white; } " . "\n ";
         }
         $tableNum++;
