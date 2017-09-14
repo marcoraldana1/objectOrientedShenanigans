@@ -231,7 +231,33 @@ switch ($action) {
         $_SESSION['isOccupied'] = $isOccupied;
         include('Views/serverList.php');
         break;
+    
+case 'removeServer':
+        $assignedServer = $_SESSION['assignedServer'];
+        $tableId = filter_input(INPUT_POST, 'tableNum');
+        $seatingCapacity = filter_input(INPUT_POST, 'seatingCapacity');
+        $serverID = filter_input(INPUT_POST, 'serverId');
+        $storeNum = filter_input(INPUT_POST, 'storeNum');
+        $isOccupied = filter_input(INPUT_POST, 'isOccupied');
+        $tableSize = filter_input(INPUT_POST, 'tableSize');
+        
+        $table = new Table($tableId, $seatingCapacity, $serverID, $isOccupied);
+        $table->setServerID(NULL);
+        $tableID = $_SESSION['tableID'];
 
+        //$tableSize = $_SESSION['tableSize'];
+        //$tableSize = $table->setSeatingCapacity($tableSize);
+
+        $assignedServer = 'NONE';        
+           
+        $_SESSION['storeNum'] = $storeNum;
+        $_SESSION['tableID'] = $tableID;
+        $_SESSION['tableSize'] = $tableSize;
+        $_SESSION['assignedServer'] = $assignedServer;
+
+        include('Views/table.php');
+        break;
+    
     case 'reservation':
         $errorMessage = '';
         include('Views/reservations.php');
