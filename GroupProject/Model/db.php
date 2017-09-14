@@ -228,6 +228,11 @@ class DB {
     public function deleteServerByID($serverID) {
         $db = Database::DBConnect();
 
+        $query = 'UPDATE tables SET serverID = null WHERE serverID = :serverID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':serverID', $serverID);
+        $statement->execute();
+        
         $query = 'DELETE FROM Servers WHERE serverID = :serverID';
         $statement = $db->prepare($query);
         $statement->bindValue(':serverID', $serverID);
